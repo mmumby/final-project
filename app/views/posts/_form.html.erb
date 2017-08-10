@@ -12,6 +12,16 @@
   <% end %>
 
   <div class="field">
+    <%= f.label :title %>
+    <%= f.select :title, ['Left overs', 'Garden extras', 'Wild produce', 'Grocery store extras', 'Other'] %>
+  </div>
+
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="field">
     <%= f.label :description %>
     <%= f.text_field :description %>
   </div>
