@@ -33,7 +33,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'geocoder'
 # User Auth with Facebook API
 gem 'omniauth-facebook', '~> 4.0'
-
+# Handles User model
 gem 'devise'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
