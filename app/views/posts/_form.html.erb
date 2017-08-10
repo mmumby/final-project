@@ -12,8 +12,8 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :title %>
-    <%= f.select :title, ['Left overs', 'Garden extras', 'Wild produce', 'Grocery store extras', 'Other'] %>
+    <%= f.label :category_id %>
+    <%= f.select :category_id, options_from_collection_for_select(Category.all.order(:name), :id, :name), { include_blank: true } %>
   </div>
 
   <div class="field">
