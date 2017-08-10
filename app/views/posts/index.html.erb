@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
+
 <% unless current_user %>
+<% logger.debug "current_user: #{user_signed_in?}" %>
   <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %>
 <% else %>
   <%= current_user[:name] %>
@@ -32,4 +34,3 @@
 
 <br>
 
-<%= link_to 'New Post', new_post_path %>
