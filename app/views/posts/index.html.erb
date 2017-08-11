@@ -1,14 +1,5 @@
 <p id="notice"><%= notice %></p>
 
-<% unless current_user %>
-  <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %>
-  <%= link_to "Sign in with Twitter", user_twitter_omniauth_authorize_path %>
-<% else %>
-  <%= image_tag current_user[:image] ? current_user[:image] : '' %>
-  <%= current_user[:name] %>
-  <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-<% end %>
-
 <%= render 'form', post: @post %>
 
 <h1>Posts</h1>
