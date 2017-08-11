@@ -33,6 +33,9 @@ gem 'jbuilder', '~> 2.5'
 gem 'geocoder'
 # User Auth with Facebook API
 gem 'omniauth-facebook', '~> 4.0'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-twitter'
+
 
 # Handles User model
 
