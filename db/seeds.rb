@@ -21,6 +21,17 @@ end
 
 puts "Finding or Creating Categories ..."
 
+# users
+puts "Re-creating user"
+User.destroy_all
+
+User.create!({
+  name: 'John Doe',
+  email: 'john@doe.com',
+  password: '123456',
+  image: 'https://cdn.shopify.com/s/files/1/1167/5052/products/Untitled_12_c7d5bb05-058e-4de7-b1ae-b058ccb7c31d_medium.jpg?v=1474754982'
+  })
+
 
 # categories
 
@@ -39,55 +50,64 @@ Post.destroy_all
 cat1.posts.create!({
   title: "Veggies es bonus vobis",
   description: "Veggies es bonus vobis, proinde vos postulo essum magis kohlrabi welsh onion daikon amaranth tatsoi tomatillo melon azuki bean garlic.",
-  image: "http://i.imgur.com/ToFylpO.jpg"
+  image: "http://i.imgur.com/ToFylpO.jpg",
+  user_id: 1
   })
 
 cat1.posts.create!({
   title: "gumbo gourd",
   description: "Gumbo beet greens corn soko endive gumbo gourd. Parsley shallot courgette tatsoi pea sprouts fava bean collard greens dandelion okra wakame tomato.",
-  image: "http://i.imgur.com/Ay8s20X.jpg"
+  image: "http://i.imgur.com/Ay8s20X.jpg",
+  user_id: 1
   })
 
 cat1.posts.create!({
   title: "greens yarrow ricebean",
   description: "Turnip greens yarrow ricebean rutabaga endive cauliflower sea lettuce kohlrabi amaranth water spinach avocado daikon napa cabbage asparagus winter purslane kale.",
-  image: "http://i.imgur.com/CW5GHuv.jpg"
+  image: "http://i.imgur.com/CW5GHuv.jpg",
+  user_id: 1
   })
 
 cat2.posts.create!({
   title: "Parsley shallot courgette",
   description: "Veggies es bonus vobis, proinde vos postulo essum magis kohlrabi welsh onion daikon amaranth tatsoi tomatillo melon azuki bean garlic.",
-  image: "http://i.imgur.com/feYPs6R.jpg"
+  image: "http://i.imgur.com/feYPs6R.jpg",
+  user_id: 1
   })
 
 cat2.posts.create!({
   title: "rutabaga endive",
   description: "Gumbo beet greens corn soko endive gumbo gourd. Parsley shallot courgette tatsoi pea sprouts fava bean collard greens dandelion okra wakame tomato.",
-  image: "http://i.imgur.com/Wy94Tt7.jpg"
+  image: "http://i.imgur.com/Wy94Tt7.jpg",
+  user_id: 1
   })
 
 cat2.posts.create!({
   title: "icebean rutabaga",
   description: "Turnip greens yarrow ricebean rutabaga endive cauliflower sea lettuce kohlrabi amaranth water spinach avocado daikon napa cabbage asparagus winter purslane kale.",
-  image: "http://i.imgur.com/jeJ3tYO.jpg"
+  image: "http://i.imgur.com/jeJ3tYO.jpg",
+  user_id: 1
   })
 
 cat3.posts.create!({
   title: "essum magis kohlrabi",
   description: "Veggies es bonus vobis, proinde vos postulo essum magis kohlrabi welsh onion daikon amaranth tatsoi tomatillo melon azuki bean garlic.",
-  image: "http://i.imgur.com/4KGVioH.jpg"
+  image: "http://i.imgur.com/4KGVioH.jpg",
+  user_id: 1
   })
 
 cat3.posts.create!({
   title: "greens corn",
   description: "Gumbo beet greens corn soko endive gumbo gourd. Parsley shallot courgette tatsoi pea sprouts fava bean collard greens dandelion okra wakame tomato.",
-  image: "http://i.imgur.com/ZgjA8QQ.jpg"
+  image: "http://i.imgur.com/ZgjA8QQ.jpg",
+  user_id: 1
   })
 
 cat3.posts.create!({
   title: "cauliflower sea lettuce",
   description: "Turnip greens yarrow ricebean rutabaga endive cauliflower sea lettuce kohlrabi amaranth water spinach avocado daikon napa cabbage asparagus winter purslane kale.",
-  image: "http://i.imgur.com/LU0r5dG.jpg"
+  image: "http://i.imgur.com/LU0r5dG.jpg",
+  user_id: 1
   })
 
 
