@@ -8,7 +8,11 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a id="navbar-header" class="navbar-brand" href="#">foodfeed</a>
+      <% if current_user %>
+      <a id="navbar-header" class="navbar-brand" href="/posts">foodfeed</a>
+      <% else %>
+      <a id="navbar-header" class="navbar-brand" href="/">foodfeed</a>
+      <% end %>
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -29,7 +33,8 @@
       <% end %>
       <ul class="nav navbar-nav navbar-right">
       <% unless current_user %>
-        <li><a href="user_facebook_omniauth_authorize_path">Link</a></li>
+        <li><%= link_to "Login", user_session_path, method: :create %></li>
+        <li><%= link_to "Register", new_user_registration_path, method: :get %></li>
       <% else %>
         <%= image_tag current_user[:image] ? current_user[:image] : '' %>
         <li class="dropdown">
