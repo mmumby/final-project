@@ -36,9 +36,6 @@ gem 'omniauth-facebook', '~> 4.0'
 
 # Handles User model
 
-gem 'acts_as_votable', '~> 0.10.0'
-gem 'acts_as_commentable'
-
 
 gem 'devise'
 # Use Redis adapter to run Action Cable in production
