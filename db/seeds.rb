@@ -28,8 +28,7 @@ User.destroy_all
 User.create!({
   name: 'John Doe',
   email: 'john@doe.com',
-  password: '123456',
-  image: 'https://cdn.shopify.com/s/files/1/1167/5052/products/Untitled_12_c7d5bb05-058e-4de7-b1ae-b058ccb7c31d_medium.jpg?v=1474754982'
+  password: '123456'
   })
 
 
