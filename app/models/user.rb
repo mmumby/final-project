@@ -9,7 +9,12 @@ class User < ApplicationRecord
     user = User.where(uid: auth.uid, provider: auth.provider).first
 
     unless user
+      name = auth.extra.raw_info.name if auth.provider == 'facebook'
+      name = auth.info.nickname if auth.provider == 'twitter'
+      image = auth.info.image
       user = User.create(
+        name:     name,
+        image:    image,
         uid:      auth.uid,
         provider: auth.provider,
         email:    User.dummy_email(auth),
