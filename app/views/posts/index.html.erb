@@ -1,7 +1,6 @@
 <p id="notice"><%= notice %></p>
 
 <% unless current_user %>
-<% logger.debug "current_user: #{user_signed_in?}" %>
   <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %>
 <% else %>
   <%= image_tag current_user[:image] %>
@@ -11,28 +10,7 @@
 
 <%= render 'form', post: @post %>
 
-
 <h1>Posts</h1>
-<% @posts.each do |post| %>
-<%= link_to controller: :posts, action: :show, id: post.id do %>
-    <div class="card text-center">
-  <div class="card-header">
-    <%= post.category.name %>
-  </div>
-  <div class="card-block">
-  <div>
-  <span><%= image_tag post.image, class: "card-image" %></span>
-  </div>
-    <h4 class="card-title"><%= post.title %></h4>
-    <p class="card-text"><%= post.description %></p>
-    <a href="#" class="btn btn-primary">Claim!</a>
-  </div>
-  <div class="card-footer text-muted">
-    <%= post.created_at.to_formatted_s(:long) %>
-  </div>
-</div>
-<br>
-<% end %>
-<% end %>
+<%= render 'post' %>
 
 
