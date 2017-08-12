@@ -35,15 +35,14 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 # Get coordinates from user with Geocoder
 gem 'geocoder'
-# User Auth with Facebook API
+# Authentication
 gem 'omniauth-facebook', '~> 4.0'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-twitter'
 
+gem 'activerecord-session_store'
 
 # Handles User model
-
-
 gem 'devise'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
