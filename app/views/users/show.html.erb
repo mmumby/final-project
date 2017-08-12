@@ -1,3 +1,41 @@
-<%= image_tag @user.image %>
-<%= @user.name %>
+<div class="profile-container">
+  <div class="profile-header">
+    <div class="profile-content">
+      <div class="profile-user">
+        <div class="col-md-2 col-md-offset-5 col-sm-4 col-sm-offset-4 col-xs-6 col-xs-offset-3 text-center">
+          <div class="avatar">
+              <%= image_tag @user.image, :class =>"img img-circle"%>
+          </div>
+          <div class="name">
+              <h4><%= @user.name %></h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="profile-user-posts">
+
+  <% @posts.each do |post| %>
+  <%= link_to controller: :posts, action: :show, id: post.id do %>
+    <div class="card text-center">
+      <div class="card-header">
+        <%= post.category.name %>
+      </div>
+      <div class="card-block">
+        <div>
+          <span><%= image_tag post.image, class: "card-image" %></span>
+        </div>
+        <h4 class="card-title"><%= post.title %></h4>
+        <p class="card-text"><%= post.description %></p>
+        <a href="#" class="btn btn-primary">Claim!</a>
+      </div>
+      <div class="card-footer text-muted">
+        <%= post.created_at.to_formatted_s(:long) %>
+      </div>
+  </div>
+  <br>
+  <% end %>
+<% end %>
+  </div>
+</div>
 
