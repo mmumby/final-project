@@ -37,7 +37,7 @@
         <li><%= link_to "Register", new_user_registration_path, method: :get %></li>
       <% else %>
       <%= link_to controller: :users, action: :show, id: current_user.id do %>
-        <%= image_tag current_user[:image] ? current_user[:image] : '' %>
+        <%= image_tag current_user[:image] ? current_user[:image] : '', :class =>"img-circle"%>
         <% end %>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user[:name] %> <span class="caret"></span></a>
