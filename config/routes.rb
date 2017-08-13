@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   get 'comments/new'
 
+  resources :claims, only: [:create]
+
   resources :categories
   root to: 'welcome#index'
 
