@@ -3,7 +3,10 @@ class RatingsController < ApplicationController
   def create
     @user = User.find(params[:user_id])
     @rating = @user.ratings.new(rating_params)
-    @rating.save
+
+    if @rating.save
+      redirect_to :back
+    end
   end
 
   private
