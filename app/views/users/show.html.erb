@@ -12,7 +12,7 @@
           </div>
           <div class="name">
               <h4><%= @user.name %></h4>
-              <p><%= Rating.where(rateable_id: @user).average(:rating) %></p>
+              <p><%= ((Rating.where(rateable_id: @user).average(:rating)) * 10) %></p>
           </div>
         </div>
       </div>
