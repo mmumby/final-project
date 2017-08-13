@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   get 'comments/new'
 
+
   resources :claims, only: [:create]
 
   resources :categories
@@ -15,6 +16,7 @@ Rails.application.routes.draw do
   end
   resources :users, only: [:show] do
     resources :comments
+    resources :ratings
   end
   resources :welcome, only: [:index]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
