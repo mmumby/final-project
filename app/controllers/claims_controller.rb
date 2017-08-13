@@ -2,10 +2,10 @@ class ClaimsController < ApplicationController
 
 
   def create
-    puts claim_params
+    @post_id = claim_params[:post_id]
     @claim = Claim.new(claim_params)
     @claim.save!
-    redirect_to :back
+    redirect_to "/posts/#{@post_id}"
   end
 
   private
