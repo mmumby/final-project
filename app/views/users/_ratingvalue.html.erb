@@ -1,4 +1,4 @@
 <!-- render users rating value on page -->
 <% if (Rating.where(rateable_id: @user).average(:rating)) != 0 %>
-<p><%= (Rating.where(rateable_id: @user).average(:rating).round(1)) %></p>
+<p><%= (Rating.where(rateable_id: @user).average(:rating)) %></p>
 <% end %>
