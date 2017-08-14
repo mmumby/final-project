@@ -15,6 +15,10 @@ gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 gem 'bootstrap-sass', '~> 3.3.6'
+gem 'font-awesome-rails'
+
+# Use jquery as the JavaScript library
+gem 'jquery-rails'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
@@ -31,9 +35,14 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 # Get coordinates from user with Geocoder
 gem 'geocoder'
-# User Auth with Facebook API
+# Authentication
 gem 'omniauth-facebook', '~> 4.0'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-twitter'
 
+gem 'activerecord-session_store'
+
+# Handles User model
 gem 'devise'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'

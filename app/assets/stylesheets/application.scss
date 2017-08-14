@@ -13,3 +13,18 @@
  *= require_tree .
  *= require_self
  */
+
+
+// Vendor
+
+
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+@import "posts";
+@import "navbar";
+@import "profile";
+
+
+

@@ -1,10 +1,23 @@
 Rails.application.routes.draw do
 
+  get 'comments/index'
+
+  get 'comments/new'
+
+
+  resources :claims, only: [:create]
+
   resources :categories
-  root to: 'posts#index'
+  root to: 'welcome#index'
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
-  resources :posts
-  resources :users, only: [:show]
+  resources :posts do
+    resources :comments
+  end
+  resources :users, only: [:show] do
+    resources :comments
+    resources :ratings
+  end
+  resources :welcome, only: [:index]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

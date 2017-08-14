@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170810194401) do
+
+
+ActiveRecord::Schema.define(version: 20170813191147) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +23,27 @@ ActiveRecord::Schema.define(version: 20170810194401) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "claims", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "claimer_id"
+    t.integer  "user_id"
+    t.integer  "post_id"
+    t.index ["post_id"], name: "index_claims_on_post_id", using: :btree
+    t.index ["user_id"], name: "index_claims_on_user_id", using: :btree
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.text     "content"
+    t.string   "commentable_type"
+    t.integer  "commentable_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.string   "user_id"
+    t.index ["commentable_id", "commentable_type"], name: "index_comments_on_commentable_id_and_commentable_type", using: :btree
+    t.index ["commentable_type", "commentable_id"], name: "index_comments_on_commentable_type_and_commentable_id", using: :btree
+  end
+
   create_table "posts", force: :cascade do |t|
     t.string   "description"
     t.string   "image"
@@ -28,7 +51,27 @@ ActiveRecord::Schema.define(version: 20170810194401) do
     t.datetime "updated_at",  null: false
     t.integer  "category_id"
     t.string   "title"
+    t.integer  "user_id"
     t.index ["category_id"], name: "index_posts_on_category_id", using: :btree
+    t.index ["user_id"], name: "index_posts_on_user_id", using: :btree
+  end
+
+  create_table "ratings", force: :cascade do |t|
+    t.integer  "rating"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "rateable_id"
+    t.string   "rateable_type"
+    t.index ["rateable_id", "rateable_type"], name: "index_ratings_on_rateable_id_and_rateable_type", using: :btree
+  end
+
+  create_table "sessions", force: :cascade do |t|
+    t.string   "session_id", null: false
+    t.text     "data"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["session_id"], name: "index_sessions_on_session_id", unique: true, using: :btree
+    t.index ["updated_at"], name: "index_sessions_on_updated_at", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -52,5 +95,8 @@ ActiveRecord::Schema.define(version: 20170810194401) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "claims", "posts"
+  add_foreign_key "claims", "users"
   add_foreign_key "posts", "categories"
+  add_foreign_key "posts", "users"
 end

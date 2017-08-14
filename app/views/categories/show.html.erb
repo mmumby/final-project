@@ -1,9 +1,31 @@
 <p id="notice"><%= notice %></p>
-
 <p>
   <strong>Name:</strong>
   <%= @category.name %>
 </p>
+<div>
+<% @posts.each do |post| %>
+  <%= link_to controller: :posts, action: :show, id: post.id do %>
+    <div class="card text-center">
+      <div class="card-header">
+        <%= post.category.name %>
+      </div>
+      <div class="card-block">
+        <div>
+          <span><%= image_tag post.image, class: "card-image" %></span>
+        </div>
+        <h4 class="card-title"><%= post.title %></h4>
+        <p class="card-text"><%= post.description %></p>
+        <a href="#" class="btn btn-primary">Claim!</a>
+      </div>
+      <div class="card-footer text-muted">
+        <%= post.created_at.to_formatted_s(:long) %>
+      </div>
+  </div>
+  <br>
+  <% end %>
+<% end %>
+</div>
 
 <%= link_to 'Edit', edit_category_path(@category) %> |
 <%= link_to 'Back', categories_path %>
