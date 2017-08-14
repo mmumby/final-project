@@ -36,6 +36,9 @@ Devise.setup do |config|
   # or not authentication should be aborted when the value is not present.
   # config.authentication_keys = [:email]
 
+# secret key for heroku deployment
+  config.secret_key = '9e62452ddddb1c6a428cf901643c9c71524277ee6699f1b03efbca9210059dda51915755544ddd3087fdb86ae8331b1a82b0dcc9c022a36eb2a8b7e37196f044'
+
   # Configure parameters from the request object used for authentication. Each entry
   # given should be a request method and it will automatically be passed to the
   # find_for_authentication method and considered in your model lookup. For instance,
