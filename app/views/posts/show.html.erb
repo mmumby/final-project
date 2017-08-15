@@ -7,12 +7,12 @@
 
 <p>
   <strong>Image:</strong>
-  <%= @post.latitude %>
+  <%= @post.image %>
 </p>
 
 <p>
   <strong>Location:</strong>
-  <img src="https://maps.googleapis.com/maps/api/staticmap?center=<%= @post.latitude %>,<%= @post.longitude %>&zoom=15&size=640x426&scale=1&key=#{ENV['GOOGLE_STATIC_MAP_KEY']}">
+  <%= map_for_object @post %>
 </p>
 
 <h2>Comments</h2>
