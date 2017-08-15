@@ -2,24 +2,20 @@ $(document).on('turbolinks:load', function() {
   submitNewMessage();
 });
 
+//<% Chatroom.find_each do |chatroom| %>
 
-<% test = Chatroom.count %>
-<%= Rails.logger.debug "test = #{test}" %>
+ // App['room' + <%=chatroom.id%>] = App.cable.subscriptions.create({channel: 'MessagesChannel', room: <%=chatroom.id%>}, {
+  //  received: function(data) {
+     // $("[data-chatroom='" + this.chatroomId + "']").removeClass('hidden')
+      // return $("[data-chatroom='" + this.chatroomId + "']").append(data.message);
+    // },
 
-<% Chatroom.find_each do |chatroom| %>
+    //setChatroomId: function(chatroomId) {
+    //  this.chatroomId = chatroomId
+  //  }
+ // });
+//<% end %>
 
-  App['room' + <%=chatroom.id%>] = App.cable.subscriptions.create({channel: 'MessagesChannel', room: <%=chatroom.id%>}, {
-  received: function(data) {
-   $("[data-chatroom='" + this.chatroomId + "']").removeClass('hidden')
-    return $("[data-chatroom='" + this.chatroomId + "']").append(data.message);
-  },
-
-  setChatroomId: function(chatroomId) {
-    this.chatroomId = chatroomId
-  }
-});
-
-<% end %>
 
 function submitNewMessage(){
   $('textarea#message_content').keydown(function(event) {
@@ -33,3 +29,4 @@ function submitNewMessage(){
      }
   });
 }
+console.log("blah");
