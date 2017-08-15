@@ -1,7 +1,6 @@
 $(document).on('turbolinks:load', function() {
   submitNewMessage();
 });
-
 //<% Chatroom.find_each do |chatroom| %>
 
  // App['room' + <%=chatroom.id%>] = App.cable.subscriptions.create({channel: 'MessagesChannel', room: <%=chatroom.id%>}, {
@@ -16,7 +15,6 @@ $(document).on('turbolinks:load', function() {
  // });
 //<% end %>
 
-
 function submitNewMessage(){
   $('textarea#message_content').keydown(function(event) {
     if (event.keyCode == 13) {
@@ -29,4 +27,3 @@ function submitNewMessage(){
      }
   });
 }
-console.log("blah");
