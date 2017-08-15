@@ -1,4 +1,4 @@
-x# This file is auto-generated from the current state of the database. Instead
+# This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
 #
@@ -9,8 +9,6 @@ x# This file is auto-generated from the current state of the database. Instead
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
 # It's strongly recommended that you check this file into your version control system.
-
-
 
 ActiveRecord::Schema.define(version: 20170813191147) do
 
@@ -58,11 +56,8 @@ ActiveRecord::Schema.define(version: 20170813191147) do
 
   create_table "ratings", force: :cascade do |t|
     t.integer  "rating"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-    t.integer  "rateable_id"
-    t.string   "rateable_type"
-    t.index ["rateable_id", "rateable_type"], name: "index_ratings_on_rateable_id_and_rateable_type", using: :btree
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "sessions", force: :cascade do |t|
