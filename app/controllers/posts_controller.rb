@@ -33,7 +33,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to @post, notice: 'Post was successfully created.' }
+        format.html { redirect_to :back, notice: 'Post was successfully created.' }
       else
         format.html { render :new }
       end
@@ -45,7 +45,7 @@ class PostsController < ApplicationController
   def update
     respond_to do |format|
       if @post.update(post_params)
-        format.html { redirect_to @post, notice: 'Post was successfully updated.' }
+        format.html { redirect_to :back, notice: 'Post was successfully updated.' }
       else
         format.html { render :edit }
       end
@@ -69,6 +69,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:description, :image, :title, :category_id)
+      params.require(:post).permit(:description, :image, :title, :category_id, :taken)
     end
 end

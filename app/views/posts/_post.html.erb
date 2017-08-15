@@ -1,4 +1,5 @@
 <% @posts.order('CREATED_AT DESC').each do |post| %>
+<%= render 'taken', post: post %>
   <%= link_to controller: :posts, action: :show, id: post.id do %>
     <div class="card text-center">
       <div class="card-header">
