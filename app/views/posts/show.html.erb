@@ -7,12 +7,12 @@
 
 <p>
   <strong>Image:</strong>
-  <%= @post.image %>
+  <%= @post.latitude %>
 </p>
 
 <p>
   <strong>Location:</strong>
-  <img src="https://maps.googleapis.com/maps/api/staticmap?center=838 fort,Victoria,BC&zoom=15&size=640x426&scale=1&key=#{ENV["GOOGLE_STATIC_MAP_KEY"]}">
+  <img src="https://maps.googleapis.com/maps/api/staticmap?center=<%= @post.latitude %>,<%= @post.longitude %>&zoom=15&size=640x426&scale=1&key=#{ENV['GOOGLE_STATIC_MAP_KEY']}">
 </p>
 
 <h2>Comments</h2>
