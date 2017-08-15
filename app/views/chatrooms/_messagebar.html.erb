@@ -1,5 +1,5 @@
-<% @chatroom.each do |chatroom| %>
 
+<div>
 <script>
   App['room' + <%=chatroom.id%>] = App.cable.subscriptions.create({channel: 'MessagesChannel', room: <%=chatroom.id%>}, {
     received: function(data) {
@@ -11,6 +11,19 @@
       this.chatroomId = chatroomId
     }
   });
+  function submitNewMessage(){
+    $('textarea#message_content').keydown(function(event) {
+      if (event.keyCode == 13) {
+          var msg = event.target.value
+          var chatroomId = $("input[value=<%=chatroom.id%>]").val()
+          App['room' + chatroomId].setChatroomId(chatroomId)
+          console.log(chatroomId);
+          App['room' + chatroomId].send({message: msg, chatroom_id: chatroomId})
+          $('[data-textarea="message"]').val(" ")
+          return false;
+       }
+    });
+  }
 </script>
 
 <div class="row col-md-8 col-md-offset-2">
@@ -28,4 +41,4 @@
   </div>
   <%= render partial: 'messages/message_form', locals: {message: @message, chatroom: chatroom}%>
 </div>
-<% end %>
+</div>
