@@ -6,7 +6,8 @@ class ClaimsController < ApplicationController
     @commentable = Post.find(@post_id)
     @comment = @commentable.comments.new(content: "#{current_user.name} is interested in picking up this food!", user_id: current_user.id)
     @claim = Claim.new(claim_params)
-    if @claim.save && @comment.save
+    @chatroom = Chatroom.new(topic: "test")
+    if @claim.save && @comment.save && @chatroom.save
       redirect_to "/posts/#{@post_id}"
     else
       redirect_back
