@@ -10,9 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-
-ActiveRecord::Schema.define(version: 20170813191147) do
+ActiveRecord::Schema.define(version: 20170814205559) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +19,13 @@ ActiveRecord::Schema.define(version: 20170813191147) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "chatrooms", force: :cascade do |t|
+    t.string   "slug"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "topic"
   end
 
   create_table "claims", force: :cascade do |t|
@@ -42,6 +47,16 @@ ActiveRecord::Schema.define(version: 20170813191147) do
     t.string   "user_id"
     t.index ["commentable_id", "commentable_type"], name: "index_comments_on_commentable_id_and_commentable_type", using: :btree
     t.index ["commentable_type", "commentable_id"], name: "index_comments_on_commentable_type_and_commentable_id", using: :btree
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.string   "content"
+    t.integer  "user_id"
+    t.integer  "chatroom_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["chatroom_id"], name: "index_messages_on_chatroom_id", using: :btree
+    t.index ["user_id"], name: "index_messages_on_user_id", using: :btree
   end
 
   create_table "posts", force: :cascade do |t|
@@ -97,6 +112,8 @@ ActiveRecord::Schema.define(version: 20170813191147) do
 
   add_foreign_key "claims", "posts"
   add_foreign_key "claims", "users"
+  add_foreign_key "messages", "chatrooms"
+  add_foreign_key "messages", "users"
   add_foreign_key "posts", "categories"
   add_foreign_key "posts", "users"
 end
