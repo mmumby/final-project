@@ -1,36 +1,33 @@
 
 <% @posts.order('CREATED_AT DESC').each do |post| %>
-<%= render 'taken', post: post %>
-<%= link_to controller: :posts, action: :show, id: post.id do %>
+
 <div class="container">
-<% if (Time.now.to_i > post.expiration.to_i) == true %>
-  <div class="box">
-   <div class="ribbon"><span>Expired</span></div>
-  </div>
-<% end %>
+<%= render 'status', post: post %>
   <div class="well">
-    <div class="media">
+    <div class="media" onclick="window.location='/posts/<%= post.id %>'">
     <%= image_tag post.image, class: "medit-object pull-left card-image" %>
     <div class="media-body">
       <h4 class="media-heading"><%= post.title %></h4>
         <h6><%= post.category.name %></h6>
         <p class="text-right">By Francisco</p>
         <p><%= post.description %></p>
-        <ul class="list-inline list-unstyled">
-        <li><span><i class="glyphicon glyphicon-calendar"></i><%= post.created_at.to_formatted_s(:long) %></span></li>
-          <li>|</li>
-          <span><i class="glyphicon glyphicon-comment"></i><% if post.comments.count > 0 %>
-          <%= pluralize(post.comments.count, 'Comment') %>
-          <% end %>
-          </span>
-          <li>|</li>
-          <li>
-          </li>
-        </ul>
        </div>
-    </div>
+       </div>
+    <ul class="list-inline list-unstyled">
+      <li><span><i class="glyphicon glyphicon-calendar"></i><%= post.created_at.to_formatted_s(:long) %></span></li>
+        <li>|</li>
+        <span><i class="glyphicon glyphicon-comment"></i><% if post.comments.count > 0 %>
+        <%= pluralize(post.comments.count, 'Comment') %>
+        <% end %>
+        </span>
+        <li>|</li>
+        <li>
+        <%= button_to "Claim!", controller: :claims, method: :post, action: :create, data: { post_id: post.id, claimer_id: current_user.id, user_id: post.user_id}%>
+        </li>
+        <li>
+        <%= render 'taken', post: post %>
+        </li>
+    </ul>
   </div>
 </div>
-<% end %>
-<%= button_to "Claim!", controller: :claims, method: :post, action: :create, data: { post_id: post.id, claimer_id: current_user.id, user_id: post.user_id} %>
 <% end %>
