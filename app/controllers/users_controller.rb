@@ -5,5 +5,7 @@ class UsersController < ApplicationController
     @commentable = @user
     @comments = @commentable.comments
     @comment = Comment.new
+    @chatroom = Chatroom.where(["owner_id = ? or client_id = ?", @user.id, @user.id])
+    @message = Message.new
   end
 end
