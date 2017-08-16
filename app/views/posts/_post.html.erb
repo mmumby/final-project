@@ -7,6 +7,11 @@
       </div>
       <div class="card-block">
         <div>
+        <% if (Time.now.to_i > post.expiration.to_i) == true %>
+        <p> expired </p>
+        <% end %>
+        </div>
+        <div>
           <span><%= image_tag post.image, class: "card-image" %></span>
         </div>
         <h4 class="card-title"><%= post.title %></h4>
