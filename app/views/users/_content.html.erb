@@ -26,16 +26,9 @@
     <h3>Inbox</h3>
 <% @chatroom.each do |chatroom| %>
   <a data-toggle="tab" href="#chatroom-<%= chatroom.id%>">Test</a>
-  <div id='chatroom-<%= chatroom.id%>' class="tab-pane fade hidden" style="z-index:<%= chatroom.id%>">
+  <div id='chatroom-<%= chatroom.id%>' class="tab-pane fade">
       <%= render partial: 'chatrooms/messagebar', locals: {message: @message, chatroom: chatroom}%>
   </div>
-<script>
-$('a[href="#chatroom-<%= chatroom.id%>"]').click(function() {
-  event.preventDefault;
-  console.log('yo');
-  $('#chatroom-<%= chatroom.id%>').removeClass('hidden');
-});
-</script>
 <% end %>
   </div>
 </div>
