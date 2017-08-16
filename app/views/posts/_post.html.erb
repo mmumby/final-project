@@ -1,6 +1,4 @@
-
-<% @posts.order('CREATED_AT DESC').each do |post| %>
-
+<% @posts.each do |post| %>
 <div class="container">
 <%= render 'status', post: post %>
   <div class="well">
