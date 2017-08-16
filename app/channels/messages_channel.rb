@@ -1,6 +1,6 @@
 class MessagesChannel < ApplicationCable::Channel
   def subscribed
-    stream_from "room-#{params['room']}:messages"
+    stream_from "room-#{current_user.id}:messages"
   end
 
   def receive(payload)
