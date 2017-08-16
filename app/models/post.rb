@@ -7,9 +7,8 @@ class Post < ApplicationRecord
   validates :description, length: { in: 40..280,
     too_long: "%{count} character is the maximum allowed",
     too_short: "%{count} character is the minimum required" }
-  validates :title, length: { in: 10..40,
-    too_long: "%{count} character is the maximum allowed",
-    too_short: "%{count} character is the minimum required" }
+  validates :title, presence: true, length: { maximum: 40,
+    too_long: "%{count} character is the maximum allowed" }
   validates :location, presence: true
 
   geocoded_by :location
