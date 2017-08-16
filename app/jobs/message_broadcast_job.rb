@@ -2,7 +2,7 @@ class MessageBroadcastJob < ApplicationJob
   queue_as :default
 
   def perform(message)
-    ActionCable.server.broadcast "room-#{message.chatroom_id}:messages", message: render_message(message)
+    ActionCable.server.broadcast "room-#{message.chatroom_id}:messages", message: render_message(message), notification: render_notification(message)
   end
 
   private
