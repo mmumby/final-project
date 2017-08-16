@@ -4,19 +4,28 @@
 
 <h1>Posts</h1>
 <ul class="nav nav-tabs">
-  <li class="active"><a data-toggle="tab" href="#home">Posts</a></li>
   <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Order by<span class="caret"></span></a>
   <ul class="dropdown-menu">
-      <li>Acending</li>
-      <li>Decending</li>
-      <li> Show All </li>
+      <li><a data-toggle="tab" href="#default-posts">Current posts</a></li>
+      <li><a data-toggle="tab" href="#decending-posts">Newest</a></li>
+      <li><a data-toggle="tab" href="#ascending-posts">Oldest</a></li>
+      <li><a data-toggle="tab" href="#all-posts">All Posts</a></li>
   </ul>
 </li>
 </ul>
 
 <div class="tab-content">
-  <div id="home" class="tab-pane fade in active">
+  <div id="default-post" class="tab-pane fade in active">
+    <%= render 'post' %>
+    </div>
+    <div id="decending-posts" class="tab-pane fade in active">
+    <%= render 'post' %>
+    </div>
+    <div id="ascending-posts" class="tab-pane fade in active">
+    <%= render 'post' %>
+    </div>
+    <div id="all-posts" class="tab-pane fade in active">
     <%= render 'post' %>
     </div>
   </div>
