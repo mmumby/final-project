@@ -10,6 +10,11 @@
   <%= @post.image %>
 </p>
 
+<p>
+  <strong>Location:</strong>
+  <%= map_for_object @post %>
+</p>
+
 <h2>Comments</h2>
 <%= render 'comments/comments' %>
 <%= render 'comments/form' %>
