@@ -5,6 +5,7 @@ $(document).on('turbolinks:load', function() {
 function submitNewMessage(){
   $('textarea#message_content').keydown(function(event) {
     if (event.keyCode == 13) {
+        event.preventDefault();
         var msg = event.target.value
         var chatroomId = $(this).data('chatroom')
         App['room' + chatroomId].setChatroomId(chatroomId)
