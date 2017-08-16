@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
+
   # GET /posts
   # GET /posts.json
   def index
@@ -27,13 +28,15 @@ class PostsController < ApplicationController
 
   # POST /posts
   # POST /posts.json
+  # add expirationd date of 3 days to food posts
   def create
     @post = Post.new(post_params)
     @post.user = current_user
+    @post.expiration = Time.now + 5.minutes
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to @post, notice: 'Post was successfully created.' }
+        format.html { redirect_to :back, notice: 'Post was successfully created.' }
       else
         format.html { render :new }
       end
@@ -45,7 +48,7 @@ class PostsController < ApplicationController
   def update
     respond_to do |format|
       if @post.update(post_params)
-        format.html { redirect_to @post, notice: 'Post was successfully updated.' }
+        format.html { redirect_to :back, notice: 'Post was successfully updated.' }
       else
         format.html { render :edit }
       end
@@ -69,6 +72,7 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:description, :image, :title, :category_id, :location, :latitude, :longitude)
+
+      params.require(:post).permit(:description, :image, :title, :category_id, :location, :latitude, :longitude, :taken, :expiration)
     end
 end
