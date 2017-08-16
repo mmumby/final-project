@@ -7,6 +7,7 @@ class PostsController < ApplicationController
   def index
     @posts = Post.all
     @post = Post.new
+    @post_newest = Post.all.order("created_at DESC")
   end
 
   # GET /posts/1
