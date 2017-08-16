@@ -4,28 +4,36 @@
   <%= @category.name %>
 </p>
 <div>
-<% @posts.each do |post| %>
-  <%= link_to controller: :posts, action: :show, id: post.id do %>
-    <div class="card text-center">
-      <div class="card-header">
-        <%= post.category.name %>
-      </div>
-      <div class="card-block">
-        <div>
-          <span><%= image_tag post.image, class: "card-image" %></span>
-        </div>
-        <h4 class="card-title"><%= post.title %></h4>
-        <p class="card-text"><%= post.description %></p>
-        <a href="#" class="btn btn-primary">Claim!</a>
-      </div>
-      <div class="card-footer text-muted">
-        <%= post.created_at.to_formatted_s(:long) %>
-      </div>
+  <% @posts.order('CREATED_AT DESC').each do |post| %>
+<div class="container">
+<%= render '/posts/status', post: post %>
+  <div class="well">
+    <div class="media" onclick="window.location='/posts/<%= post.id %>'">
+    <%= image_tag post.image, class: "medit-object pull-left card-image" %>
+    <div class="media-body">
+      <h4 class="media-heading"><%= post.title %></h4>
+        <h6><%= post.category.name %></h6>
+        <p class="text-right"><%= post.user_id %></p>
+        <p><%= post.description %></p>
+       </div>
+       </div>
+    <ul class="list-inline list-unstyled">
+      <li><span><i class="glyphicon glyphicon-calendar"></i><%= post.created_at.to_formatted_s(:long) %></span></li>
+        <li>|</li>
+        <% if post.comments.count < 0 %>
+        <span class="comment-link" onclick="window.location='/posts/<%= post.id %>'"><i class="glyphicon glyphicon-comment">Leave a comment</i>
+        <% else %>
+        <span class="comment-link" onclick="window.location='/posts/<%= post.id %>'"><i class="glyphicon glyphicon-comment"></i>
+        <%= pluralize(post.comments.count, 'Comment') %>
+        <% end %>
+        </span>
+        <li>
+        <%= render '/posts/taken', post: post %>
+        </li>
+    </ul>
   </div>
-  <br>
-  <% end %>
-<% end %>
 </div>
+<% end %>
 
 <%= link_to 'Edit', edit_category_path(@category) %> |
 <%= link_to 'Back', categories_path %>
