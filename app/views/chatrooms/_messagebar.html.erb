@@ -1,44 +1,28 @@
 
-<div>
-<script>
+  <div class="row col-md-8 col-md-offset-2">
+  <script>
   App['room' + <%=chatroom.id%>] = App.cable.subscriptions.create({channel: 'MessagesChannel', room: <%=chatroom.id%>}, {
     received: function(data) {
       $("[data-chatroom='" + this.chatroomId + "']").removeClass('hidden')
        return $("[data-chatroom='" + this.chatroomId + "']").append(data.message);
      },
 
-    setChatroomId: function(chatroomId) {
+     setChatroomId: function(chatroomId) {
       this.chatroomId = chatroomId
     }
   });
-  function submitNewMessage(){
-    $('textarea#message_content').keydown(function(event) {
-      if (event.keyCode == 13) {
-          var msg = event.target.value
-          var chatroomId = $("input[value=<%=chatroom.id%>]").val()
-          App['room' + chatroomId].setChatroomId(chatroomId)
-          console.log(chatroomId);
-          App['room' + chatroomId].send({message: msg, chatroom_id: chatroomId})
-          $('[data-textarea="message"]').val(" ")
-          return false;
-       }
-    });
-  }
-</script>
+  </script>
+    <h1><%= chatroom.topic %></h1>
 
-<div class="row col-md-8 col-md-offset-2">
-  <h1><%= chatroom.topic %></h1>
-
-  <div class="panel panel-default" data-chatroom="<%=chatroom.id%>">
-    <% if chatroom.messages.any? %>
-      <div class="panel-body" id="messages">
-        <%= render partial: 'messages/message', collection: chatroom.messages%>
-      </div>
-    <%else%>
-      <div class="panel-body hidden" id="messages">
-      </div>
-    <%end%>
+    <div class="panel panel-default" data-chatroom="<%=chatroom.id%>">
+      <% if chatroom.messages.any? %>
+        <div class="panel-body" id="messages">
+          <%= render partial: 'messages/message', collection: chatroom.messages%>
+        </div>
+      <%else%>
+        <div class="panel-body hidden" id="messages">
+        </div>
+      <%end%>
+    </div>
+    <%= render partial: 'messages/message_form', locals: {message: @message, chatroom: chatroom}%>
   </div>
-  <%= render partial: 'messages/message_form', locals: {message: @message, chatroom: chatroom}%>
-</div>
-</div>
