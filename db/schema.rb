@@ -71,6 +71,9 @@ ActiveRecord::Schema.define(version: 20170815210848) do
     t.integer  "category_id"
     t.string   "title"
     t.integer  "user_id"
+    t.string   "location"
+    t.float    "latitude"
+    t.float    "longitude"
     t.index ["category_id"], name: "index_posts_on_category_id", using: :btree
     t.index ["user_id"], name: "index_posts_on_user_id", using: :btree
   end
