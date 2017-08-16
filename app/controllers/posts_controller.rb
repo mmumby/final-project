@@ -32,7 +32,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user = current_user
-    @post.expiration = Time.now + 5.minutes
+    @post.expiration = Time.now + 2.days
 
     respond_to do |format|
       if @post.save

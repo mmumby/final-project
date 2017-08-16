@@ -1,13 +1,14 @@
+
+<% if current_user.id == post.user_id %>
 <%= form_for post do |f| %>
-  <div class="field">
+  <div id="taken-box" class="field">
     <%= f.label :taken %>
     <%= f.check_box :taken %>
   </div>
-   <div class="actions">
+   <div id="taken-submit" class="actions">
     <%= f.submit %>
   </div>
 <% end %>
-<% if post.taken == true %>
-<h1> Unavailable </h1>
 <% end %>
+
 

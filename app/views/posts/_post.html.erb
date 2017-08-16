@@ -1,104 +1,34 @@
-<% @posts.order('CREATED_AT DESC').each do |post| %>
-<%= render 'taken', post: post %>
-  <%= link_to controller: :posts, action: :show, id: post.id do %>
-    <div class="card text-center">
-      <div class="card-header">
-        <%= post.category.name %>
-      </div>
-      <div class="card-block">
-        <div>
-        <% if (Time.now.to_i > post.expiration.to_i) == true %>
-        <p> expired </p>
-        <% end %>
-        </div>
-        <div>
-          <span><%= image_tag post.image, class: "card-image" %></span>
-        </div>
-        <h4 class="card-title"><%= post.title %></h4>
-        <p class="card-text"><%= post.description %></p>
-      </div>
-      <div class="card-footer text-muted">
-        <%= post.created_at.to_formatted_s(:long) %>
-      </div>
-      <% if post.comments.count > 0 %>
-      <h1><%= pluralize(post.comments.count, 'Comment') %></h1>
-      <% end %>
-  </div>
-  <br>
-  <% end %>
-  <%= button_to "Claim!", controller: :claims, method: :post, action: :create, data: { post_id: post.id, claimer_id: current_user.id, user_id: post.user_id} %>
-<% end %>
 
+<% @posts.order('CREATED_AT DESC').each do |post| %>
 
 <div class="container">
+<%= render 'status', post: post %>
   <div class="well">
-      <div class="media">
-        <a class="pull-left" href="#">
-        <img class="media-object" src="http://placekitten.com/150/150">
-      </a>
-      <div class="media-body">
-        <h4 class="media-heading">Receta 1</h4>
-          <p class="text-right">By Francisco</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate.
-Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis
-dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan.
-Aliquam in felis sit amet augue.</p>
-          <ul class="list-inline list-unstyled">
-        <li><span><i class="glyphicon glyphicon-calendar"></i> 2 days, 8 hours </span></li>
-            <li>|</li>
-            <span><i class="glyphicon glyphicon-comment"></i> 2 comments</span>
-            <li>|</li>
-            <li>
-               <span class="glyphicon glyphicon-star"></span>
-                        <span class="glyphicon glyphicon-star"></span>
-                        <span class="glyphicon glyphicon-star"></span>
-                        <span class="glyphicon glyphicon-star"></span>
-                        <span class="glyphicon glyphicon-star-empty"></span>
-            </li>
-            <li>|</li>
-            <li>
-            <!-- Use Font Awesome http://fortawesome.github.io/Font-Awesome/ -->
-              <span><i class="fa fa-facebook-square"></i></span>
-              <span><i class="fa fa-twitter-square"></i></span>
-              <span><i class="fa fa-google-plus-square"></i></span>
-            </li>
-      </ul>
+    <div class="media" onclick="window.location='/posts/<%= post.id %>'">
+    <%= image_tag post.image, class: "medit-object pull-left card-image" %>
+    <div class="media-body">
+      <h4 class="media-heading"><%= post.title %></h4>
+        <h6><%= post.category.name %></h6>
+        <p class="text-right"><%= post.user_id %></p>
+        <p><%= post.description %></p>
        </div>
-    </div>
-  </div>
-   <div class="well">
-      <div class="media">
-      <a class="pull-left" href="#">
-        <img class="media-object" src="http://placekitten.com/150/150">
-      </a>
-      <div class="media-body">
-        <h4 class="media-heading">Receta 2</h4>
-          <p class="text-right">By Anailuj</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate.
-Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis
-dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan.
-Aliquam in felis sit amet augue.</p>
-          <ul class="list-inline list-unstyled">
-        <li><span><i class="glyphicon glyphicon-calendar"></i> 2 days, 8 hours </span></li>
-            <li>|</li>
-            <span><i class="glyphicon glyphicon-comment"></i> 2 comments</span>
-            <li>|</li>
-            <li>
-               <span class="glyphicon glyphicon-star"></span>
-                        <span class="glyphicon glyphicon-star"></span>
-                        <span class="glyphicon glyphicon-star"></span>
-                        <span class="glyphicon glyphicon-star"></span>
-                        <span class="glyphicon glyphicon-star-empty"></span>
-            </li>
-            <li>|</li>
-            <li>
-            <!-- Use Font Awesome http://fortawesome.github.io/Font-Awesome/ -->
-              <span><i class="fa fa-facebook-square"></i></span>
-              <span><i class="fa fa-twitter-square"></i></span>
-              <span><i class="fa fa-google-plus-square"></i></span>
-            </li>
-      </ul>
        </div>
-    </div>
+    <ul class="list-inline list-unstyled">
+      <li><span><i class="glyphicon glyphicon-calendar"></i><%= post.created_at.to_formatted_s(:long) %></span></li>
+        <% if post.comments.count > 0 %>
+        <li>|</li>
+        <span class="comment-link" onclick="window.location='/posts/<%= post.id %>'"><i class="glyphicon glyphicon-comment"></i>
+        <%= pluralize(post.comments.count, 'Comment') %>
+        <% end %>
+        </span>
+        <li>|</li>
+        <li>
+        <%= button_to "Interested!", controller: :claims, method: :post, action: :create, data: { post_id: post.id, claimer_id: current_user.id, user_id: post.user_id}%>
+        </li>
+        <li>
+        <%= render 'taken', post: post %>
+        </li>
+    </ul>
   </div>
 </div>
+<% end %>
