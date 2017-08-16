@@ -11,6 +11,6 @@ function submitNewMessage(){
         App['room' + chatroomId].send({message: msg, chatroom_id: chatroomId})
         $('[data-textarea="message"]').val(" ")
         return false;
-     }
+    }
   });
 }
