@@ -50,63 +50,71 @@ cat1.posts.create!({
   title: "Veggies es bonus vobis",
   description: "Veggies es bonus vobis, proinde vos postulo essum magis kohlrabi welsh onion daikon amaranth tatsoi tomatillo melon azuki bean garlic.",
   image: "http://i.imgur.com/ToFylpO.jpg",
-  user_id: 1
+  user_id: 1,
+  location: "quadra and mckenzie"
   })
 
 cat1.posts.create!({
   title: "gumbo gourd",
   description: "Gumbo beet greens corn soko endive gumbo gourd. Parsley shallot courgette tatsoi pea sprouts fava bean collard greens dandelion okra wakame tomato.",
   image: "http://i.imgur.com/Ay8s20X.jpg",
-  user_id: 1
+  user_id: 1,
+  location: "838 fort, bc"
   })
 
 cat1.posts.create!({
   title: "greens yarrow ricebean",
   description: "Turnip greens yarrow ricebean rutabaga endive cauliflower sea lettuce kohlrabi amaranth water spinach avocado daikon napa cabbage asparagus winter purslane kale.",
   image: "http://i.imgur.com/CW5GHuv.jpg",
-  user_id: 1
+  user_id: 1,
+  location: "145 wilson street, victoria"
   })
 
 cat2.posts.create!({
   title: "Parsley shallot courgette",
   description: "Veggies es bonus vobis, proinde vos postulo essum magis kohlrabi welsh onion daikon amaranth tatsoi tomatillo melon azuki bean garlic.",
   image: "http://i.imgur.com/feYPs6R.jpg",
-  user_id: 1
+  user_id: 1,
+  location: "fairmont empress hotel"
   })
 
 cat2.posts.create!({
   title: "rutabaga endive",
   description: "Gumbo beet greens corn soko endive gumbo gourd. Parsley shallot courgette tatsoi pea sprouts fava bean collard greens dandelion okra wakame tomato.",
   image: "http://i.imgur.com/Wy94Tt7.jpg",
-  user_id: 1
+  user_id: 1,
+  location: "clover point park"
   })
 
 cat2.posts.create!({
   title: "icebean rutabaga",
   description: "Turnip greens yarrow ricebean rutabaga endive cauliflower sea lettuce kohlrabi amaranth water spinach avocado daikon napa cabbage asparagus winter purslane kale.",
   image: "http://i.imgur.com/jeJ3tYO.jpg",
-  user_id: 1
+  user_id: 1,
+  location: "pizzeria prima strada"
   })
 
 cat3.posts.create!({
   title: "essum magis kohlrabi",
   description: "Veggies es bonus vobis, proinde vos postulo essum magis kohlrabi welsh onion daikon amaranth tatsoi tomatillo melon azuki bean garlic.",
   image: "http://i.imgur.com/4KGVioH.jpg",
-  user_id: 1
+  user_id: 1,
+  location: "topaz park"
   })
 
 cat3.posts.create!({
   title: "greens corn",
   description: "Gumbo beet greens corn soko endive gumbo gourd. Parsley shallot courgette tatsoi pea sprouts fava bean collard greens dandelion okra wakame tomato.",
   image: "http://i.imgur.com/ZgjA8QQ.jpg",
-  user_id: 1
+  user_id: 1,
+  location: "james bay"
   })
 
 cat3.posts.create!({
   title: "cauliflower sea lettuce",
   description: "Turnip greens yarrow ricebean rutabaga endive cauliflower sea lettuce kohlrabi amaranth water spinach avocado daikon napa cabbage asparagus winter purslane kale.",
   image: "http://i.imgur.com/LU0r5dG.jpg",
-  user_id: 1
+  user_id: 1,
+  location: "rock bay, victoria"
   })
-
 
