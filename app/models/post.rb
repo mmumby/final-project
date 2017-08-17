@@ -11,7 +11,7 @@ class Post < ApplicationRecord
     too_long: "%{count} character is the maximum allowed" }
   validates :location, presence: true
 
-  geocoded_by :location
+  geocoded_by :location, :ip_address
   after_validation :geocode, :if => :location_changed?
 
 end
