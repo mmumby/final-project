@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
+<div class="container">
+  <button type="button" id="new-post-button" class="btn btn-default">Add new post!</button>
+    <div class="new-post-form">
+      <%= render 'form', post: @post %>
+    </div>
+</div>
 
-<%= render 'form', post: @post %>
 
 <h1>Posts</h1>
 <ul class="nav nav-tabs">
@@ -12,7 +17,15 @@
       <li><a data-toggle="tab" href="#ascending-posts">Oldest</a></li>
       <li><a data-toggle="tab" href="#all-posts">All Posts</a></li>
   </ul>
-</li>
+  </li>
+  <li class="dropdown">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories <span class="caret"></span></a>
+    <ul class="dropdown-menu">
+      <% Category.all.each do |category| %>
+        <li><a data-toggle="tab" href="#category"><%= category.name %></a></li>
+      <% end %>
+    </ul>
+  </li>
 </ul>
 
 <div class="tab-content">
@@ -27,6 +40,8 @@
     </div>
     <div id="all-posts" class="tab-pane fade in active">
     <%= render 'post' %>
+    </div>
+    <div id="category" class="tab-pane fade in active">
     </div>
   </div>
 </div>

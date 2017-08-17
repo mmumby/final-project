@@ -2,13 +2,11 @@
 <% if current_user.id == post.user_id %>
 <%= form_for post do |f| %>
   <div id="taken-box" class="field">
-    <%= f.label :taken %>
-    <%= f.check_box :taken %>
-  </div>
-   <div id="taken-submit" class="actions">
-    <%= f.submit %>
+    <%= f.label :unavailable %>
+    <%= f.check_box :taken, id: "taken-submit", :onclick => "this.form.submit()" %>
   </div>
 <% end %>
 <% end %>
+
 
 
