@@ -7,8 +7,6 @@ Rails.application.routes.draw do
 
   root to: 'welcome#index'
 
-  post '/posts/${posts.id}' => 'post#update'
-
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   resources :posts do
     resources :comments
