@@ -24,7 +24,7 @@
     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories <span class="caret"></span></a>
     <ul class="dropdown-menu">
       <% Category.all.each do |category| %>
-        <li><a data-toggle="tab" href="#category"><%= category.name %></a></li>
+        <li><a href="/posts?category_id=<%= category.id %>"><li><%= category.name %></li></a></li>
       <% end %>
     </ul>
   </li>
@@ -44,6 +44,7 @@
     <%= render 'post' %>
     </div>
     <div id="category" class="tab-pane fade in active">
+    <%= render 'categories', category: @categories %>
     </div>
   </div>
 </div>
