@@ -1,1 +1,13 @@
-<p><strong><%=message.user.name%>:</strong> <%=message.content%></p>
+<div class='row'>
+  <div class='col-xs-3'>
+    <img src="<%= message.user.image %>" class='img-circle'>
+  </div>
+  <div class="header">
+    <strong><%=message.user.name%>:</strong>
+  </div>
+  <div class='col-xs-9'>
+    <p>
+       <%=message.content%>
+    </p>
+  </div>
+</div>

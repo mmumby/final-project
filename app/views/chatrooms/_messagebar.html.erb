@@ -1,10 +1,9 @@
- <div class="row col-md-8 col-md-offset-2">
   <script>
   if (!App['room' + <%=chatroom.id%>]) {
     App['room' + <%=chatroom.id%>] = App.cable.subscriptions.create({channel: 'MessagesChannel', room: <%=chatroom.id%>}, {
        received: function(data) {
          $("[data-chatroom='" + this.chatroomId + "']").removeClass('hidden')
-         $("body").append(data.notification);
+         $("#notif").append(data.notification);
            return $("[data-chatroom='" + this.chatroomId + "']").append(data.message);
        },
 
@@ -14,8 +13,7 @@
     });
   }
   </script>
-    <h1><%= chatroom.topic %></h1>
-
+  <li class='chat'>
     <div class="panel panel-default" data-chatroom="<%=chatroom.id%>">
       <% if chatroom.messages.any? %>
         <div class="panel-body" id="messages">
@@ -27,4 +25,4 @@
       <%end%>
     </div>
     <%= render partial: 'messages/message_form', locals: {message: @message, chatroom: chatroom}%>
-  </div>
+  </li>
