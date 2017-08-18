@@ -4,7 +4,8 @@
 
 //= require welcome
 
-$(document).ready ->
+$(document).on 'turbolinks:load', ->
+  console.log 'hey'
   $('#new-post-button').on 'click', (event) ->
     $('.new-post-form').toggle 'show'
     return
