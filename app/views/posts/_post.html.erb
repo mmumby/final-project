@@ -1,4 +1,6 @@
-<% @posts.each do |post| %>
+
+<% @posts.order('CREATED_AT DESC').each do |post| %>
+<% if ((Time.now.to_i > post.expiration.to_i) == false) && post.taken == false %>
 <div class="container">
 <%= render 'status', post: post %>
   <div class="well">
@@ -31,4 +33,5 @@
     </ul>
   </div>
 </div>
+<% end %>
 <% end %>

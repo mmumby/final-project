@@ -3,20 +3,49 @@
   font-family: 'Pacifico', cursive;
   font-size: 2em;
   font-weight: bolder;
-  color: #673c3c;
+  color: grey;
   padding: 10px;
+}
+#navMain {
+  padding: 0px 20px 0px 20px;
 }
 
 .navbar-right {
   float: right;
 }
 
-#navbarText {
-  font-size: 20px;
-  display: inline-block;
-  color: grey;
-}
 
 .img-circle {
     border-radius: 50%;
+}
+
+.opaque-navbar {
+    background-color: rgba(0,0,0,0.5);
+  /* Transparent = rgba(0,0,0,0) / Translucent = (0,0,0,0.5)  */
+    height: 60px;
+    border-bottom: 0px;
+    transition: background-color .5s ease 0s;
+}
+
+.opaque-navbar.opaque {
+    background-color: black;
+    height: 60px;
+    transition: background-color .5s ease 0s;
+}
+
+ul.dropdown-menu {
+    background-color: black;
+}
+
+
+@media (max-width: 992px) {
+  body
+  {
+    background:red;
+  }
+  .opaque-navbar {
+    background-color: black;
+    height: 60px;
+    transition: background-color .5s ease 0s;
+}
 }

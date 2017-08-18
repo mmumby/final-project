@@ -14,6 +14,11 @@ class PostsController < ApplicationController
     @category = Category.all
   end
 
+  def view_all
+    if params[:expired == false && :taken == false]
+      @post = Post.all
+    end
+  end
   # GET /posts/1
   # GET /posts/1.json
   def show
