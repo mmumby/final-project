@@ -2,6 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.page-header {
+  background-image: url("/images/salad.png");
+  width: 100%;
+  opacity: 80%;
+}
 .new-post-form {
   display: none;
 }
