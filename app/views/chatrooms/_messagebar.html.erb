@@ -1,4 +1,3 @@
-<li class='chat'>
   <div class="panel panel-default" data-chatroom="<%= chatroom.id%>">
     <% if chatroom.messages.any? %>
       <div class="panel-body" id="messages">
@@ -10,4 +9,3 @@
     <%end%>
   </div>
   <%= render partial: 'messages/message_form', locals: {message: message, chatroom: chatroom}%>
-</li>

@@ -10,8 +10,25 @@
 .message-recipient {
   margin-bottom: 0px;
   text-align: center;
+  list-style: none;
 }
 
-.chat {
+.chat-log {
   list-style: none;
+  height: 4em;
+  padding: 0px;
+}
+
+.chat-log a {
+  float: right;
+}
+
+.friend-image {
+  float:left;
+  width: 45px;
+  height: 45px;
+}
+
+.friend-list {
+  margin-left: -40px;
 }
