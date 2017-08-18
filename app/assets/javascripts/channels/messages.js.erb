@@ -1,6 +1,5 @@
 $(document).on('turbolinks:load', function() {
   submitNewMessage();
-  console.log('here');
 });
 
 <% Chatroom.all.each do |chatroom| %>
@@ -34,3 +33,4 @@ function submitNewMessage(){
     }
   });
 }
+//
