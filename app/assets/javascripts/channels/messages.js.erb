@@ -1,4 +1,8 @@
 $(document).on('turbolinks:load', function() {
+  var messages = $('.message-container');
+  function messagesToBottom() {
+    messages.scrollTop(messages.prop('scrollHeight'));
+  }
   submitNewMessage();
 });
 
