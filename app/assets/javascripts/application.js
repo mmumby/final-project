@@ -16,4 +16,5 @@
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require_tree ./channels
-// = require posts
+//= require posts
+//= require welcome
