@@ -6,8 +6,6 @@ class MessagesChannel < ApplicationCable::Channel
   def receive(payload)
     @chatroom = Chatroom.find(payload["chatroom_id"])
     @recipient = check_recipient(@chatroom.id)
-    logger.debug "@chatroom= #{@recipient}"
-    logger.debug "current_user= #{current_user}"
     Message.create(user: current_user, chatroom_id: payload["chatroom_id"], content: payload["message"], recipient_id: @recipient)
   end
 
