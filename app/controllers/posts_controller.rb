@@ -5,13 +5,23 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    if params[:category_id]
-      @posts = Post.where( :category_id => params[:category_id])
+    if params[:order] == 'available'
+       @posts = Post.where( :taken => false ).where('expiration > ?', Time.now)
     else
       @posts = Post.all
     end
+
+    if params[:category_id]
+      @posts = @posts.where( :category_id => params[:category_id])
+    end
+    @posts = @posts.order('CREATED_AT DESC')
+
+
     @post = Post.new
     @category = Category.all
+
+
+
   end
 
   def view_all

@@ -2,7 +2,6 @@ class MessageBroadcastJob < ApplicationJob
   queue_as :default
 
   def perform(message)
-    logger.debug "message=#{message}"
     ActionCable.server.broadcast "room-#{message.user_id}:messages", message: render_message(message)
 
     ActionCable.server.broadcast "room-#{message.recipient_id}:messages", message: render_message(message), notification: render_notification(message)

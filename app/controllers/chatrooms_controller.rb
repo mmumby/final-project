@@ -37,6 +37,10 @@ class ChatroomsController < ApplicationController
   def show
     @chatroom = Chatroom.find_by(id: params[:id])
     @message = Message.new
+    respond_to do |format|
+      format.html { redirect_to "/chatrooms/#{@chatroom.id}" }
+      format.js
+    end
   end
 
   private
