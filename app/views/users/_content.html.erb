@@ -15,9 +15,29 @@
     <%= render 'posts' %>
     </div>
   <div id="menu1" class="tab-pane fade">
+
+    <div id="login-overlay" class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="myModalLabel">Leave a Comment</h4>
+          <%= render 'comments/form' %>
+        </div>
+
+        <div class="modal-body">
+          <div class="modal-header">
+            <%= render 'comments/comments' %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
     <h3>Comment</h3>
     <%= render "comments/comments" %>
     <%= render "comments/form" %>
+
+
+
   </div>
   <div id="menu2" class="tab-pane fade notification-container">
     <h3>Notifications</h3>

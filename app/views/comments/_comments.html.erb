@@ -1,12 +1,9 @@
 <div id="comments">
   <% @comments.each do |comment| %>
-
     <div class="container">
-
       <div class="row">
-
         <div class="col-sm-1">
-          <div class="avatar">
+          <div class="thumbnail">
             <img class="img-circle" src="<%= comment.user.image %>">
           </div><!-- /avatar -->
         </div><!-- /col-sm-1 -->
@@ -20,11 +17,8 @@
               <%= simple_format comment.content %>
             </div><!-- /panel-body -->
           </div><!-- /panel panel-default -->
-
         </div><!-- /col-sm-5 -->
       </div><!-- /row -->
-
     </div><!-- /container -->
-
   <% end %>
 </div>
