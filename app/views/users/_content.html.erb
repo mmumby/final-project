@@ -33,7 +33,7 @@
 
 
     <h3>Comment</h3>
-    
+
     <%= render "comments/comments" %>
     <%= render "comments/form" %>
   </div>
@@ -44,7 +44,6 @@
   </div>
   <div id="menu3" class="tab-pane fade">
     <h3>Inbox</h3>
-      <div class="container inbox">
         <% @chatroom.each do |chatroom| %>
             <div class="message-recipient">
               <a data-toggle="collapse" href="#chatroom-<%= chatroom.id%>">
@@ -56,6 +55,8 @@
               </a>
             </div>
           <% end %>
+      <div class="container" id="inbox">
+    <%= render partial: 'chatrooms/messagebar', locals: {message: @message, chatroom: @chatroom[0]}%>
       </div>
   </div>
 </div>
