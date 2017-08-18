@@ -1,6 +1,7 @@
-
-<% @posts.order('CREATED_AT DESC').each do |post| %>
-<% if ((Time.now.to_i > post.expiration.to_i) == false) && post.taken == false %>
+ <% if @posts.count == 0 %>
+    <p> This category doesn't have any posts at the moment. </p>
+  <% else %>
+<% @posts.each do |post| %>
 <div class="container">
 <%= render 'status', post: post %>
   <div class="well">
@@ -35,3 +36,4 @@
 </div>
 <% end %>
 <% end %>
+
