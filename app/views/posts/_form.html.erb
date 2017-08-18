@@ -23,19 +23,19 @@
                 <div class="panel ">
                   <div class="panel-body">
                     <form accept-charset="UTF-8" action="" method="POST">
-                      <div class="post-row row" >
+                      <div class="row" >
 
-                        <%= f.select :category_id, options_from_collection_for_select(Category.all.order(:name), :id, :name), { include_blank: true }, :class=>"form-control testBox postBox" %>
+                        <%= f.select :category_id, options_from_collection_for_select(Category.all.order(:name), :id, :name), { include_blank: "- Select a Category -" }, :class=>"form-control testBox" %>
 
-                        <%= f.text_field :title, :placeholder=>"Title", :class=>"form-control testBox postBox" %>
+                        <%= f.text_field :title, :placeholder=>"Title", :class=>"form-control testBox" %>
 
-                        <%= f.text_field :description, :placeholder=>"Description", :class=>"form-control testBox postBox" %>
+                        <%= f.text_field :description, :placeholder=>"Description", :class=>"form-control testBox" %>
 
-                        <%= f.text_field :location, :placeholder=>"Street Address or Neighbourhood Name", :class=>"form-control testBox postBox" %>
+                        <%= f.text_field :location, :placeholder=>"Street Address or Neighbourhood Name", :class=>"form-control testBox" %>
 
-                        <%= f.text_field :image, :placeholder=>"Image (url)", :class=>"form-control testBox postBox" %>
+                        <%= f.text_field :image, :placeholder=>"Image (url)", :class=>"form-control testBox" %>
 
-                        <%= f.submit :class=>"btn btn-info post-btn", :value=>"Create Post" %>
+                        <%= f.submit :class=>"btn btn-info food-btn", :value=>"Create Post" %>
 
                       </div><!-- /row -->
                     </form>
