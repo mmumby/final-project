@@ -59,7 +59,7 @@ class PostsController < ApplicationController
       if @post.save
         format.html { redirect_to :back, notice: 'Post was successfully created.' }
       else
-        format.html { render :new }
+        format.html { redirect_to :back, notice: 'Fields were left blank. Try again'}
       end
     end
   end
