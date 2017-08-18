@@ -1,22 +1,26 @@
+.rating-stars {
+    color: yellow;
+}
+
 .avatar {
     margin-top: 160px;
     padding: 15px;
     position: relative;
-    z-index: 3;
+    z-index: 5;
     margin-bottom: 10px;
 }
 
 .profile-header {
     background-color: #3a2e2e;
     display: block;
-    height: 200px;
+    height: 400px;
     left: 0;
     top: 0;
     width: 100%;
     z-index: 1;
 }
 .name {
-    color: #3a2e2e;
+    color: white;
     font-size: 1.5em;
     font-weight: 600;
     line-height: 1.2em;
@@ -31,6 +35,6 @@
 }
 
 .img-default {
-    height: 60px;
-    width: 60px;
+    height: 100px;
+    width: 100px;
 }

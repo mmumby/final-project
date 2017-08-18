@@ -3,8 +3,9 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $(window).scroll ->
-  if $(window).scrollTop() >= 50
-    $('.navbar').css 'background', 'transparent'
+  if $(window).scrollTop() >= 400
+    $('.navbar').css 'background', '#3a2e2e'
   else
     $('.navbar').css 'background', 'transparent'
   return
+return
