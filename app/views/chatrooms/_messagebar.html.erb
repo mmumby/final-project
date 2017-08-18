@@ -1,6 +1,7 @@
   <script>
-  if (!App['room' + <%=chatroom.id%>]) {
-    App['room' + <%=chatroom.id%>] = App.cable.subscriptions.create({channel: 'MessagesChannel', room: <%=chatroom.id%>}, {
+  <% logger.debug "chatroom=#{@chatroom.id}" %>
+  if (!App['room' + <%=@chatroom.id%>]) {
+    App['room' + <%=@chatroom.id%>] = App.cable.subscriptions.create({channel: 'MessagesChannel', room: <%= @chatroom.id%>}, {
        received: function(data) {
          $("[data-chatroom='" + this.chatroomId + "']").removeClass('hidden')
          $("#notif").append(data.notification);
@@ -14,15 +15,15 @@
   }
   </script>
   <li class='chat'>
-    <div class="panel panel-default" data-chatroom="<%=chatroom.id%>">
-      <% if chatroom.messages.any? %>
+    <div class="panel panel-default" data-chatroom="<%= @chatroom.id%>">
+      <% if @chatroom.messages.any? %>
         <div class="panel-body" id="messages">
-          <%= render partial: 'messages/message', collection: chatroom.messages%>
+          <%= render partial: 'messages/message', collection: @chatroom.messages%>
         </div>
       <%else%>
         <div class="panel-body hidden" id="messages">
         </div>
       <%end%>
     </div>
-    <%= render partial: 'messages/message_form', locals: {message: @message, chatroom: chatroom}%>
+    <%= render partial: 'messages/message_form', locals: {message: @message, chatroom: @chatroom}%>
   </li>

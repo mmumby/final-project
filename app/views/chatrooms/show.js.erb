@@ -1,0 +1,2 @@
+console.log('hello, world!');
+$('.inbox').html(<%= escape_javascript(render :partial => 'messagebar', locals: {message: @message, chatroom: @chatroom}) %>)
