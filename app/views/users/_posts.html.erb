@@ -5,28 +5,28 @@
 <%= render '/posts/status', post: post %>
   <div class="well">
     <div class="media" onclick="window.location='/posts/<%= post.id %>'">
-    <%= image_tag post.image, class: "medit-object pull-left card-image" %>
-    <div class="media-body">
-      <h4 class="media-heading"><%= post.title %></h4>
-        <h6><%= post.category.name %></h6>
-        <p class="text-right"><%= post.user_id %></p>
-        <p><%= post.description %></p>
-       </div>
-       <div class="medit-object pull-right"><%= map_for_object post, height: 140, width: 140, zoom: 14, class: "medit-object pull-right"%>
+      <%= image_tag post.image, class: "medit-object pull-left card-image" %>
+      <div class="media-body">
+        <h4 class="media-heading"><%= post.title %></h4>
+          <h6><%= post.category.name %></h6>
+          <p class="text-right"><%= post.user_id %></p>
+          <p><%= post.description %></p>
       </div>
-       </div>
+      <div class="medit-object pull-right"><%= map_for_object post, height: 140, width: 140, zoom: 14, class: "medit-object pull-right"%>
+      </div>
+    </div>
     <ul class="list-inline list-unstyled">
       <li><span><i class="glyphicon glyphicon-calendar"></i><%= post.created_at.to_formatted_s(:long) %></span></li>
-        <li>|</li>
+      <li>|</li>
         <% if post.comments.count < 0 %>
-        <span class="comment-link" onclick="window.location='/posts/<%= post.id %>'"><i class="glyphicon glyphicon-comment">Leave a comment</i>
+          <span class="comment-link" onclick="window.location='/posts/<%= post.id %>'"><i class="glyphicon glyphicon-comment">Leave a comment</i>
         <% else %>
-        <span class="comment-link" onclick="window.location='/posts/<%= post.id %>'"><i class="glyphicon glyphicon-comment"></i>
-        <%= pluralize(post.comments.count, 'Comment') %>
+          <span class="comment-link" onclick="window.location='/posts/<%= post.id %>'"><i class="glyphicon glyphicon-comment"></i>
+          <%= pluralize(post.comments.count, 'Comment') %>
         <% end %>
-        </span>
+          </span>
         <li>
-        <%= render '/posts/taken', post: post %>
+          <%= render '/posts/taken', post: post %>
         </li>
     </ul>
   </div>
