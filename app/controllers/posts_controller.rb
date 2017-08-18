@@ -55,6 +55,10 @@ class PostsController < ApplicationController
     @post.user = current_user
     @post.expiration = Time.now + 2.days
 
+    if @post.image.empty?
+      @post.image = "/images/default.png"
+    end
+
     respond_to do |format|
       if @post.save
         format.html { redirect_to :back, notice: 'Post was successfully created.' }
