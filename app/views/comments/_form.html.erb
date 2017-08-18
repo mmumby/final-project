@@ -10,10 +10,20 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.text_area :content, rows: 8 %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <div class="row">
+      <div class="col-sm-12 col-md-12">
+        <div class="panel-div">
+          <div class="panel-body">
+            <form accept-charset="UTF-8" action="" method="POST">
+              <%= f.text_area :content, rows: 4, :class=>"form-control counted", :placeholder=>"Type your comment here...", :style=>"margin-bottom:10px;" %>
+              <h6 class="pull-right" id="counter">320 characters remaining</h6>
+              <%= f.submit :class=>"btn btn-info", :value=>"Post Comment" %>
+            </form>
+          </div><!-- /panel-body -->
+        </div><!-- /panel-div -->
+      </div><!-- /col-sm-12 col-md-12 -->
+    </div><!-- /row -->
+
 <% end %>
