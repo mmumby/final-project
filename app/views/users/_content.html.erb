@@ -11,8 +11,8 @@
 </ul>
 
 <div class="tab-content">
-  <div id="home" class="tab-pane fade in active">
-    <%= render 'posts' %>
+    <div id="home" class="tab-pane fade in active">
+      <%= render 'posts' %>
     </div>
   <div id="menu1" class="tab-pane fade">
 
@@ -33,27 +33,32 @@
 
 
     <h3>Comment</h3>
+
     <%= render "comments/comments" %>
     <%= render "comments/form" %>
-
-
-
   </div>
   <div id="menu2" class="tab-pane fade notification-container">
     <h3>Notifications</h3>
-    <script>
-    $(document).on('click', '#notification .close', function() {
-      $(this).parents('#notification').fadeOut(1000);
-    });
-    </script>
+      <div id="notif">
+      </div>
   </div>
   <div id="menu3" class="tab-pane fade">
     <h3>Inbox</h3>
-<% @chatroom.each do |chatroom| %>
-  <a data-toggle="tab" href="#chatroom-<%= chatroom.id%>">Test</a>
-  <div id='chatroom-<%= chatroom.id%>' class="tab-pane fade">
-      <%= render partial: 'chatrooms/messagebar', locals: {message: @message, chatroom: chatroom}%>
-  </div>
-<% end %>
+      <div class="container inbox">
+        <% @chatroom.each do |chatroom| %>
+            <div class="message-recipient">
+              <a data-toggle="collapse" href="#chatroom-<%= chatroom.id%>">
+                <% if current_user.id == chatroom.owner_id %>
+                  <%= (User.find(chatroom.client_id)).name %>
+                <% else %>
+                  <%= (User.find(chatroom.owner_id)).name %>
+                <% end %>
+              </a>
+            </div>
+            <div class="tab-pane fade message-container" id='chatroom-<%= chatroom.id%>'>
+              <%= render partial: 'chatrooms/messagebar', locals: {message: @message, chatroom: chatroom}%>
+            </div>
+          <% end %>
+      </div>
   </div>
 </div>
