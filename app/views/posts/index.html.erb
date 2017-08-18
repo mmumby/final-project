@@ -1,31 +1,35 @@
-<p id="notice"><%= notice %></p>
 
-<%= render 'form', post: @post %>
+<div class="header-section">
+  <div class="container">
+     <div class="new-post-form">
+        <%= render 'form', post: @post %>
+    </div>
+  </div>
+</div>
 
 <h1>Posts</h1>
-<ul class="nav nav-tabs">
-  <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Order by<span class="caret"></span></a>
-  <ul class="dropdown-menu">
-      <li><a data-toggle="tab" href="#default-posts">Current posts</a></li>
-      <li><a data-toggle="tab" href="#decending-posts">Newest</a></li>
-      <li><a data-toggle="tab" href="#ascending-posts">Oldest</a></li>
-      <li><a data-toggle="tab" href="#all-posts">All Posts</a></li>
+<button type="button" id="new-post-button" class="btn btn-default">Add new post!</button>
+<p id="notice"><%= notice %></p>
+  <ul class="nav nav-tabs">
+    <li class="dropdown">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Order by<span class="caret"></span></a>
+    <ul class="dropdown-menu">
+        <li><a href="/posts">Available posts</a></li>
+        <li><a href="/posts">View All</a></li>
+    </ul>
+    </li>
+    <li class="dropdown">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories <span class="caret"></span></a>
+      <ul class="dropdown-menu">
+        <% Category.all.each do |category| %>
+          <li><a href="/posts?category_id=<%= category.id %>"><li><%= category.name %></li></a></li>
+        <% end %>
+      </ul>
+    </li>
   </ul>
-</li>
-</ul>
 
 <div class="tab-content">
   <div id="default-post" class="tab-pane fade in active">
-    <%= render 'post' %>
-    </div>
-    <div id="decending-posts" class="tab-pane fade in active">
-    <%= render 'post' %>
-    </div>
-    <div id="ascending-posts" class="tab-pane fade in active">
-    <%= render 'post' %>
-    </div>
-    <div id="all-posts" class="tab-pane fade in active">
     <%= render 'post' %>
     </div>
   </div>

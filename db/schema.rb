@@ -72,11 +72,11 @@ ActiveRecord::Schema.define(version: 20170816200847) do
     t.integer  "category_id"
     t.string   "title"
     t.integer  "user_id"
-    t.boolean  "taken",       default: false
-    t.datetime "expiration"
     t.string   "location"
     t.float    "latitude"
     t.float    "longitude"
+    t.boolean  "taken",       default: false
+    t.datetime "expiration"
     t.index ["category_id"], name: "index_posts_on_category_id", using: :btree
     t.index ["user_id"], name: "index_posts_on_user_id", using: :btree
   end

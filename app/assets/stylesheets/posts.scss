@@ -2,6 +2,21 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.header-section {
+  background-image: url("/images/plate.png");
+
+  background-size: cover;
+  width: 100%;
+  height: 400px;
+}
+
+#form-container {
+  margin-top: 80px;
+}
+.new-post-form {
+  display: none;
+}
+
 .box {
   position: relative;
 }
