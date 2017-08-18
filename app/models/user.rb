@@ -28,7 +28,6 @@ class User < ApplicationRecord
     if user.image.empty?
       user.image = "/images/default_profile_normal.png"
     end
-
     user
   end
 
