@@ -1,8 +1,8 @@
 <ul class="chat-log clearfix">
-  <div class="panel panel-default" data-chatroom="<%= chatroom.id%>">
+  <div class="panel panel-default">
     <% if chatroom.messages.any? %>
       <div class="panel-body" id="messages">
-      <ul class="chat">
+      <ul class="chat" data-chatroom="<%= chatroom.id%>">
         <%= render partial: 'messages/message', collection: chatroom.messages%>
       </ul>
       </div>
