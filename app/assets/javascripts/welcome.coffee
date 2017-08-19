@@ -3,8 +3,8 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $(window).scroll ->
-  if $(window).scrollTop() >= 400
-    $('.navbar').css 'background', '#3a2e2e'
+  if $(window).scrollTop() >= 450
+    $('.navbar').css "background-image", "url('/images/wood.png')"
   else
     $('.navbar').css 'background', 'transparent'
   return
