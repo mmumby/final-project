@@ -19,14 +19,13 @@
     <%= link_to 'Back', posts_path %>
   </div>
   <div id="menu1" class="tab-pane fade">
-    <div id="login-overlay" class="modal-dialog">
+    <div class="modal-dialog form-overlay">
       <div class="modal-content">
         <div class="modal-header">
-          <h4 class="modal-title" id="myModalLabel">Leave a Comment</h4>
-            <%= render 'comments/form' %>
+          <%= render 'comments/form' %>
         </div>
-      <div class="modal-body">
-        <div class="modal-header">
+      <div class=" food-comment">
+        <div>
           <%= render 'comments/comments' %>
         </div>
       </div>
