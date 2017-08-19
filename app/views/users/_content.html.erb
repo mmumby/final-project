@@ -41,6 +41,7 @@
     <div class="row">
     <div class="col-xs-4">
     <ul class="friend-list">
+    <% if !!@chatroom %>
       <% @chatroom.each do |chatroom| %>
               <% if current_user.id == chatroom.owner_id %>
               <li class="chat-log well">
@@ -58,6 +59,7 @@
                       <%= chatroom.messages.last.content %>
                     </div>
               </li>
+              <% end %>
               <% end %>
       <% end %>
       </ul>
