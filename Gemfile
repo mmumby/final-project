@@ -16,6 +16,7 @@ gem 'puma', '~> 3.0'
 gem 'sass-rails', '~> 5.0'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'font-awesome-rails'
+gem 'bootstrap-social-rails'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

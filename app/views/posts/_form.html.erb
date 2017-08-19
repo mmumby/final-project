@@ -13,7 +13,7 @@
 
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
-      <div id="post-overlay" class="modal-dialog">
+      <div class="modal-dialog form-overlay">
         <div class="modal-content">
 
           <div class="modal-body">
@@ -36,6 +36,9 @@
                         <%= f.text_field :image, :placeholder=>"Image (url)", :class=>"form-control testBox" %>
 
                         <%= f.submit :class=>"btn btn-info food-btn", :value=>"Create Post" %>
+                        <span>
+                          <i><%= f.label "Posts expire after 2 days", :class=>"expire-notice" %></i>
+                        </span>
 
                       </div><!-- /row -->
                     </form>

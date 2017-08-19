@@ -4,7 +4,7 @@
 
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
-    <div id="register-overlay" class="modal-dialog">
+    <div class="modal-dialog form-overlay">
       <div class="modal-content">
         <div class="modal-header">
           <h4 class="modal-title" id="myModalLabel">Sign up</h4>
@@ -27,11 +27,16 @@
 
                       <%= f.password_field :password_confirmation, autocomplete: "off",  :placeholder=>"Password Confirmation", :class=>"form-control testBox" %>
 
-                      <%= f.submit :class=>"btn btn-info food-btn", :value=>"Sign up" %>
+                      <%= f.submit :class=>"btn btn-info testBox", :value=>"Sign up" %>
 
-                      <div>
-                        <%= render "devise/shared/links" %>
+                      <div class="testBox">
+                        <%= f.label "Or" %>
+                        <%= link_to "Already have an account? Log in", new_session_path(resource_name), :class=>"login-link" %>
                       </div>
+
+
+                        <%= link_to " Sign in with Facebook", user_facebook_omniauth_authorize_path, :class=>"btn btn-block btn-social btn-facebook fa fa-facebook testBox log-btn" %>
+                        <%= link_to " Sign in with Twitter", user_twitter_omniauth_authorize_path, :class=>"btn btn-block btn-social btn-twitter fa fa-twitter testBox log-btn" %>
 
                     </div><!-- /row -->
                   </form>
