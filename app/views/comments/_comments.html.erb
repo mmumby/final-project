@@ -4,14 +4,19 @@
       <div class="row">
         <div class="col-sm-1">
           <div class="thumbnail">
+          <%= link_to controller: :users, action: :show, id: comment.user.id do %>
             <img class="img-circle" src="<%= comment.user.image %>">
+            <% end %>
           </div><!-- /avatar -->
         </div><!-- /col-sm-1 -->
 
         <div class="col-sm-5">
           <div class="panel panel-default">
             <div class="panel-heading">
-              <strong><%= comment.user.name %></strong> <span class="text-muted"><%= time_ago_in_words(comment.created_at) %> ago</span>
+            <%= link_to controller: :users, action: :show, id: comment.user.id do %>
+              <strong><%= comment.user.name %></strong>
+            <% end %>
+              <span class="text-muted"><%= time_ago_in_words(comment.created_at) %> ago</span>
             </div>
             <div class="panel-body">
               <%= simple_format comment.content %>

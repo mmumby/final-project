@@ -1,5 +1,5 @@
 <!-- render users posts on their profile -->
-<h3>Posts</h3>
+<br>
   <% @posts.order('CREATED_AT DESC').each do |post| %>
 <div class="container">
 <%= render '/posts/status', post: post %>
@@ -9,7 +9,6 @@
       <div class="media-body">
         <h4 class="media-heading"><%= post.title %></h4>
           <h6><%= post.category.name %></h6>
-          <p class="text-right"><%= post.user_id %></p>
           <p><%= post.description %></p>
       </div>
       <div class="medit-object pull-right"><%= map_for_object post, height: 140, width: 140, zoom: 14, class: "medit-object pull-right"%>

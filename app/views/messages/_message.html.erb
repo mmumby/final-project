@@ -1,13 +1,13 @@
-<div class='row'>
-  <div class='col-xs-3'>
-    <img src="<%= message.user.image %>" class='img-circle'>
+<li>
+  <span class='chat-img pull-left'>
+    <img src="<%= message.user.image %>">
+  </span>
+  <div class="chat-body clearfix">
+    <div class="header">
+      <strong><%=message.user.name%>:</strong>
+    </div>
+      <p>
+        <%=message.content%>
+      </p>
   </div>
-  <div class="header">
-    <strong><%=message.user.name%>:</strong>
-  </div>
-  <div class='col-xs-9'>
-    <p>
-       <%=message.content%>
-    </p>
-  </div>
-</div>
+</li>
