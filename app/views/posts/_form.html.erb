@@ -36,6 +36,9 @@
                         <%= f.text_field :image, :placeholder=>"Image (url)", :class=>"form-control testBox" %>
 
                         <%= f.submit :class=>"btn btn-info food-btn", :value=>"Create Post" %>
+                        <span>
+                          <i><%= f.label "Posts expire after 2 days", :class=>"expire-notice" %></i>
+                        </span>
 
                       </div><!-- /row -->
                     </form>
