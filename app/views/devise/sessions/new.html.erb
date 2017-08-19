@@ -3,7 +3,7 @@
 
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
-    <div id="login-overlay" class="modal-dialog">
+    <div class="modal-dialog form-overlay">
       <div class="modal-content">
         <div class="modal-header">
           <h4 class="modal-title" id="myModalLabel">Login</h4>
@@ -31,11 +31,11 @@
 
                       <%= f.submit :class=>"btn btn-info food-btn", :value=>"Log in" %>
 
-                    <div>
-                      <%= render "devise/shared/links" %>
-                    </div>
+                      <div>
+                        <%= render "devise/shared/links" %>
+                      </div>
 
-                    </div><!-- /row-row row -->
+                    </div><!-- /row -->
 
                   </form>
                 </div><!-- /panel-body -->
