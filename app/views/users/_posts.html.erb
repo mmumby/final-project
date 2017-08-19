@@ -1,5 +1,5 @@
 <!-- render users posts on their profile -->
-<h3>Posts</h3>
+<br>
   <% @posts.order('CREATED_AT DESC').each do |post| %>
 <div class="container">
 <%= render '/posts/status', post: post %>

@@ -1,10 +1,10 @@
 <!-- current_user = logged in user -->
 <% if current_user != @user %>
+<h4> Rate your experience with <%= @user.name %>!</h4>
 <%= form_for :rating, url: "/users/#{@user.id}/ratings", method: 'POST' do |form| %>
   <div class="form-group">
     <%= form.label :rating %>
-    <%= form.select :rating,[[1], [2], [3], [4], [5]], class: 'form-control' %>
-  </div>
-  <%= form.submit 'Submit', class: 'btn btn-primary' %>
-<% end %>
+    <%= form.select :rating,[[1], [2], [3], [4], [5]], {}, :onchange=>"this.form.submit()" %>
+    <% end %>
+    </div>
 <% end %>
