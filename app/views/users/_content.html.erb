@@ -52,21 +52,26 @@
               <li class="chat-log well">
                 <%= link_to "#{(User.find(chatroom.client_id)).name}", controller: :chatrooms, action: :show, id: chatroom.id, remote: true %>
                   <%= image_tag "#{(User.find(chatroom.client_id)).image}", class: "img-circle friend-image" %>
+                    <div>
+                      <%= chatroom.messages.last.content %>
+                    </div>
               </li>
               <% else %>
               <li class="chat-log well">
                 <%= link_to "#{(User.find(chatroom.owner_id)).name}", controller: :chatrooms, action: :show, id: chatroom.id, remote:  true %>
                   <%= image_tag "#{(User.find(chatroom.owner_id)).image}", class: "img-circle friend-image" %>
+                    <div>
+                      <%= chatroom.messages.last.content %>
+                    </div>
               </li>
               <% end %>
       <% end %>
+      </ul>
     </div>
       <div class="col-xs-7">
-      <div class="message-container" id="inbox">
-        <li class="chat-log"><%= render partial: 'chatrooms/messagebar', locals: {message: @message, chatroom: @chatroom[0]}%></li>
+      <div class="message-container chat-message" id="inbox">
       </div>
       </div>
-      </ul>
     </div>
     </div>
   </div>
