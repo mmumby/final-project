@@ -1,47 +1,51 @@
-<div id="form-container" class="well">
-  <div class="form-container">
-    <div class="form-group">
-      <%= form_for @post do |f| %>
-        <% if f.object.errors.any? %>
-          <div class="alert alert-danger">
-            <strong>The following errors prevented saving:</strong>
-            <ul>
-              <% f.object.errors.full_messages.each do |error| %>
-                <li><%= error %></li>
-              <% end %>
-            </ul>
-          </div>
+
+<%= form_for @post do |f| %>
+  <% if f.object.errors.any? %>
+    <div class="alert alert-danger">
+      <strong>The following errors prevented saving:</strong>
+      <ul>
+        <% f.object.errors.full_messages.each do |error| %>
+          <li><%= error %></li>
         <% end %>
-        <div class="field">
-          <%= f.label :category_id %>
-          <%= f.select :category_id, options_from_collection_for_select(Category.all.order(:name), :id, :name), { include_blank: true } %>
-        </div>
-
-        <div class="field">
-          <%= f.label :title %>
-          <%= f.text_field :title %>
-        </div>
-
-        <div class="field">
-          <%= f.label :description %>
-          <%= f.text_field :description %>
-        </div>
-
-        <div class="field">
-          <%= f.label :location %>
-          <%= f.text_field :location %>
-        </div>
-
-        <div class="field">
-          <%= f.label :image %>
-          <%= f.text_field :image %>
-        </div>
-
-        <div class="actions">
-          <%= f.submit %>
-        </div>
-      <% end %>
+      </ul>
     </div>
-  </div>
-</div>
+  <% end %>
 
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+      <div id="post-overlay" class="modal-dialog">
+        <div class="modal-content">
+
+          <div class="modal-body">
+
+            <div class="row">
+              <div class="col-sm-12 col-md-12">
+                <div class="panel ">
+                  <div class="panel-body">
+                    <form accept-charset="UTF-8" action="" method="POST">
+                      <div class="row" >
+
+                        <%= f.select :category_id, options_from_collection_for_select(Category.all.order(:name), :id, :name), { include_blank: "- Select a Category -" }, :class=>"form-control testBox" %>
+
+                        <%= f.text_field :title, :placeholder=>"Title", :class=>"form-control testBox" %>
+
+                        <%= f.text_field :description, :placeholder=>"Description", :class=>"form-control testBox" %>
+
+                        <%= f.text_field :location, :placeholder=>"Street Address or Neighbourhood Name", :class=>"form-control testBox" %>
+
+                        <%= f.text_field :image, :placeholder=>"Image (url)", :class=>"form-control testBox" %>
+
+                        <%= f.submit :class=>"btn btn-info food-btn", :value=>"Create Post" %>
+
+                      </div><!-- /row -->
+                    </form>
+                  </div><!-- /panel-body -->
+                </div><!-- /panel -->
+              </div><!-- /col-sm-12 col-md-12 -->
+            </div><!-- /row -->
+
+          </div><!-- /modal-body -->
+        </div><!-- /modal-content -->
+      </div><!-- /modal-dialog -->
+
+<% end %>
