@@ -3,5 +3,6 @@
  <div class="rating-stars"><%(1..((Rating.where(rateable_id: @user).average(:rating)).to_i)).each do |i| %>
     <%= fa_icon 'star' %>
   <% end %>
+  <p>Based on <%= (Rating.where(rateable_id: @user).count(:rating)) %> reviews</p>
   </div>
 <% end %>

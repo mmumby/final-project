@@ -48,6 +48,7 @@
                 <%= link_to "#{(User.find(chatroom.client_id)).name}", controller: :chatrooms, action: :show, id: chatroom.id, remote: true %>
                   <%= image_tag "#{(User.find(chatroom.client_id)).image}", class: "img-circle friend-image" %>
                     <div>
+
                     </div>
               </li>
               <% else %>
@@ -55,6 +56,7 @@
                 <%= link_to "#{(User.find(chatroom.owner_id)).name}", controller: :chatrooms, action: :show, id: chatroom.id, remote:  true %>
                   <%= image_tag "#{(User.find(chatroom.owner_id)).image}", class: "img-circle friend-image" %>
                     <div>
+
                     </div>
               </li>
       <% end %>
