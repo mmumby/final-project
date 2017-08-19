@@ -1,6 +1,8 @@
- <% if @posts.count == 0 %>
-    <p> This category doesn't have any posts at the moment. </p>
-  <% else %>
+<% if @posts.count == 0 %>
+  <div class="empty-post-container">
+   <strong><p> This category doesn't have any posts at the moment.</p></strong>
+  </div>
+<% else %>
 <% @posts.each do |post| %>
 <div class="container">
 <%= render 'status', post: post %>

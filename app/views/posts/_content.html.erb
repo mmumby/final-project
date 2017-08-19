@@ -1,6 +1,5 @@
 <ul class="nav nav-tabs">
   <li class="active"><a data-toggle="tab" href="#home">About</a></li>
-  <li><a data-toggle="tab" href="#menu1">Comment</a></li>
   <li> <p id="notice"><%= notice %></p> </li>
 </ul>
 
@@ -17,18 +16,20 @@
     </p>
     <%= link_to 'Edit', edit_post_path(@post) %> |
     <%= link_to 'Back', posts_path %>
+
   </div>
   <div id="menu1" class="tab-pane fade">
     <div class="modal-dialog form-overlay">
+
       <div class="modal-content">
         <div class="modal-header">
           <%= render 'comments/form' %>
         </div>
-      <div class=" food-comment">
-        <div>
-          <%= render 'comments/comments' %>
+        <div class=" food-comment">
+          <div>
+            <%= render 'comments/comments' %>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
