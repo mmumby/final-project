@@ -17,29 +17,23 @@
               <div class="panel ">
                 <div class="panel-body">
                   <form accept-charset="UTF-8" action="" method="POST">
-                    <div class="reg-row row" >
+                    <div class="row" >
 
-                      <%= f.email_field :email, autofocus: true, :placeholder=>"Email", :class=>"form-control testBox reg-email"  %>
+                      <%= f.text_field :name, autofocus: true, :placeholder=>"Name", :class=>"form-control testBox" %>
 
-                      <div class="col-lg-6">
-                        <%= f.password_field :password, autocomplete: "off",  :placeholder=>"Password", :class=>"form-control testBox" %>
-                        <% if @minimum_password_length %>
-                          <em>(<%= @minimum_password_length %> characters minimum)</em>
-                        <% end %><br />
-                      </div>
+                      <%= f.email_field :email, :placeholder=>"Email", :class=>"form-control testBox"  %>
 
-                      <div class="col-lg-6">
-                        <%= f.password_field :password_confirmation, autocomplete: "off",  :placeholder=>"Password", :class=>"form-control testBox" %>
-                      </div>
+                      <%= f.password_field :password, autocomplete: "off",  :placeholder=>"Password (6 characters minimum)", :class=>"form-control testBox" %>
 
-                    </div><!-- /row -->
+                      <%= f.password_field :password_confirmation, autocomplete: "off",  :placeholder=>"Password Confirmation", :class=>"form-control testBox" %>
 
-                      <%= f.submit :class=>"btn btn-info sign-up-btn", :value=>"Sign up" %>
+                      <%= f.submit :class=>"btn btn-info food-btn", :value=>"Sign up" %>
 
                       <div>
                         <%= render "devise/shared/links" %>
                       </div>
 
+                    </div><!-- /row -->
                   </form>
                 </div><!-- /panel-body -->
               </div><!-- /panel -->
@@ -49,8 +43,5 @@
         </div><!-- /modal-body -->
       </div><!-- /panel-content -->
     </div><!-- /modal-dialog -->
-
-
-
 
 <% end %>
