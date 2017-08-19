@@ -1,10 +1,13 @@
 <!-- current_user = logged in user -->
 <% if current_user != @user %>
-<h4> Rate your experience with <%= @user.name %>!</h4>
-<%= form_for :rating, url: "/users/#{@user.id}/ratings", method: 'POST' do |form| %>
-  <div class="form-group">
-    <%= form.label :rating %>
-    <%= form.select :rating,[[1], [2], [3], [4], [5]], {}, :onchange=>"this.form.submit()" %>
-    <% end %>
-    </div>
+  <div class="user-rating">
+    <h4> Rate your experience with <%= @user.name %>!</h4>
+    <%= form_for :rating, url: "/users/#{@user.id}/ratings", method: 'POST' do |form| %>
+      <div class="form-group">
+        <%= form.label :rating %>
+        <%= form.select :rating,[[1], [2], [3], [4], [5]], {}, :onchange=>"this.form.submit()" %>
+        <% end %>
+      </div>
+  </div>
+    <h4 class="thank-you-message"> Thank you for rating <%= @user.name %>!</h4>
 <% end %>
