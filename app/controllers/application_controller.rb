@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   # Change this to redirect user after Authorization
   def after_sign_in_path_for(resource)
-    posts_url
+    "/posts?order=available"
   end
 
   def configure_permitted_parameters
