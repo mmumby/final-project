@@ -5,16 +5,23 @@
 
 <div class="tab-content">
   <div id="home" class="tab-pane fade in active">
-  <p>
-    <strong>Description:</strong>
-    <%= @post.description %>
-  </p>
-  <p>
-    <strong>Image:</strong>
-    <%= @post.image %>
-  </p>
-  <%= link_to 'Edit', edit_post_path(@post) %> |
-  <%= link_to 'Back', posts_path %>
+
+
+<div class="row">
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <%= image_tag @post.image %>
+      <div class="caption">
+
+        <p><%= @post.description %></p>
+        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <%= button_to 'Edit', edit_post_path(@post) %> |
+  <%= button_to 'Back', posts_path %>
     <div class="modal-dialog form-overlay">
       <div class="modal-content">
         <div class="modal-header">
