@@ -19,7 +19,7 @@
 }
 
 .forgot {
-  float:right;
+
 }
 
 .log-btn {
@@ -27,10 +27,17 @@
 }
 .login-container {
   display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.login-container>div {
-  flex: 1;
+.login-checkbox {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0px;
 }
 
 .remember-me {
@@ -38,6 +45,14 @@
   padding-left: 10px;
 }
 
-.password-forgot {
-  padding-top: 10px;
+.remember-me > label {
+  margin-bottom: 0px;
+}
+
+.forgot-password {
+  margin-top: 1px;
+}
+
+.newhere {
+  margin-top: 5px;
 }
