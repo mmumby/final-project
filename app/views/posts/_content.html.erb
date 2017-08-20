@@ -1,17 +1,17 @@
 <ul class="nav nav-tabs">
   <li class="active"><a data-toggle="tab" href="#home">About</a></li>
 <li> <p id="notice"><%= notice %></p> </li>
+<%= link_to 'Back', posts_path, class: 'btn btn-default pull-right' %>
 </ul>
 
 <div class="tab-content">
   <div id="home" class="tab-pane fade in active">
 
-<div class="container">
-  <div class="row vdivide">
+<div id="post-container" class="container">
+  <div id="post-row" class="row vdivide">
     <div class="col-sm-6 text-center">
       <div class="modal-dialog">
         <div class="modal-content">
-          <div class="row">
               <div class="thumbnail">
                 <%= image_tag @post.image %>
                   <p><%= @post.description %></p>
@@ -22,10 +22,10 @@
               </div>
             </div>
           </div>
-        </div>
       </div>
+
     <div class="col-sm-6 text-center">
-       <div class="modal-dialog form-overlay">
+       <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
           <%= render 'comments/form' %>
@@ -43,5 +43,5 @@
   </div>
 </div>
 
-  <%= link_to 'Back', posts_path, class: 'btn btn-default' %>
+
 
