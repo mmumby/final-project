@@ -1,6 +1,5 @@
 $('#inbox').empty();
 
-console.log('...');
 $.when($('#inbox').prepend("<%= escape_javascript(render :partial => 'messagebar', locals: {message: @message, chatroom: @chatroom}) %>")).then(function() {
   $('#message_content').keydown(function(event) {
     if (event.keyCode == 13) {
@@ -15,14 +14,12 @@ $.when($('#inbox').prepend("<%= escape_javascript(render :partial => 'messagebar
   });
 });
 
-console.log('....');
 if (!App['room' + <%=@chatroom.id%>]) {
   App['room' + <%=@chatroom.id%>] = App.cable.subscriptions.create({channel: 'MessagesChannel', room: <%= @chatroom.id%>}, {
      received: function(data) {
-      console.log(data.message);
       var $messages = $('.message-container');
       $("[data-chatroom='" + this.chatroomId + "']").removeClass('hidden')
-      $("#notif").append(data.notification);
+      $('#notification-badge').append(data.notification);
       $("[data-chatroom='" + this.chatroomId + "']").append(data.message);
       $('chat-img').css({
         'width': '45px',
