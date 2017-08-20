@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-
   resources :claims, only: [:create]
 
   root to: 'welcome#index'
