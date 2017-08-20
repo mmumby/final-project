@@ -25,3 +25,19 @@
 .log-btn {
   text-align: center;
 }
+.login-container {
+  display: flex;
+}
+
+.login-container>div {
+  flex: 1;
+}
+
+.remember-me {
+  vertical-align: middle;
+  padding-left: 10px;
+}
+
+.password-forgot {
+  padding-top: 10px;
+}

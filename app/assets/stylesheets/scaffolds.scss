@@ -49,21 +49,42 @@ div {
 
 #notice {
   color: green;
+  text-align: center;
+
+  margin: 0 auto;
+  color: #fff;
+  background-color: rgba(92, 184, 92, 0.77);
+  border-color: #4cae4c;
+  text-align: center;
+  display: block;
+  width: 30%;
+  height: auto;
+  padding: 6px 12px;
+  line-height: 1;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  font-size: 14px;
+  /* remove width and border-radius to make a bar going across screen */
 }
 
 .field_with_errors {
   padding: 2px;
   background-color: red;
   display: table;
+  margin-bottom: 10px;
 }
 
 #error_explanation {
   width: 450px;
   border: 2px solid red;
   padding: 7px;
-  padding-bottom: 0;
-  margin-bottom: 20px;
+  padding-bottom: 0px;
+  margin: 70px auto 0px;
   background-color: #f0f0f0;
+  border-radius: 6px;
 
   h2 {
     text-align: left;
@@ -74,6 +95,7 @@ div {
     margin-bottom: 0;
     background-color: #c00;
     color: #fff;
+    border-radius: 4px 4px 0 0;
   }
 
   ul li {
