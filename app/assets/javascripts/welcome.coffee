@@ -2,10 +2,3 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-$(window).scroll ->
-  if $(window).scrollTop() >= 450
-    $('.navbar').css "background-image", "url('/images/wood.png')"
-  else
-    $('.navbar').css 'background', 'transparent'
-  return
-return
