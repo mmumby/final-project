@@ -25,6 +25,8 @@
 
 #navMain {
   padding: 0px 20px 0px 20px;
+  z-index: 8;
+  position: relative;
 }
 
 .navbar-right {
@@ -49,5 +51,12 @@ ul.dropdown-menu {
     background-color: white;
 }
 
-
+.nav-bar-image {
+  background-size: cover;
+  background-image: url("/images/wood.png");
+  width: 100%;
+  position: fixed;
+  z-index: 4;
+  height: 60px;
+}
 
