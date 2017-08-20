@@ -9,15 +9,30 @@ class ClaimsController < ApplicationController
     if @claim.save && @comment.save
         @owner = User.find(@claim.user_id)
         @client = User.find(@claim.claimer_id)
-        @chatroom = Chatroom.new(topic: "Ticket: #{@claim.post_id}", claim_id: @claim.id, owner_id: @owner.id, client_id: @client.id)
-        if @chatroom.save
-          @message = Message.new(content: "#{@client.name} is interested in your post!", user_id: @client.id, recipient_id: @owner.id, chatroom_id: @chatroom.id)
-        end
-        if @message.save
+        if chatroom_exists?(@owner, @client)
           redirect_to "/posts/#{@post_id}"
+        else
+          puts 'hey'
+        @chatroom = Chatroom.new(topic: "Ticket: #{@claim.post_id}", claim_id: @claim.id, owner_id: @owner.id, client_id: @client.id)
+          if @chatroom.save
+            @message = Message.new(content: "#{@client.name} is interested in your post!", user_id: @client.id, recipient_id: @owner.id, chatroom_id: @chatroom.id)
+            if @message.save
+              redirect_to "/posts/#{@post_id}"
+            end
+          end
         end
     else
       redirect_back
+    end
+  end
+
+  def chatroom_exists?(owner, client)
+    if Chatroom.exists?(owner_id: ["#{owner.id}", "#{client.id}"]) || Chatroom.exists?(client_id: ["#{owner.id}", "#{client.id}"])
+      puts 'true'
+      true
+    else
+      puts 'false'
+      false
     end
   end
 
