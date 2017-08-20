@@ -4,19 +4,7 @@
 <%= link_to 'Back', posts_path, class: 'btn btn-default pull-right' %>
 </ul>
 
-<div class="tab-content">
-  <div id="home" class="tab-pane fade in active">
-  <p>
-    <strong>Description:</strong>
-    <%= @post.description %>
-  </p>
-  <p>
-    <strong>Image:</strong>
-    <%= @post.image %>
-  </p>
-  <%= link_to 'Edit', edit_post_path(@post) %>
-  <%= link_to 'Back', posts_path %>
-    <div class="modal-dialog form-overlay">
+
 
 <div id="post-container" class="container">
   <div id="post-row" class="row vdivide">
@@ -34,25 +22,23 @@
             </div>
           </div>
       </div>
-
-    <div class="col-sm-6 text-center">
-       <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <%= render 'comments/form' %>
-        </div>
-        <div class=" food-comment">
-          <div>
-            <%= render 'comments/comments' %>
+      <div class="col-sm-6 text-center">
+         <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <%= render 'comments/form' %>
+          </div>
+          <div class=" food-comment">
+            <div>
+              <%= render 'comments/comments' %>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-    </div>
-  </div>
-</div>
+
 
 
 
