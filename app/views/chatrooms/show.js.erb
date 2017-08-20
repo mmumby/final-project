@@ -22,6 +22,9 @@ if (!App['room' + <%=@chatroom.id%>]) {
       if (data.notification) {
         $('#notification').detach();
         $('#notification-badge').append(data.notification);
+        $('#notification-badge').on('click', function() {
+          $("#notification").detach();
+        });
       }
       $("[data-chatroom='" + this.chatroomId + "']").append(data.message);
       $('chat-img').css({

@@ -8,6 +8,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:facebook, :twitter]
 
+  before_create :default_image
+
   def self.find_for_oauth(auth)
     user = User.where(uid: auth.uid, provider: auth.provider).first
 
@@ -15,6 +17,7 @@ class User < ApplicationRecord
       name = auth.extra.raw_info.name if auth.provider == 'facebook'
       name = auth.info.nickname if auth.provider == 'twitter'
       image = auth.info.image
+
       user = User.create(
         name:     name,
         image:    image,
@@ -24,11 +27,11 @@ class User < ApplicationRecord
         password: Devise.friendly_token[0, 20]
       )
     end
-
-    if user.image.empty?
-      user.image = "/images/default_profile_normal.png"
-    end
     user
+  end
+
+  def default_image
+    self.image ||= "/images/default_profile_normal.png"
   end
 
   def self.new_with_session(params, session)
