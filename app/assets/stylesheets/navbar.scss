@@ -3,9 +3,24 @@
   font-family: 'Pacifico', cursive;
   font-size: 2em;
   color: white;
-  font-weight: lighter;
-  padding: 10px;
+  width: 100%;
+  display: inline-block;
   text-align: center;
+  padding: 10px;
+  list-style: none;
+  margin-left: 0px;
+  }
+
+.navbar-brand {
+  float: none;
+}
+
+#navbar-header:before{
+  content: "•";
+}
+
+#navbar-header:after{
+  content: "•";
 }
 
 #navMain {
