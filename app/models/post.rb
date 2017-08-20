@@ -4,7 +4,7 @@ class Post < ApplicationRecord
   has_many :comments, as: :commentable
 
   validates :category, presence: true
-  validates :description, length: { in: 40..280,
+  validates :description, length: { in: 10..280,
     too_long: "%{count} character is the maximum allowed",
     too_short: "%{count} character is the minimum required" }
   validates :title, presence: true, length: { maximum: 40,

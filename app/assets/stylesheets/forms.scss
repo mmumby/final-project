@@ -2,12 +2,6 @@
   padding-top: 50px;
 }
 
-.food-btn {
-  color: #fff;
-  background-color: #5bc0de;
-  border-color: #46b8da;
-}
-
 .panel {
   margin-bottom: 0px;
 }
@@ -25,9 +19,40 @@
 }
 
 .forgot {
-  float:right;
+
 }
 
 .log-btn {
   text-align: center;
+}
+.login-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.login-checkbox {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0px;
+}
+
+.remember-me {
+  vertical-align: middle;
+  padding-left: 10px;
+}
+
+.remember-me > label {
+  margin-bottom: 0px;
+}
+
+.forgot-password {
+  margin-top: 1px;
+}
+
+.newhere {
+  margin-top: 5px;
 }
