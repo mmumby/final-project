@@ -1,38 +1,44 @@
 <ul class="nav nav-tabs">
   <li class="active"><a data-toggle="tab" href="#home">About</a></li>
 <li> <p id="notice"><%= notice %></p> </li>
+<%= link_to 'Back', posts_path, class: 'btn btn-default pull-right' %>
 </ul>
 
-<div class="tab-content">
-  <div id="home" class="tab-pane fade in active">
 
 
-<div class="row">
-  <div class="col-sm-6 col-md-4">
-    <div class="thumbnail">
-      <%= image_tag @post.image %>
-      <div class="caption">
-
-        <p><%= @post.description %></p>
-        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+<div id="post-container" class="container">
+  <div id="post-row" class="row vdivide">
+    <div class="col-sm-6 text-center">
+      <div class="modal-dialog">
+        <div class="modal-content">
+              <div class="thumbnail">
+                <%= image_tag @post.image %>
+                  <p><%= @post.description %></p>
+                  <% if current_user == @post.user %>
+                  <%= link_to 'Edit', edit_post_path(@post), class: 'btn btn-primary'  %>
+                  <%= link_to 'Delete', post_path, class: 'btn btn-danger' %>
+                  <% end %>
+              </div>
+            </div>
+          </div>
       </div>
-    </div>
-  </div>
-</div>
-
-  <%= button_to 'Edit', edit_post_path(@post) %> |
-  <%= button_to 'Back', posts_path %>
-    <div class="modal-dialog form-overlay">
-      <div class="modal-content">
-        <div class="modal-header">
-          <%= render 'comments/form' %>
-        </div>
-        <div class=" food-comment">
-          <div>
-            <%= render 'comments/comments' %>
+      <div class="col-sm-6 text-center">
+         <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <%= render 'comments/form' %>
+          </div>
+          <div class=" food-comment">
+            <div>
+              <%= render 'comments/comments' %>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+
+
+

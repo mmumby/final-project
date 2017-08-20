@@ -40,7 +40,7 @@
       </span>
       <li>|</li>
       <li>
-      <%= button_to "Interested!", controller: :claims, method: :post, action: :create, data: { post_id: post.id, claimer_id: current_user.id, user_id: post.user_id}%>
+      <%= button_to "Interested!", class: 'btn btn-primary', controller: :claims, method: :post, action: :create, data: { post_id: post.id, claimer_id: current_user.id, user_id: post.user_id}%>
       </li>
       <li>
       <%= render 'taken', post: post %>
