@@ -32,6 +32,8 @@
 
 #post-header {
     background-image: url("/images/wood.png");
+    position: relative;
+    z-index: 6;
 }
 .profile-header {
     background-image: url("/images/plate-rotated.png");
@@ -41,8 +43,8 @@
     height: 450px;
     left: 0;
     top: 0;
-    width: 100%;
-    z-index: 1;
+    position: relative;
+    z-index: 6
 }
 
 .name {
