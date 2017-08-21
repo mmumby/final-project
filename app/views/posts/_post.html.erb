@@ -40,18 +40,20 @@
     <li>|</li>
     <li><span><i class="glyphicon glyphicon-calendar"></i><%= post.created_at.to_formatted_s(:long) %></span></li>
       <% if post.comments.count > 0 %>
-      <li>|</li>
-      <span class="comment-link" onclick="window.location='/posts/<%= post.id %>'"><i class="glyphicon glyphicon-comment"></i>
-      <%= pluralize(post.comments.count, 'Comment') %>
+        <li>|</li>
+        <span class="comment-link" onclick="window.location='/posts/<%= post.id %>'"><i class="glyphicon glyphicon-comment"></i>
+          <%= pluralize(post.comments.count, 'Comment') %>
       <% end %>
-      </span>
+        </span>
       <li>|</li>
       <li>
-      <%= button_to "Interested!", class: 'btn btn-primary', controller: :claims, method: :post, action: :create, data: { post_id: post.id, claimer_id: current_user.id, user_id: post.user_id}%>
+        <%= button_to "Interested!", class: 'btn btn-primary', controller: :claims, method: :post, action: :create, data: { post_id: post.id, claimer_id: current_user.id, user_id: post.user_id}%>
       </li>
-      <li> <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#post_view"><i class="fa fa-search"></i> Quick View</button> </li>
       <li>
-      <%= render 'taken', post: post %>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#post_view"><i class="fa fa-search"></i> Quick View</button>
+      </li>
+      <li>
+        <%= render 'taken', post: post %>
       </li>
     </ul>
 
@@ -64,8 +66,12 @@
                 <a href="#" data-remove="modal" class="class pull-right"><span class="glyphicon glyphicon-remove"></span></a>
 <div class="profile-container">
   <div id="post-header" class="profile-header">
-    <div class="map-container col-sm-12 col-md-12 text-center post-map">
-        <%= map_for_object post %>
+    <div class="container">
+      <div class="row">
+        <div class="map-container col-sm-12 col-md-12 text-center post-map" id="quick-view">
+          <%= map_for_object post, height: 420, width: 500 %>
+        </div>
+      </div>
     </div>
   </div>
 <br>

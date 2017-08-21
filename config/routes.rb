@@ -15,7 +15,11 @@ Rails.application.routes.draw do
   end
   resources :welcome, only: [:index]
 
-  resources :chatrooms
+  resources :chatrooms do
+    collection do
+      post :new_chat
+    end
+  end
 
   resources :messages
 
