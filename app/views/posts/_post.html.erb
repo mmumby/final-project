@@ -26,9 +26,9 @@
     <li>
     <%= link_to controller: :users, action: :show, id: post.user.id do %>
       <% if post.user.image %>
-      <%= image_tag post.user.image, :class =>"img img-circle" %>
+      <%= image_tag post.user.image, :class =>"img img-circle img-default" %>
       <% else %>
-      <img class="img img-circle" src="/images/default_profile_normal.png" alt="FoodFeed">
+      <img class="img img-circle img-default" src="/images/default_profile_normal.png" alt="FoodFeed">
       <% end %>
       <%= post.user.name %>
     <% end %>
