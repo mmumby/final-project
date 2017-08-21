@@ -21,3 +21,4 @@
 //= require posts
 //= require welcome
 //= require rating
+//= require comments

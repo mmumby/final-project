@@ -4,3 +4,17 @@
 
 
 //= require welcome
+
+$(document).ready ->
+  maxCount = 320
+  $('textarea').on 'keydown', ->
+    currentValue = maxCount - (@value.length)
+    countDown = @value.length
+    if countDown >= maxCount
+      $(this).parent().children('#counter').addClass 'counter-negative'
+      $(this).parent().children('#counter').text currentValue
+    else if countDown < maxCount
+      $(this).parent().children('#counter').removeClass 'counter-negative'
+      $(this).parent().children('#counter').text currentValue
+    return
+  return

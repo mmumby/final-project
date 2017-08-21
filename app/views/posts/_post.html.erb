@@ -33,6 +33,10 @@
       <%= post.user.name %>
     <% end %>
     </li>
+    <li><div class="rating-stars"><%(1..((Rating.where(rateable_id: post.user).average(:rating)).to_i)).each do |i| %>
+    <%= fa_icon 'star' %>
+    <% end %>
+    </li>
     <li>|</li>
     <li><span><i class="glyphicon glyphicon-calendar"></i><%= post.created_at.to_formatted_s(:long) %></span></li>
       <% if post.comments.count > 0 %>
@@ -45,12 +49,36 @@
       <li>
       <%= button_to "Interested!", class: 'btn btn-primary', controller: :claims, method: :post, action: :create, data: { post_id: post.id, claimer_id: current_user.id, user_id: post.user_id}%>
       </li>
+      <li> <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#post_view"><i class="fa fa-search"></i> Quick View</button> </li>
       <li>
       <%= render 'taken', post: post %>
       </li>
     </ul>
-  </div>
+
+
+
+<div class="modal fade product_view" id="post_view">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <a href="#" data-remove="modal" class="class pull-right"><span class="glyphicon glyphicon-remove"></span></a>
+              <%= map_for_object post %>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-6 product_img">
+                      <%= image_tag post.image, class: "medit-object card-image post-image", id: "post-image-view" %>
+                      <%= post.description %>
+                    </div>
+                    <div class="col-md-6 product_content">
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
 </div>
-<% end %>
+</div>
+    <% end %>
 <% end %>
 

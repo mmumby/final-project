@@ -20,8 +20,6 @@ class PostsController < ApplicationController
     @post = Post.new
     @category = Category.all
 
-
-
   end
 
   def view_all
