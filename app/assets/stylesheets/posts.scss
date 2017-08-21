@@ -1,6 +1,18 @@
 // Place all the styles related to the Posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.cross {
+  color: white;
+}
+.post-title-popup {
+  color: white;
+  width: 100%;
+}
+.post-description-popup {
+  color: white;
+}
+
 #post-header {
   height: 500px;
 }
