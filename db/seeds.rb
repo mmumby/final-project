@@ -26,9 +26,10 @@ puts "Re-creating user"
 User.destroy_all
 
 User.create!({
-  name: 'John Doe',
+  name: 'Steven Seagal',
   email: 'john@doe.com',
-  password: '123456'
+  password: '123456',
+  image: "https://i.ytimg.com/vi/8aIrVea9410/0.jpg"
   })
 
 
@@ -49,7 +50,7 @@ Post.destroy_all
 cat1.posts.create!({
   title: "Leftover Pizza",
   description: "3 pizzas that never got picked up. 1 Cheese, 1 Hawaiian, 1 Vegetarian. Get em' while they're still warm!",
-  image: "http://i.imgur.com/ToFylpO.jpg",
+  image: "http://i.imgur.com/ru9uyCd.jpg",
   user_id: 1,
   location: "Oreganos Fairfield"
   })
@@ -57,7 +58,7 @@ cat1.posts.create!({
 cat1.posts.create!({
   title: "Baked Potatoes",
   description: "2 dozen baked potatoes left over from the dinner rush.",
-  image: "http://i.imgur.com/Ay8s20X.jpg",
+  image: "http://i.imgur.com/CzRqSa7.jpg",
   user_id: 1,
   location: "The Keg"
   })
@@ -65,15 +66,15 @@ cat1.posts.create!({
 cat2.posts.create!({
   title: "Plums Galore!",
   description: "Too many plums, too little time to eat them all! Help yourself! Eat em' fresh or make some delicious jam!",
-  image: "http://i.imgur.com/CW5GHuv.jpg",
+  image: "http://i.imgur.com/0tjXtQt.jpg",
   user_id: 1,
   location: "145 wilson street, victoria"
   })
 
 cat2.posts.create!({
-  title: "Carrots, Beets & Potatoes",
+  title: "Carrots, Beets, Onions & Potatoes",
   description: "Garden was good to us this year and as a result we have an abundance of veggies! All grown organically with love!",
-  image: "http://i.imgur.com/feYPs6R.jpg",
+  image: "http://4.bp.blogspot.com/--jn-tHZPU_E/TixaUD5zlTI/AAAAAAAAHwg/vCPhalBOkMc/s1600/rhubarbROASTveg+042.JPG",
   user_id: 1,
   location: "5147 Del Monte Ave"
   })
@@ -81,15 +82,15 @@ cat2.posts.create!({
 cat3.posts.create!({
   title: "Blackberry Bush",
   description: "Ginormous bush along the galloping goose. Blackberry season is here!!",
-  image: "http://i.imgur.com/Wy94Tt7.jpg",
+  image: "http://i.imgur.com/BkvjrXS.jpg",
   user_id: 1,
-  location: "clover point park"
+  location: "Goldstream Park"
   })
 
 cat3.posts.create!({
   title: "Wild Apples",
   description: "Lots still left to pick with a lot on the ground too that could be used for cider! Enjoy!",
-  image: "http://i.imgur.com/jeJ3tYO.jpg",
+  image: "http://genuineaid.com/wp-content/uploads/crabapples-malus-crab-apples-wild-apples.jpg",
   user_id: 1,
   location: "Elk Lake"
   })
@@ -97,7 +98,7 @@ cat3.posts.create!({
 cat4.posts.create!({
   title: "Dozens of Eggs",
   description: "We can't sell them anymore but they're still good to eat! Would hate to see them all go to waste. Located around the back of the store. Thrifty Foods",
-  image: "http://i.imgur.com/4KGVioH.jpg",
+  image: "https://t3.ftcdn.net/jpg/00/96/08/02/240_F_96080213_O4lFaFwXmHxVMeehx43S4VAdoj7MGqpU.jpg",
   user_id: 1,
   location: "Thrifty Foods James Bay"
   })
@@ -105,25 +106,25 @@ cat4.posts.create!({
 cat4.posts.create!({
   title: "Assorted Baked Goods",
   description: "Big bag of day old bread, muffins, cookies, and croissants! Located around the back of the store @ Wildfire Bakery",
-  image: "http://i.imgur.com/ZgjA8QQ.jpg",
+  image: "https://www.myfrugalhome.com/wp-content/uploads/2014/05/freebread590.jpg",
   user_id: 1,
   location: "Wildfire Bakery"
   })
 
 cat5.posts.create!({
   title: "Canned Goods",
-  description: "Large variety of canned goods. Beans, soups, vegetables, and tuna. Feel free to stop by, we're open Monday to Friday from 9 - 5 @ The Mustard Seed",
-  image: "http://i.imgur.com/LU0r5dG.jpg",
+  description: "Pickles, beets, corn + assorted fruits & jams.",
+  image: "https://media.mnn.com/assets/images/2015/08/canned-vegetables-pantry-shelf.jpg.838x0_q80.jpg",
   user_id: 1,
   location: "Mustard Seed"
   })
 
 cat5.posts.create!({
   title: "Food Hampers",
-  description: "Turnip greens yarrow ricebean rutabaga endive cauliflower sea lettuce kohlrabi amaranth water spinach avocado daikon napa cabbage asparagus winter purslane kale.",
-  image: "http://i.imgur.com/LU0r5dG.jpg",
+  description: "Food hampers full of pasta, rice, canned goods, and treats.",
+  image: "http://teachers.wrdsb.ca/eslresources/files/2015/04/food-bank.jpg",
   user_id: 1,
-  location: "rock bay, victoria"
+  location: "Rock Bay"
   })
 
 
