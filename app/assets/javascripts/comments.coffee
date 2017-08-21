@@ -5,7 +5,7 @@
 
 //= require welcome
 
-$(document).ready ->
+$(document).on 'turbolinks:load', ->
   maxCount = 320
   $('textarea').on 'keydown', ->
     currentValue = maxCount - (@value.length)

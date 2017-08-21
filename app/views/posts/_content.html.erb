@@ -12,7 +12,9 @@
       <div class="modal-dialog">
         <div class="modal-content">
               <div class="thumbnail">
+              <% unless @post.image.blank? %>
                 <%= image_tag @post.image %>
+                <% end %>
                   <p><%= @post.description %></p>
                   <% if current_user == @post.user %>
                   <%= link_to 'Edit', edit_post_path(@post), class: 'btn btn-primary'  %>
@@ -23,19 +25,20 @@
           </div>
       </div>
       <div class="col-sm-6 text-center">
-         <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <%= render 'comments/form' %>
-          </div>
-          <div class=" food-comment">
-            <div>
-              <%= render 'comments/comments' %>
+         <div id="login-overlay" class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">Leave a Comment</h4>
+                <%= render 'comments/form' %>
+              </div>
+              <div class=" food-comment">
+                <div>
+                  <%= render 'comments/comments' %>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
       </div>
-    </div>
   </div>
 </div>
 

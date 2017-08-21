@@ -5,6 +5,9 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
+    @commentable = @post
+    @comments = @commentable.comments
+    @comment = Comment.new
     if params[:order] == 'available'
        @posts = Post.where( :taken => false ).where('expiration > ?', Time.now)
     else
