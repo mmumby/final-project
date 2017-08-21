@@ -17,7 +17,7 @@
   padding: 10px;
   list-style: none;
   margin-left: 0px;
-  }
+}
 
 .navbar-brand {
   float: none;
@@ -33,7 +33,6 @@
 
 #navMain {
   padding: 0px 20px 0px 20px;
-  z-index: 8;
   position: relative;
 }
 
@@ -42,21 +41,21 @@
 }
 
 .img-circle {
-    border-radius: 50%;
+  border-radius: 50%;
 }
 
 .opaque-navbar {
-    background-color: transparent;
-    height: 60px;
-    border-bottom: 0px;
+  background-color: transparent;
+  height: 60px;
+  border-bottom: 0px;
 }
 
 .opaque-navbar.opaque {
-    height: 60px;
+  height: 60px;
 }
 
 ul.dropdown-menu {
-    background-color: white;
+  background-color: white;
 }
 
 .nav-bar-image {
@@ -64,8 +63,8 @@ ul.dropdown-menu {
   background-image: url("/images/wood.png");
   width: 100%;
   position: fixed;
-  z-index: 4;
   height: 60px;
+  z-index: 4;
 }
 
 .nav-container {
@@ -82,6 +81,7 @@ ul.dropdown-menu {
 
 .profile-div {
   float: right;
+
 }
 
 .nav-text > a {

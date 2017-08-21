@@ -6,9 +6,9 @@
 //= require welcome
 
 $(document).on 'turbolinks:load', ->
-  maxCount = 320
-  $('textarea').on 'keydown', ->
-    currentValue = maxCount - (@value.length)
+  maxCount = 140
+  $('textarea').on 'keyup', ->
+    currentValue = maxCount - (@value.length) + " characters remaining"
     countDown = @value.length
     if countDown >= maxCount
       $(this).parent().children('#counter').addClass 'counter-negative'
