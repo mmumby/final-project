@@ -7,7 +7,7 @@
 
 $(document).on 'turbolinks:load', ->
   maxCount = 140
-  $('textarea').on 'keydown', ->
+  $('textarea').on 'keyup', ->
     currentValue = maxCount - (@value.length) + " characters remaining"
     countDown = @value.length
     if countDown >= maxCount

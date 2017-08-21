@@ -1,7 +1,7 @@
 <div id="comments">
   <% @comments.each do |comment| %>
     <div class="container">
-      <div class="row">
+      <div class="row comment-row">
         <div class="col-sm-1">
           <div class="thumbnail">
           <%= link_to controller: :users, action: :show, id: comment.user.id do %>
@@ -18,7 +18,7 @@
             <% end %>
               <span class="text-muted"><%= time_ago_in_words(comment.created_at) %> ago</span>
             </div>
-            <div class="panel-body">
+            <div class="panel-body comment-text">
               <%= simple_format comment.content %>
             </div><!-- /panel-body -->
           </div><!-- /panel panel-default -->
