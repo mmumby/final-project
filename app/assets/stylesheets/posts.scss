@@ -194,6 +194,35 @@
   padding-top: 70px;
 }
 
-.map-post {
+.card-flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 19px;
+}
+
+.post-image {
+  border: 1px solid #e3e3e3;
+  border-radius: 4px;
+}
+
+.post-map-small > img {
+  border: 1px solid #e3e3e3;
+  border-radius: 4px;
+}
+
+.post-map > img  {
+  border: 1px solid #999;
+  border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 6px;
+  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+}
+
+.post-text {
+  padding: 0px 19px;
+}
+
+.post-info {
+  margin-bottom: 0px;
 }

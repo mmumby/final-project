@@ -1,41 +1,51 @@
-<div class="navbar navbar-inverse navbar-fixed-top opaque-navbar">
-  <div class="navbar-header">
-      <a id="navbar-header" class="navbar-brand text-center center-block" href="/"> Lettuce Share </a>
-  </div>
-    <div class="collapse navbar-collapse" id="navMain">
-      <ul class="nav navbar-nav">
-        <% if !current_user %>
-          <li><a href="#about">About</a></li>
-          <li><a href="#faq">FAQ</a></li>
-        <% else %>
-          <li><a href="/posts?order=available">Home</a></li>
-      </ul>
-        <% end %>
-      <ul class="nav navbar-nav pull-right">
-      <% unless current_user %>
-      <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Login<span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><%= link_to "Login", user_session_path, method: :create %></li>
-            <li><%= link_to "Register", new_user_registration_path, method: :get %></li>
-          </ul>
-      <% else %>
+<div class="navbar navbar-inverse navbar-fixed-top opaque-navbar nav-container">
+
+    <div class="collapse navbar-collapse nav-container" id="navMain">
+
+      <div class="navigation-div">
+        <ul class="nav navbar-nav">
+          <% if !current_user %>
+            <li><a href="#about">About</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          <% else %>
+            <li class="nav-text"><a href="/posts?order=available">Home</a></li>
+          <% end %>
+        </ul>
+      </div><!-- /navigation-div -->
+
+      <div class="navbar-header">
+        <a id="navbar-header" class="text-center center-block" href="/"> Lettuce Share </a>
+      </div>
+
+      <div class="profile-div">
+        <ul class="nav navbar-nav pull-right">
+        <% unless current_user %>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.name %> <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><%= link_to "Profile", controller: :users, action: :show, id: current_user.id %></li>
-            <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
-          </ul>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Login<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><%= link_to "Login", user_session_path, method: :create %></li>
+              <li><%= link_to "Register", new_user_registration_path, method: :get %></li>
+            </ul>
         </li>
-        <%= link_to controller: :users, action: :show, id: current_user.id do %>
-        <%= image_tag current_user[:image] ? current_user[:image] : '', :class =>"img-circle"%>
+        <% else %>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.name %> <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><%= link_to "Profile", controller: :users, action: :show, id: current_user.id %></li>
+              <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+            </ul>
+          </li>
+          <%= link_to controller: :users, action: :show, id: current_user.id do %>
+          <%= image_tag current_user[:image] ? current_user[:image] : '', :class =>"img-circle"%>
+          <% end %>
         <% end %>
-      <% end %>
-      </ul>
+        </ul>
+      </div><!-- /profile-div -->
 
 
-    </div>
-</div>
+    </div><!-- /collapse navbar-collapse nav-container -->
 
-    <div class="nav-bar-image">
-    </div>
+</div><!-- /navbar navbar-inverse navbar-fixed-top opaque-navbar nav-container -->
+
+<div class="nav-bar-image"></div>
+
