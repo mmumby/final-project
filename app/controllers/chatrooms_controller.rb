@@ -62,7 +62,7 @@ class ChatroomsController < ApplicationController
   end
 
   def chatroom_exists?(owner, client)
-    if Chatroom.exists?(owner_id: ["#{owner.id}", "#{client.id}"]) || Chatroom.exists?(client_id: ["#{owner.id}", "#{client.id}"])
+    if Chatroom.where("owner_id = ? AND client_id = ?", "#{owner.id}", "#{client.id}").exists? || Chatroom.where("owner_id = ? AND client_id = ?", "#{client.id}", "#{owner.id}").exists?
       true
     else
       false
