@@ -60,3 +60,22 @@ ul.dropdown-menu {
   height: 60px;
 }
 
+.nav-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.navigation-div {
+  float: left;
+}
+
+.profile-div {
+  float: right;
+}
+
+.nav-text > a {
+  color: #ffffff;
+}
