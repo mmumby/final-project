@@ -50,9 +50,6 @@
         <%= button_to "Interested!", class: 'btn btn-primary', controller: :claims, method: :post, action: :create, data: { post_id: post.id, claimer_id: current_user.id, user_id: post.user_id}%>
       </li>
       <li>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#post_view"><i class="fa fa-search"></i> Quick View</button>
-      </li>
-      <li>
         <%= render 'taken', post: post %>
       </li>
     </ul>
