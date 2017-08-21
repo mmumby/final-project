@@ -2,10 +2,13 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :comments, as: :commentable
   has_many :ratings,  as: :rateable
+  has_many :messages, dependent: :destroy
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:facebook, :twitter]
+
+  before_create :default_image
 
   def self.find_for_oauth(auth)
     user = User.where(uid: auth.uid, provider: auth.provider).first
@@ -14,6 +17,7 @@ class User < ApplicationRecord
       name = auth.extra.raw_info.name if auth.provider == 'facebook'
       name = auth.info.nickname if auth.provider == 'twitter'
       image = auth.info.image
+
       user = User.create(
         name:     name,
         image:    image,
@@ -23,8 +27,11 @@ class User < ApplicationRecord
         password: Devise.friendly_token[0, 20]
       )
     end
-
     user
+  end
+
+  def default_image
+    self.image ||= "/images/default_profile_normal.png"
   end
 
   def self.new_with_session(params, session)
@@ -33,6 +40,10 @@ class User < ApplicationRecord
        user.email = data["email"] if user.email.blank?
      end
    end
+  end
+
+  def email_required?
+    true
   end
 
   private

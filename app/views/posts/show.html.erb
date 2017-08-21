@@ -1,24 +1,13 @@
-<p id="notice"><%= notice %></p>
+<div class="profile-container">
+  <div id="post-header" class="profile-header">
+    <div class="map-container col-sm-12 col-md-12 text-center post-map">
+      <%= map_for_object @post %>
+    </div>
+  </div>
+<br>
+<%= render 'content' %>
+</div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @post.description %>
-</p>
 
-<p>
-  <strong>Image:</strong>
-  <%= @post.image %>
-</p>
-
-<p>
-  <strong>Location:</strong>
-  <%= map_for_object @post %>
-</p>
-
-<h2>Comments</h2>
-<%= render 'comments/comments' %>
-<%= render 'comments/form' %>
-<%= link_to 'Chat', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
 
 

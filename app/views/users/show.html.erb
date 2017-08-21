@@ -7,11 +7,16 @@
           <% if @user.image %>
               <%= image_tag @user.image, :class =>"img img-circle"%>
             <% else %>
-            <img class="img img-circle img-default" src="/images/tomato.png" alt="FoodFeed">
+            <img class="img img-circle" src="/images/default_profile_normal.png" alt="FoodFeed">
             <% end %>
+
           </div>
-          <div class="name">
-              <h4><%= @user.name %></h4>
+          <div>
+            <%= render 'ratingvalue' %>
+            <div class="name">
+            <h3><%= @user.name %></h3>
+            </div>
+
           </div>
         </div>
       </div>

@@ -34,11 +34,11 @@ User.create!({
 
 # categories
 
-cat1 = Category.find_or_create_by! name: 'Left overs'
-cat2 = Category.find_or_create_by! name: 'Garden extras'
-cat3 = Category.find_or_create_by! name: 'Wild produce'
-cat4 = Category.find_or_create_by! name: 'Grocery store extras'
-cat5 = Category.find_or_create_by! name: 'Other'
+cat1 = Category.find_or_create_by! name: 'Left Overs'
+cat2 = Category.find_or_create_by! name: 'Garden Extras'
+cat3 = Category.find_or_create_by! name: 'Wild Produce'
+cat4 = Category.find_or_create_by! name: 'Grocery Store Extras'
+cat5 = Category.find_or_create_by! name: 'Food Bank'
 
 # posts
 
@@ -47,74 +47,83 @@ puts "Re-creating posts"
 Post.destroy_all
 
 cat1.posts.create!({
-  title: "Veggies es bonus vobis",
-  description: "Veggies es bonus vobis, proinde vos postulo essum magis kohlrabi welsh onion daikon amaranth tatsoi tomatillo melon azuki bean garlic.",
+  title: "Leftover Pizza",
+  description: "3 pizzas that never got picked up. 1 Cheese, 1 Hawaiian, 1 Vegetarian. Get em' while they're still warm!",
   image: "http://i.imgur.com/ToFylpO.jpg",
   user_id: 1,
-  location: "quadra and mckenzie"
+  location: "Oreganos Fairfield"
   })
 
 cat1.posts.create!({
-  title: "gumbo gourd",
-  description: "Gumbo beet greens corn soko endive gumbo gourd. Parsley shallot courgette tatsoi pea sprouts fava bean collard greens dandelion okra wakame tomato.",
+  title: "Baked Potatoes",
+  description: "2 dozen baked potatoes left over from the dinner rush.",
   image: "http://i.imgur.com/Ay8s20X.jpg",
   user_id: 1,
-  location: "838 fort, bc"
+  location: "The Keg"
   })
 
-cat1.posts.create!({
-  title: "greens yarrow ricebean",
-  description: "Turnip greens yarrow ricebean rutabaga endive cauliflower sea lettuce kohlrabi amaranth water spinach avocado daikon napa cabbage asparagus winter purslane kale.",
+cat2.posts.create!({
+  title: "Plums Galore!",
+  description: "Too many plums, too little time to eat them all! Help yourself! Eat em' fresh or make some delicious jam!",
   image: "http://i.imgur.com/CW5GHuv.jpg",
   user_id: 1,
   location: "145 wilson street, victoria"
   })
 
 cat2.posts.create!({
-  title: "Parsley shallot courgette",
-  description: "Veggies es bonus vobis, proinde vos postulo essum magis kohlrabi welsh onion daikon amaranth tatsoi tomatillo melon azuki bean garlic.",
+  title: "Carrots, Beets & Potatoes",
+  description: "Garden was good to us this year and as a result we have an abundance of veggies! All grown organically with love!",
   image: "http://i.imgur.com/feYPs6R.jpg",
   user_id: 1,
-  location: "fairmont empress hotel"
+  location: "5147 Del Monte Ave"
   })
 
-cat2.posts.create!({
-  title: "rutabaga endive",
-  description: "Gumbo beet greens corn soko endive gumbo gourd. Parsley shallot courgette tatsoi pea sprouts fava bean collard greens dandelion okra wakame tomato.",
+cat3.posts.create!({
+  title: "Blackberry Bush",
+  description: "Ginormous bush along the galloping goose. Blackberry season is here!!",
   image: "http://i.imgur.com/Wy94Tt7.jpg",
   user_id: 1,
   location: "clover point park"
   })
 
-cat2.posts.create!({
-  title: "icebean rutabaga",
-  description: "Turnip greens yarrow ricebean rutabaga endive cauliflower sea lettuce kohlrabi amaranth water spinach avocado daikon napa cabbage asparagus winter purslane kale.",
+cat3.posts.create!({
+  title: "Wild Apples",
+  description: "Lots still left to pick with a lot on the ground too that could be used for cider! Enjoy!",
   image: "http://i.imgur.com/jeJ3tYO.jpg",
   user_id: 1,
-  location: "pizzeria prima strada"
+  location: "Elk Lake"
   })
 
-cat3.posts.create!({
-  title: "essum magis kohlrabi",
-  description: "Veggies es bonus vobis, proinde vos postulo essum magis kohlrabi welsh onion daikon amaranth tatsoi tomatillo melon azuki bean garlic.",
+cat4.posts.create!({
+  title: "Dozens of Eggs",
+  description: "We can't sell them anymore but they're still good to eat! Would hate to see them all go to waste. Located around the back of the store. Thrifty Foods",
   image: "http://i.imgur.com/4KGVioH.jpg",
   user_id: 1,
-  location: "topaz park"
+  location: "Thrifty Foods James Bay"
   })
 
-cat3.posts.create!({
-  title: "greens corn",
-  description: "Gumbo beet greens corn soko endive gumbo gourd. Parsley shallot courgette tatsoi pea sprouts fava bean collard greens dandelion okra wakame tomato.",
+cat4.posts.create!({
+  title: "Assorted Baked Goods",
+  description: "Big bag of day old bread, muffins, cookies, and croissants! Located around the back of the store @ Wildfire Bakery",
   image: "http://i.imgur.com/ZgjA8QQ.jpg",
   user_id: 1,
-  location: "james bay"
+  location: "Wildfire Bakery"
   })
 
-cat3.posts.create!({
-  title: "cauliflower sea lettuce",
+cat5.posts.create!({
+  title: "Canned Goods",
+  description: "Large variety of canned goods. Beans, soups, vegetables, and tuna. Feel free to stop by, we're open Monday to Friday from 9 - 5 @ The Mustard Seed",
+  image: "http://i.imgur.com/LU0r5dG.jpg",
+  user_id: 1,
+  location: "Mustard Seed"
+  })
+
+cat5.posts.create!({
+  title: "Food Hampers",
   description: "Turnip greens yarrow ricebean rutabaga endive cauliflower sea lettuce kohlrabi amaranth water spinach avocado daikon napa cabbage asparagus winter purslane kale.",
   image: "http://i.imgur.com/LU0r5dG.jpg",
   user_id: 1,
   location: "rock bay, victoria"
   })
+
 

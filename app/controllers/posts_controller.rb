@@ -5,8 +5,21 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    if params[:order] == 'available'
+       @posts = Post.where( :taken => false ).where("created_at > ?", 2.days.ago)
+    else
+      @posts = Post.all
+    end
+
+    if params[:category_id]
+      @posts = @posts.where( :category_id => params[:category_id])
+    end
+    @posts = @posts.order('CREATED_AT DESC')
+
+
     @post = Post.new
+    @category = Category.all
+
   end
 
   # GET /posts/1
@@ -20,6 +33,7 @@ class PostsController < ApplicationController
   # GET /posts/new
   def new
     @post = Post.new
+    @category = Category.new
   end
 
   # GET /posts/1/edit
@@ -32,13 +46,17 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user = current_user
-    @post.expiration = Time.now + 5.minutes
+    @post.expiration = Date.today + 2.days
+
+    if @post.image.empty?
+      @post.image = "/images/default.png"
+    end
 
     respond_to do |format|
       if @post.save
         format.html { redirect_to :back, notice: 'Post was successfully created.' }
       else
-        format.html { render :new }
+        format.html { redirect_to :back, notice: 'Fields were left blank. Try again'}
       end
     end
   end
@@ -72,7 +90,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-
       params.require(:post).permit(:description, :image, :title, :category_id, :location, :latitude, :longitude, :taken, :expiration)
     end
 end

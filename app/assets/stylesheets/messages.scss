@@ -1,3 +1,107 @@
 // Place all the styles related to the Messages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.message-container {
+  overflow: auto;
+  height: 400px;
+}
+
+.message-recipient {
+  margin-bottom: 0px;
+  text-align: center;
+  list-style: none;
+}
+
+.chat {
+  list-style: none;
+}
+
+.chat-body {
+}
+
+.chat li {
+  margin: 15px 0;
+}
+
+.chat li .chat-body {
+  padding-bottom: 20px;
+  position: relative;
+  font-size: 11px;
+  padding: 10px;
+  border: 1px solid #f1f5fc;
+  box-shadow: 0 1px 1px rgba(0,0,0,.05);
+  -moz-box-shadow: 0 1px 1px rgba(0,0,0,.05);
+  -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
+  margin-left: 70px;
+  background-color: #fff;
+}
+
+.chat li .chat-body p {
+  margin: 0;
+}
+
+.chat li .chat-body .header {
+  padding-bottom: 5px;
+  border-bottom: 1px solid #f1f5fc;
+}
+
+.chat-img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50em;
+  -moz-border-radius: 50em;
+  -webkit-border-radius: 50em;
+}
+
+
+.chat li .chat-body:before {
+  position: absolute;
+  top: 10px;
+  left: -8px;
+  display: inline-block;
+  background: #fff;
+  width: 16px;
+  height: 16px;
+  border-top: 1px solid #f1f5fc;
+  border-left: 1px solid #f1f5fc;
+  content: '';
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+}
+
+
+.chat-log {
+  list-style: none;
+  height: 3.6em;
+  padding: 0px;
+  border-radius: 50px;
+}
+
+.chat-log a {
+float: right;
+padding-top: 10px;
+padding-right: 35px;
+}
+
+.friend-image {
+  float:left;
+  width: 45px;
+  height: 45px;
+}
+
+.friend-list {
+  margin-left: -40px;
+}
+
+.header {
+  background-color: #f5f5f5;
+  padding-left: 5px;
+}
+
+#friend {
+  width: 50%;
+}

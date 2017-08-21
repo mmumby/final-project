@@ -1,32 +1,54 @@
-<%= form_for :post, url: posts_path, :method => :post do |f| %>
 
+<%= form_for @post do |f| %>
+  <% if f.object.errors.any? %>
+    <div class="alert alert-danger">
+      <strong>The following errors prevented saving:</strong>
+      <ul>
+        <% f.object.errors.full_messages.each do |error| %>
+          <li><%= error %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-  <div class="field">
-    <%= f.label :category_id %>
-    <%= f.select :category_id, options_from_collection_for_select(Category.all.order(:name), :id, :name), { include_blank: true } %>
-  </div>
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
-  <div class="field">
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-  </div>
+      <div class="modal-dialog form-overlay">
+        <div class="modal-content">
 
-  <div class="field">
-    <%= f.label :description %>
-    <%= f.text_field :description %>
-  </div>
+          <div class="modal-body">
 
-  <div class="field">
-    <%= f.label :location %>
-    <%= f.text_field :location %>
-  </div>
+            <div class="row">
+              <div class="col-sm-12 col-md-12">
+                <div class="panel ">
+                  <div class="panel-body">
+                    <form accept-charset="UTF-8" action="" method="POST">
+                      <div class="row" >
 
-  <div class="field">
-    <%= f.label :image %>
-    <%= f.text_field :image %>
-  </div>
+                        <%= f.select :category_id, options_from_collection_for_select(Category.all.order(:name), :id, :name), { include_blank: "- Select a Category -" }, :class=>"form-control testBox" %>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+                        <%= f.text_field :title, :placeholder=>"Title", :class=>"form-control testBox" %>
+
+                        <%= f.text_field :description, :placeholder=>"Description", :class=>"form-control testBox" %>
+
+                        <%= f.text_field :location, :placeholder=>"Street Address or Neighbourhood Name", :class=>"form-control testBox" %>
+
+                        <%= f.text_field :image, :placeholder=>"Image (url)", :class=>"form-control testBox" %>
+
+                        <%= f.submit :class=>"btn btn-info", :value=>"Create Post" %>
+                        <span>
+                          <i><%= f.label "Posts expire after 2 days", :class=>"expire-notice" %></i>
+                        </span>
+
+                      </div><!-- /row -->
+                    </form>
+                  </div><!-- /panel-body -->
+                </div><!-- /panel -->
+              </div><!-- /col-sm-12 col-md-12 -->
+            </div><!-- /row -->
+
+          </div><!-- /modal-body -->
+        </div><!-- /modal-content -->
+      </div><!-- /modal-dialog -->
+
 <% end %>

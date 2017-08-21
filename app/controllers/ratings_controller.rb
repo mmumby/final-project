@@ -5,7 +5,7 @@ class RatingsController < ApplicationController
     @rating = @user.ratings.new(rating_params)
 
     if @rating.save
-      redirect_to :back
+      redirect_to :back, notice: "Thank you for rating #{@user.name}"
     end
   end
 

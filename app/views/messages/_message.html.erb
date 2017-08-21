@@ -1,1 +1,13 @@
-<p><strong><%=message.user.name%>:</strong> <%=message.content%></p>
+<li>
+  <span class='chat-img pull-left'>
+    <img src="<%= message.user.image %>" class='chat-img'>
+  </span>
+  <div class="chat-body clearfix">
+    <div class="header">
+      <strong><%=message.user.name%>:</strong>
+    </div>
+      <p>
+        <%=message.content%>
+      </p>
+  </div>
+</li>

@@ -1,28 +1,90 @@
+#dropdpwn-login{
+  padding-right: 80px;
+  color: white;
+}
+
+.dropdown {
+  color: white;
+}
 
 #navbar-header {
   font-family: 'Pacifico', cursive;
   font-size: 2em;
-  font-weight: bolder;
-  color: #673c3c;
+  color: white;
+  width: 100%;
+  display: inline-block;
+  text-align: center;
   padding: 10px;
+  list-style: none;
+  margin-left: 0px;
 }
 
-.navbar-fixed-top {
-  background-color: #af7c7c;
-  padding: 20px;
-  z-index: 100%;
+.navbar-brand {
+  float: none;
+}
+
+#navbar-header:before{
+  content: "•";
+}
+
+#navbar-header:after{
+  content: "•";
+}
+
+#navMain {
+  padding: 0px 20px 0px 20px;
+  position: relative;
 }
 
 .navbar-right {
   float: right;
 }
 
-#navbarText {
-  font-size: 20px;
-  display: inline-block;
-  color: grey;
+.img-circle {
+  border-radius: 50%;
 }
 
-.img-circle {
-    border-radius: 50%;
+.opaque-navbar {
+  background-color: transparent;
+  height: 60px;
+  border-bottom: 0px;
+}
+
+.opaque-navbar.opaque {
+  height: 60px;
+}
+
+ul.dropdown-menu {
+  background-color: white;
+}
+
+.nav-bar-image {
+  background-size: cover;
+  background-image: url("/images/wood.png");
+  width: 100%;
+  position: fixed;
+  height: 60px;
+  z-index: 4;
+  border-bottom: 5px solid white !important;
+}
+
+.nav-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.navigation-div {
+  float: left;
+}
+
+.profile-div {
+  float: right;
+
+}
+
+#nav-white {
+  color: #ffffff;
 }

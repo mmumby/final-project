@@ -9,10 +9,16 @@
 //
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
-//
+
 
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require_tree ./channels
+//= require 'notifications'
+//= require 'messages'
+//= require posts
+//= require welcome
+//= require rating
+//= require comments

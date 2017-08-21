@@ -22,10 +22,17 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "font-awesome";
+@import "bootstrap-social";
 
 @import "posts";
 @import "navbar";
 @import "profile";
 @import "welcome";
+@import "notifications";
+@import "comments";
+
+@import "forms";
+
+@import "messages";
 
 

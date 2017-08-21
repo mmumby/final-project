@@ -1,7 +1,29 @@
 <div id="comments">
   <% @comments.each do |comment| %>
-    <div class="comment">
-      <%= simple_format comment.content %>
-    </div>
+    <div class="container">
+      <div class="row comment-row">
+        <div class="col-sm-1">
+          <div class="thumbnail">
+          <%= link_to controller: :users, action: :show, id: comment.user.id do %>
+            <img class="img-circle" src="<%= comment.user.image %>">
+            <% end %>
+          </div><!-- /avatar -->
+        </div><!-- /col-sm-1 -->
+
+        <div class="col-sm-5">
+          <div class="panel panel-default testBox">
+            <div class="panel-heading">
+            <%= link_to controller: :users, action: :show, id: comment.user.id do %>
+              <strong><%= comment.user.name %></strong>
+            <% end %>
+              <span class="text-muted"><%= time_ago_in_words(comment.created_at) %> ago</span>
+            </div>
+            <div class="panel-body comment-text">
+              <%= simple_format comment.content %>
+            </div><!-- /panel-body -->
+          </div><!-- /panel panel-default -->
+        </div><!-- /col-sm-5 -->
+      </div><!-- /row -->
+    </div><!-- /container -->
   <% end %>
 </div>
