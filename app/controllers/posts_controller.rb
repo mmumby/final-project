@@ -7,7 +7,7 @@ class PostsController < ApplicationController
   def index
 
     if params[:order] == 'available'
-       @posts = Post.where( :taken => false ).where('expiration > ?', Time.now)
+       @posts = Post.where( :taken => false ).where("created_at > ?", 2.days.ago)
     else
       @posts = Post.all
     end
@@ -23,11 +23,6 @@ class PostsController < ApplicationController
 
   end
 
-  def view_all
-    if params[:expired == false && :taken == false]
-      @post = Post.all
-    end
-  end
   # GET /posts/1
   # GET /posts/1.json
   def show
@@ -52,7 +47,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user = current_user
-    @post.expiration = Time.now + 2.days
+    @post.expiration = Date.today + 2.days
 
     if @post.image.empty?
       @post.image = "/images/default.png"
