@@ -49,38 +49,10 @@
       <li>
       <%= button_to "Interested!", class: 'btn btn-primary', controller: :claims, method: :post, action: :create, data: { post_id: post.id, claimer_id: current_user.id, user_id: post.user_id}%>
       </li>
-      <li> <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#post_view"><i class="fa fa-search"></i> Quick View</button> </li>
       <li>
       <%= render 'taken', post: post %>
       </li>
     </ul>
-
-
-
-<div class="modal fade product_view" id="post_view">
-    <div class="modal-dialog">
-
-
-                <a href="#" data-remove="modal" class="class pull-right"><span class="glyphicon glyphicon-remove"></span></a>
-<div class="profile-container">
-  <div id="post-header" class="profile-header">
-    <div class="map-container col-sm-12 col-md-12 text-center post-map">
-        <%= map_for_object post %>
-    </div>
-  </div>
-<br>
-</div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-md-6 product_img">
-
-                    </div>
-                    <div class="col-md-6 product_content">
-                    </div>
-                </div>
-            </div>
-        </div>
-      </div>
     </div>
 </div>
 </div>
