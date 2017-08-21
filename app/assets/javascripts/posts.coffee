@@ -7,5 +7,6 @@
 $(document).on 'turbolinks:load', ->
   $('#new-post-button').on 'click', (event) ->
     $('.new-post-form').toggle 'show'
+    $('body').scrollTop(0)
     return
 return
