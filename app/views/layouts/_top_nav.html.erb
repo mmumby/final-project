@@ -4,10 +4,7 @@
 
       <div class="navigation-div">
         <ul class="nav navbar-nav">
-          <% if !current_user %>
-            <li><a href="#about">About</a></li>
-            <li><a href="#faq">FAQ</a></li>
-          <% else %>
+          <% if current_user %>
             <li class="nav-text"><a href="/posts?order=available">Home</a></li>
           <% end %>
         </ul>
