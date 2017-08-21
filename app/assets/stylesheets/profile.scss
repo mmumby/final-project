@@ -1,5 +1,11 @@
 .rating-stars {
     color: yellow;
+    margin-top: 20px;
+}
+
+.rating-stars > p {
+    margin-top: 5px;
+    margin-bottom: 20px;
 }
 
 .user-rating {
