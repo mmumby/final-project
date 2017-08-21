@@ -9,7 +9,7 @@
   padding: 10px;
   list-style: none;
   margin-left: 0px;
-  }
+}
 
 .navbar-brand {
   float: none;
@@ -25,7 +25,6 @@
 
 #navMain {
   padding: 0px 20px 0px 20px;
-  z-index: 8;
   position: relative;
 }
 
@@ -56,8 +55,8 @@ ul.dropdown-menu {
   background-image: url("/images/wood.png");
   width: 100%;
   position: fixed;
-  z-index: 4;
   height: 60px;
+  z-index: 4;
 }
 
 .nav-container {
