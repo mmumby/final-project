@@ -7,19 +7,22 @@
 <div class="container">
 <%= render 'status', post: post %>
   <div class="well">
-    <div class="media" onclick="window.location='/posts/<%= post.id %>'">
-      <%= image_tag post.image, class: "medit-object pull-left card-image" %>
-      <div class="media-body">
+    <div class="media card-flex" onclick="window.location='/posts/<%= post.id %>'">
+      <div>
+        <%= image_tag post.image, class: "medit-object pull-left card-image" %>
+      </div>
+      <div class="media-body post-text">
         <h4 class="media-heading"><%= post.title %></h4>
         <h6><%= post.category.name %></h6>
         <p><%= post.description %></p>
       </div>
-      <div class="medit-object pull-right"><%= map_for_object post, height: 140, width: 140, zoom: 14, class: "medit-object pull-right"%>
+      <div class="medit-object pull-right">
+        <%= map_for_object post, height: 140, width: 140, zoom: 14, class: "medit-object pull-right"%>
       </div>
     </div>
 
 
-  <ul class="list-inline list-unstyled">
+  <ul class="list-inline list-unstyled post-info">
     <li>
     <%= link_to controller: :users, action: :show, id: post.user.id do %>
       <% if post.user.image %>

@@ -194,6 +194,17 @@
   padding-top: 70px;
 }
 
-.map-post {
-  border-radius: 6px;
+.card-flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 19px;
+}
+
+.post-text {
+  padding: 0px 19px;
+}
+.post-info {
+  margin-bottom: 0px;
 }
