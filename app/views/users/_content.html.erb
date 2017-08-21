@@ -43,14 +43,12 @@
                     <div class="container" id="friend">
                       <li class="chat-log well row">
                           <span><%= link_to "#{(User.find(chatroom.client_id)).name}", controller: :chatrooms, action: :show, id: chatroom.id, remote: true %></span>
-                          <%= image_tag "#{(User.find(chatroom.client_id)).image}", class: "img-circle friend-image" %>
                       </li>
                     </div>
                     <% else %>
                     <div class="container" id="friend">
                       <li class="chat-log well row">
                         <span><%= link_to "#{(User.find(chatroom.owner_id)).name}", controller: :chatrooms, action: :show, id: chatroom.id, remote:  true %></span>
-                        <%= image_tag "#{(User.find(chatroom.owner_id)).image}", class: "img-circle friend-image" %>
                       </li>
                     </div>
                   <% end %>
