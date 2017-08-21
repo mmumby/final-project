@@ -40,17 +40,20 @@
     <li>|</li>
     <li><span><i class="glyphicon glyphicon-calendar"></i><%= post.created_at.to_formatted_s(:long) %></span></li>
       <% if post.comments.count > 0 %>
-      <li>|</li>
-      <span class="comment-link" onclick="window.location='/posts/<%= post.id %>'"><i class="glyphicon glyphicon-comment"></i>
-      <%= pluralize(post.comments.count, 'Comment') %>
+        <li>|</li>
+        <span class="comment-link" onclick="window.location='/posts/<%= post.id %>'"><i class="glyphicon glyphicon-comment"></i>
+          <%= pluralize(post.comments.count, 'Comment') %>
       <% end %>
-      </span>
+        </span>
       <li>|</li>
       <li>
-      <%= button_to "Interested!", class: 'btn btn-primary', controller: :claims, method: :post, action: :create, data: { post_id: post.id, claimer_id: current_user.id, user_id: post.user_id}%>
+        <%= button_to "Interested!", class: 'btn btn-primary', controller: :claims, method: :post, action: :create, data: { post_id: post.id, claimer_id: current_user.id, user_id: post.user_id}%>
       </li>
       <li>
-      <%= render 'taken', post: post %>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#post_view"><i class="fa fa-search"></i> Quick View</button>
+      </li>
+      <li>
+        <%= render 'taken', post: post %>
       </li>
     </ul>
     </div>

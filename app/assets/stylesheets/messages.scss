@@ -76,12 +76,15 @@
 
 .chat-log {
   list-style: none;
-  height: 4em;
+  height: 3.6em;
   padding: 0px;
+  border-radius: 50px;
 }
 
 .chat-log a {
-  float: right;
+float: right;
+padding-top: 10px;
+padding-right: 35px;
 }
 
 .friend-image {
@@ -97,4 +100,8 @@
 .header {
   background-color: #f5f5f5;
   padding-left: 5px;
+}
+
+#friend {
+  width: 50%;
 }
