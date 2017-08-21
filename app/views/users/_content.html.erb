@@ -7,7 +7,7 @@
   <% else %>
   <li class="active"><a data-toggle="tab" href="#home">Posts</a></li>
   <li><a data-toggle="tab" href="#menu1">Comment</a></li>
-  <%= button_to "Message", class: 'btn btn-primary', controller: :chatrooms, action: :new_chat, :remote => true, data: { owner_id: current_user.id, client_id: @user.id} %>
+  <%= button_to "Message", {controller: :chatrooms, action: :new_chat, data: { owner_id: current_user.id, client_id: @user.id}}, {class: 'btn btn-primary'} %>
   <% end %>
 </ul>
 
