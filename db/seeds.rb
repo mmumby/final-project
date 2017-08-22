@@ -52,7 +52,8 @@ cat1.posts.create!({
   description: "3 pizzas that never got picked up. 1 Cheese, 1 Hawaiian, 1 Vegetarian. Get em' while they're still warm!",
   image: "http://i.imgur.com/ru9uyCd.jpg",
   user_id: 1,
-  location: "Oreganos Fairfield"
+  location: "Oreganos Fairfield",
+  expiration: 2017-08-24 00:00:00
   })
 
 cat1.posts.create!({
@@ -60,7 +61,8 @@ cat1.posts.create!({
   description: "2 dozen baked potatoes left over from the dinner rush.",
   image: "http://i.imgur.com/CzRqSa7.jpg",
   user_id: 1,
-  location: "The Keg"
+  location: "The Keg",
+  expiration: 2017-08-24 00:00:00
   })
 
 cat2.posts.create!({
@@ -68,7 +70,8 @@ cat2.posts.create!({
   description: "Too many plums, too little time to eat them all! Help yourself! Eat em' fresh or make some delicious jam!",
   image: "http://i.imgur.com/0tjXtQt.jpg",
   user_id: 1,
-  location: "145 wilson street, victoria"
+  location: "145 wilson street, victoria",
+  expiration: 2017-08-22 00:00:00
   })
 
 cat2.posts.create!({
@@ -76,7 +79,8 @@ cat2.posts.create!({
   description: "Garden was good to us this year and as a result we have an abundance of veggies! All grown organically with love!",
   image: "http://4.bp.blogspot.com/--jn-tHZPU_E/TixaUD5zlTI/AAAAAAAAHwg/vCPhalBOkMc/s1600/rhubarbROASTveg+042.JPG",
   user_id: 1,
-  location: "5147 Del Monte Ave"
+  location: "5147 Del Monte Ave",
+  expiration: 2017-08-22 00:00:00
   })
 
 cat3.posts.create!({
@@ -84,7 +88,8 @@ cat3.posts.create!({
   description: "Ginormous bush along the galloping goose. Blackberry season is here!!",
   image: "http://i.imgur.com/BkvjrXS.jpg",
   user_id: 1,
-  location: "Goldstream Park"
+  location: "Goldstream Park",
+  expiration: 2017-08-22 00:00:00
   })
 
 cat3.posts.create!({
@@ -92,7 +97,8 @@ cat3.posts.create!({
   description: "Lots still left to pick with a lot on the ground too that could be used for cider! Enjoy!",
   image: "http://genuineaid.com/wp-content/uploads/crabapples-malus-crab-apples-wild-apples.jpg",
   user_id: 1,
-  location: "Elk Lake"
+  location: "Elk Lake",
+  expiration: 2017-08-22 00:00:00
   })
 
 cat4.posts.create!({
@@ -100,7 +106,8 @@ cat4.posts.create!({
   description: "We can't sell them anymore but they're still good to eat! Would hate to see them all go to waste. Located around the back of the store. Thrifty Foods",
   image: "https://t3.ftcdn.net/jpg/00/96/08/02/240_F_96080213_O4lFaFwXmHxVMeehx43S4VAdoj7MGqpU.jpg",
   user_id: 1,
-  location: "Thrifty Foods James Bay"
+  location: "Thrifty Foods James Bay",
+  expiration: 2017-08-22 00:00:00
   })
 
 cat4.posts.create!({
@@ -108,7 +115,8 @@ cat4.posts.create!({
   description: "Big bag of day old bread, muffins, cookies, and croissants! Located around the back of the store @ Wildfire Bakery",
   image: "https://www.myfrugalhome.com/wp-content/uploads/2014/05/freebread590.jpg",
   user_id: 1,
-  location: "Wildfire Bakery"
+  location: "Wildfire Bakery",
+  expiration: 2017-08-22 00:00:00
   })
 
 cat5.posts.create!({
@@ -116,7 +124,8 @@ cat5.posts.create!({
   description: "Pickles, beets, corn + assorted fruits & jams.",
   image: "https://media.mnn.com/assets/images/2015/08/canned-vegetables-pantry-shelf.jpg.838x0_q80.jpg",
   user_id: 1,
-  location: "Mustard Seed"
+  location: "Mustard Seed",
+  expiration: 2017-08-22 00:00:00
   })
 
 cat5.posts.create!({
@@ -124,7 +133,8 @@ cat5.posts.create!({
   description: "Food hampers full of pasta, rice, canned goods, and treats.",
   image: "http://teachers.wrdsb.ca/eslresources/files/2015/04/food-bank.jpg",
   user_id: 1,
-  location: "Rock Bay"
+  location: "Rock Bay",
+  expiration: 2017-08-22 00:00:00
   })
 
 
