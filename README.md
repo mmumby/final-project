@@ -1,6 +1,6 @@
 # Lettuce Share
 
-Lettuce share is a community network centered around minimizing food waste.
+Lettuce share is a community network centred around minimizing food waste.
 
 App built using:
 * Ruby on Rails for the back and frontend.
