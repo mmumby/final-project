@@ -19,6 +19,4 @@
 //= require 'notifications'
 //= require 'messages'
 //= require posts
-//= require welcome
-//= require rating
 //= require comments

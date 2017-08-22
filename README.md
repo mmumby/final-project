@@ -1,24 +1,26 @@
-# README
+# Lettuce Share
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Lettuce share is a community network centered around minimizing food waste.
 
-Things you may want to cover:
+App built using:
+* Ruby on Rails for the back and frontend.
+* Websockets, Javascript, and jQuery for instant messaging between users.
+* Bootstrap and SASS for styling.
 
-* Ruby version
 
-* System dependencies
+**App deployed on Heroku Visit: lettuceshare.ca**
 
-* Configuration
+## Setup
 
-* Database creation
+1. Fork & Clone
+2. Run `bundle install` to install dependencies
+3. Create `config/database.yml` by copying `config/database.example.yml`
+4. Create `config/secrets.yml` by copying `config/secrets.example.yml`
+5. Run `rails db:reset` to create, load and seed db
+6. Create .env file based on .env.example
+7. Run `rails s` to start the server
 
-* Database initialization
+## Dependencies
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Rails 5.0.5
+* PostgreSQL 9.x

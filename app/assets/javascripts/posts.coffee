@@ -2,7 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-//= require welcome
+# Show new post form when button is clicked.
 
 $(document).on 'turbolinks:load', ->
   $('#new-post-button').on 'click', (event) ->
