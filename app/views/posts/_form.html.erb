@@ -25,6 +25,7 @@
                     <form accept-charset="UTF-8" action="" method="POST">
                       <div class="row" >
 
+
                         <%= f.select :category_id, options_from_collection_for_select(Category.all.order(:name), :id, :name), { include_blank: "- Select a Category -" }, :class=>"form-control testBox" %>
 
                         <%= f.text_field :title, :placeholder=>"Title", :class=>"form-control testBox" %>

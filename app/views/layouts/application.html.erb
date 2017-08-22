@@ -12,7 +12,12 @@
   </head>
 
   <body>
+  <% if @disable_nav %>
+  <%= render 'layouts/welcome_nav' %>
+  <%= yield %>
+  <% else %>
   <%= render 'layouts/top_nav' %>
   <%= yield %>
+  <% end %>
   </body>
 </html>

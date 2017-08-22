@@ -19,7 +19,6 @@ class PostsController < ApplicationController
 
     @post = Post.new
     @category = Category.all
-
   end
 
   # GET /posts/1
@@ -56,7 +55,7 @@ class PostsController < ApplicationController
       if @post.save
         format.html { redirect_to :back, notice: 'Post was successfully created.' }
       else
-        format.html { redirect_to :back, notice: 'Fields were left blank. Try again'}
+        format.html { redirect_to :back, alert: @post.errors.full_messages.join(', ') }
       end
     end
   end

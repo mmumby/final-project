@@ -1,6 +1,6 @@
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+
 
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
  <div class="register-page">
@@ -20,6 +20,9 @@
               <div class="panel ">
                 <div class="panel-body">
                   <form accept-charset="UTF-8" action="" method="POST">
+                    <div class="row">
+                      <%= devise_error_messages! %>
+                    </div>
                     <div class="row" >
 
                       <%= f.text_field :name, autofocus: true, :placeholder=>"Name", :class=>"form-control testBox" %>
