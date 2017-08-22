@@ -42,6 +42,10 @@ class User < ApplicationRecord
    end
   end
 
+  def email_required?
+    true
+  end
+
   private
 
   def self.dummy_email(auth)

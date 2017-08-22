@@ -26,19 +26,20 @@ puts "Re-creating user"
 User.destroy_all
 
 User.create!({
-  name: 'John Doe',
+  name: 'Steven Seagal',
   email: 'john@doe.com',
-  password: '123456'
+  password: '123456',
+  image: "https://i.ytimg.com/vi/8aIrVea9410/0.jpg"
   })
 
 
 # categories
 
-cat1 = Category.find_or_create_by! name: 'Left overs'
-cat2 = Category.find_or_create_by! name: 'Garden extras'
-cat3 = Category.find_or_create_by! name: 'Wild produce'
-cat4 = Category.find_or_create_by! name: 'Grocery store extras'
-cat5 = Category.find_or_create_by! name: 'Other'
+cat1 = Category.find_or_create_by! name: 'Left Overs'
+cat2 = Category.find_or_create_by! name: 'Garden Extras'
+cat3 = Category.find_or_create_by! name: 'Wild Produce'
+cat4 = Category.find_or_create_by! name: 'Grocery Store Extras'
+cat5 = Category.find_or_create_by! name: 'Food Bank'
 
 # posts
 
@@ -47,74 +48,83 @@ puts "Re-creating posts"
 Post.destroy_all
 
 cat1.posts.create!({
-  title: "Veggies es bonus vobis",
-  description: "Veggies es bonus vobis, proinde vos postulo essum magis kohlrabi welsh onion daikon amaranth tatsoi tomatillo melon azuki bean garlic.",
-  image: "http://i.imgur.com/ToFylpO.jpg",
+  title: "Leftover Pizza",
+  description: "3 pizzas that never got picked up. 1 Cheese, 1 Hawaiian, 1 Vegetarian. Get em' while they're still warm!",
+  image: "http://i.imgur.com/ru9uyCd.jpg",
   user_id: 1,
-  location: "quadra and mckenzie"
+  location: "Oreganos Fairfield"
   })
 
 cat1.posts.create!({
-  title: "gumbo gourd",
-  description: "Gumbo beet greens corn soko endive gumbo gourd. Parsley shallot courgette tatsoi pea sprouts fava bean collard greens dandelion okra wakame tomato.",
-  image: "http://i.imgur.com/Ay8s20X.jpg",
+  title: "Baked Potatoes",
+  description: "2 dozen baked potatoes left over from the dinner rush.",
+  image: "http://i.imgur.com/CzRqSa7.jpg",
   user_id: 1,
-  location: "838 fort, bc"
+  location: "The Keg"
   })
 
-cat1.posts.create!({
-  title: "greens yarrow ricebean",
-  description: "Turnip greens yarrow ricebean rutabaga endive cauliflower sea lettuce kohlrabi amaranth water spinach avocado daikon napa cabbage asparagus winter purslane kale.",
-  image: "http://i.imgur.com/CW5GHuv.jpg",
+cat2.posts.create!({
+  title: "Plums Galore!",
+  description: "Too many plums, too little time to eat them all! Help yourself! Eat em' fresh or make some delicious jam!",
+  image: "http://i.imgur.com/0tjXtQt.jpg",
   user_id: 1,
   location: "145 wilson street, victoria"
   })
 
 cat2.posts.create!({
-  title: "Parsley shallot courgette",
-  description: "Veggies es bonus vobis, proinde vos postulo essum magis kohlrabi welsh onion daikon amaranth tatsoi tomatillo melon azuki bean garlic.",
-  image: "http://i.imgur.com/feYPs6R.jpg",
+  title: "Carrots, Beets, Onions & Potatoes",
+  description: "Garden was good to us this year and as a result we have an abundance of veggies! All grown organically with love!",
+  image: "http://4.bp.blogspot.com/--jn-tHZPU_E/TixaUD5zlTI/AAAAAAAAHwg/vCPhalBOkMc/s1600/rhubarbROASTveg+042.JPG",
   user_id: 1,
-  location: "fairmont empress hotel"
-  })
-
-cat2.posts.create!({
-  title: "rutabaga endive",
-  description: "Gumbo beet greens corn soko endive gumbo gourd. Parsley shallot courgette tatsoi pea sprouts fava bean collard greens dandelion okra wakame tomato.",
-  image: "http://i.imgur.com/Wy94Tt7.jpg",
-  user_id: 1,
-  location: "clover point park"
-  })
-
-cat2.posts.create!({
-  title: "icebean rutabaga",
-  description: "Turnip greens yarrow ricebean rutabaga endive cauliflower sea lettuce kohlrabi amaranth water spinach avocado daikon napa cabbage asparagus winter purslane kale.",
-  image: "http://i.imgur.com/jeJ3tYO.jpg",
-  user_id: 1,
-  location: "pizzeria prima strada"
+  location: "5147 Del Monte Ave"
   })
 
 cat3.posts.create!({
-  title: "essum magis kohlrabi",
-  description: "Veggies es bonus vobis, proinde vos postulo essum magis kohlrabi welsh onion daikon amaranth tatsoi tomatillo melon azuki bean garlic.",
-  image: "http://i.imgur.com/4KGVioH.jpg",
+  title: "Blackberry Bush",
+  description: "Ginormous bush along the galloping goose. Blackberry season is here!!",
+  image: "http://i.imgur.com/BkvjrXS.jpg",
   user_id: 1,
-  location: "topaz park"
+  location: "Goldstream Park"
   })
 
 cat3.posts.create!({
-  title: "greens corn",
-  description: "Gumbo beet greens corn soko endive gumbo gourd. Parsley shallot courgette tatsoi pea sprouts fava bean collard greens dandelion okra wakame tomato.",
-  image: "http://i.imgur.com/ZgjA8QQ.jpg",
+  title: "Wild Apples",
+  description: "Lots still left to pick with a lot on the ground too that could be used for cider! Enjoy!",
+  image: "http://genuineaid.com/wp-content/uploads/crabapples-malus-crab-apples-wild-apples.jpg",
   user_id: 1,
-  location: "james bay"
+  location: "Elk Lake"
   })
 
-cat3.posts.create!({
-  title: "cauliflower sea lettuce",
-  description: "Turnip greens yarrow ricebean rutabaga endive cauliflower sea lettuce kohlrabi amaranth water spinach avocado daikon napa cabbage asparagus winter purslane kale.",
-  image: "http://i.imgur.com/LU0r5dG.jpg",
+cat4.posts.create!({
+  title: "Dozens of Eggs",
+  description: "We can't sell them anymore but they're still good to eat! Would hate to see them all go to waste. Located around the back of the store. Thrifty Foods",
+  image: "https://t3.ftcdn.net/jpg/00/96/08/02/240_F_96080213_O4lFaFwXmHxVMeehx43S4VAdoj7MGqpU.jpg",
   user_id: 1,
-  location: "rock bay, victoria"
+  location: "Thrifty Foods James Bay"
   })
+
+cat4.posts.create!({
+  title: "Assorted Baked Goods",
+  description: "Big bag of day old bread, muffins, cookies, and croissants! Located around the back of the store @ Wildfire Bakery",
+  image: "https://www.myfrugalhome.com/wp-content/uploads/2014/05/freebread590.jpg",
+  user_id: 1,
+  location: "Wildfire Bakery"
+  })
+
+cat5.posts.create!({
+  title: "Canned Goods",
+  description: "Pickles, beets, corn + assorted fruits & jams.",
+  image: "https://media.mnn.com/assets/images/2015/08/canned-vegetables-pantry-shelf.jpg.838x0_q80.jpg",
+  user_id: 1,
+  location: "Mustard Seed"
+  })
+
+cat5.posts.create!({
+  title: "Food Hampers",
+  description: "Food hampers full of pasta, rice, canned goods, and treats.",
+  image: "http://teachers.wrdsb.ca/eslresources/files/2015/04/food-bank.jpg",
+  user_id: 1,
+  location: "Rock Bay"
+  })
+
 

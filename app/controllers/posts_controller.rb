@@ -5,7 +5,6 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-
     if params[:order] == 'available'
        @posts = Post.where( :taken => false ).where("created_at > ?", 2.days.ago)
     else

@@ -28,6 +28,24 @@ class ChatroomsController < ApplicationController
     end
   end
 
+  def new_chat
+    @owner = User.find(params[:data][:owner_id])
+    @client = User.find(params[:data][:client_id])
+    if chatroom_exists?(@owner, @client)
+      redirect_to "/users/#{current_user.id}#menu2"
+    else
+    @chatroom = Chatroom.new(new_chat_params)
+    if @chatroom.save
+      @message = Message.new(content: "Hello!", user_id: @chatroom.owner_id, recipient_id: @chatroom.client_id, chatroom_id: @chatroom.id)
+      if @message.save
+        respond_to do |format|
+          format.html {redirect_to "/users/#{current_user.id}" + "#menu2"}
+        end
+      end
+    end
+    end
+  end
+
   def update
     chatroom = Chatroom.find_by(id: params[:id])
     chatroom.update(chatroom_params)
@@ -43,9 +61,21 @@ class ChatroomsController < ApplicationController
     end
   end
 
+  def chatroom_exists?(owner, client)
+    if Chatroom.where("owner_id = ? AND client_id = ?", "#{owner.id}", "#{client.id}").exists? || Chatroom.where("owner_id = ? AND client_id = ?", "#{client.id}", "#{owner.id}").exists?
+      true
+    else
+      false
+    end
+  end
+
   private
 
     def chatroom_params
-      params.require(:chatroom).permit(:topic)
+      params.require(:chatroom).permit(:topic, :claim_id, :user_id, :client_id)
+    end
+
+    def new_chat_params
+      params.require(:data).permit(:owner_id, :client_id)
     end
 end
