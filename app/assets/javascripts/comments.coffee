@@ -2,8 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-
-//= require welcome
+# Count characters on textarea when leaving a comment.
 
 $(document).on 'turbolinks:load', ->
   maxCount = 140

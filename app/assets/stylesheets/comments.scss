@@ -1,58 +1,59 @@
 // Place all the styles related to the comments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
 .counter-negative {
-  color: red;
+    color: red;
 }
 
 .thumbnail {
-    padding:0px;
-    border:0px;
+    padding: 0px;
+    border: 0px;
 }
 
 .food-comment {
-  padding-top:15px;
+    padding-top: 15px;
 }
 
 .panel {
-  position:relative;
-  box-shadow: none;
+    position: relative;
+    box-shadow: none;
 }
 
-.panel>.panel-heading:after,.panel>.panel-heading:before{
-  position:absolute;
-  top:11px;left:-16px;
-  right:100%;
-  width:0;
-  height:0;
-  display:block;
-  content:" ";
-  border-color:transparent;
-  border-style:solid solid outset;
-  pointer-events:none;
+.panel>.panel-heading:after,
+.panel>.panel-heading:before {
+    position: absolute;
+    top: 11px;
+    left: -16px;
+    right: 100%;
+    width: 0;
+    height: 0;
+    display: block;
+    content: " ";
+    border-color: transparent;
+    border-style: solid solid outset;
+    pointer-events: none;
 }
 
-.panel>.panel-heading:after{
-  border-width:7px;
-  border-right-color:#f7f7f7;
-  margin-top:1px;
-  margin-left:2px;
+.panel>.panel-heading:after {
+    border-width: 7px;
+    border-right-color: #f7f7f7;
+    margin-top: 1px;
+    margin-left: 2px;
 }
 
-.panel>.panel-heading:before{
-  border-right-color:#ddd;
-  border-width:8px;
+.panel>.panel-heading:before {
+    border-right-color: #ddd;
+    border-width: 8px;
 }
 
 .comment-btn {
-  float: left;
+    float: left;
 }
 
 .comment-row {
-margin: auto;
+    margin: auto;
 }
 
-.comment-text > p {
-  margin: 5px 0px;
+.comment-text>p {
+    margin: 5px 0px;
 }
