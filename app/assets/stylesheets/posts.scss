@@ -251,15 +251,15 @@
 }
 
 .map-container {
-    padding-top: 70px;
+    padding-top: 110px;
 }
 
 .card-flex {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 19px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 8px;
 }
 
 .post-image {
@@ -280,7 +280,7 @@
 }
 
 .post-text {
-    padding: 0px 19px;
+    padding: 0px 10px;
 }
 
 .post-info {
@@ -288,7 +288,25 @@
 }
 
 #quick-view {
-    padding: 40px;
-    width: 50%;
-    margin: 0 auto;
+  padding: 40px;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.food-post-image > img {
+  margin-top: 10px;
+  max-width: 580px;
+  max-height: 400px;
+}
+
+.user-image {
+  margin-bottom: 5px;
+}
+
+.thumbnail > img {
+  margin-bottom: 15px;
+}
+
+.thumbnail > p {
+  margin: 0 5px 10px;
 }
