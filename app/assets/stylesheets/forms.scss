@@ -34,7 +34,13 @@
 
 .log-btn {
   text-align: center;
+  padding-right: 40px;
 }
+
+.log-btn:before {
+  padding-right: 5px;
+}
+
 .login-container {
   display: flex;
   flex-direction: row;
