@@ -225,7 +225,7 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: 19px;
+  margin-bottom: 8px;
 }
 
 .post-image {
@@ -246,7 +246,7 @@
 }
 
 .post-text {
-  padding: 0px 19px;
+  padding: 0px 10px;
 }
 
 .post-info {
@@ -261,5 +261,8 @@
 
 .food-post-image > img {
   border-radius: 6px 6px 0 0;
+}
 
+.user-image {
+  margin-bottom: 5px;
 }

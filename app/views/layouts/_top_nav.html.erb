@@ -1,6 +1,6 @@
 <div class="navbar navbar-inverse navbar-fixed-top opaque-navbar nav-container">
 
-    <div class="collapse navbar-collapse nav-content" id="navMain">
+    <div class="collapse navbar-collapse nav-content navbar-container" id="navMain">
 
       <div class="navigation-div">
         <ul class="nav navbar-nav">
@@ -10,11 +10,11 @@
         </ul>
       </div><!-- /navigation-div -->
 
-      <div class="navbar-header">
+      <div class="navbar-header navbar-title">
         <a id="navbar-header" class="text-center center-block" href="/"> Lettuce Share </a>
       </div>
 
-      <div class="profile-div">
+      <div class="user-profile-div">
         <ul class="nav navbar-nav pull-right">
         <% unless current_user %>
         <li class="dropdown">
@@ -37,8 +37,7 @@
           <% end %>
         <% end %>
         </ul>
-      </div><!-- /profile-div -->
-
+      </div><!-- /user-profile-div -->
 
     </div><!-- /collapse navbar-collapse nav-container -->
 

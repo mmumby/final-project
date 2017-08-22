@@ -80,13 +80,25 @@ ul.dropdown-menu {
   width: 100%;
 }
 
-.navigation-div {
-  float: left;
+.navbar-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
 }
 
-.profile-div {
-  float: right;
+.navigation-div {
+  margin-top: 2px;
+}
 
+.user-profile-div {
+  height: 60px;
+  margin-top: 2px;
+  width: 100%;
+}
+
+.navbar-title > a {
+  margin-bottom: 5px;
 }
 
 #nav-white {

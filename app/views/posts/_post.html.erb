@@ -23,7 +23,7 @@
 
 
   <ul class="list-inline list-unstyled post-info">
-    <li>
+    <li class="user-image">
     <%= link_to controller: :users, action: :show, id: post.user.id do %>
       <% if post.user.image %>
       <%= image_tag post.user.image, :class =>"img img-circle img-default" %>
