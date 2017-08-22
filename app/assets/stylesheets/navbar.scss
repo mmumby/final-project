@@ -50,6 +50,10 @@ ul.dropdown-menu {
   background-color: white;
 }
 
+.nav-content {
+  z-index: 6;
+}
+
 .nav-bar-image {
   background-size: cover;
   background-image: url("/images/wood.png");
