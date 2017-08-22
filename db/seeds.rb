@@ -53,7 +53,7 @@ cat1.posts.create!({
   image: "http://i.imgur.com/ru9uyCd.jpg",
   user_id: 1,
   location: "Oreganos Fairfield",
-  expiration: 2017-08-24 00:00:00
+  expiration: "2017-08-22"
   })
 
 cat1.posts.create!({
@@ -62,7 +62,7 @@ cat1.posts.create!({
   image: "http://i.imgur.com/CzRqSa7.jpg",
   user_id: 1,
   location: "The Keg",
-  expiration: 2017-08-24 00:00:00
+  expiration: "2017-08-22"
   })
 
 cat2.posts.create!({
@@ -71,7 +71,7 @@ cat2.posts.create!({
   image: "http://i.imgur.com/0tjXtQt.jpg",
   user_id: 1,
   location: "145 wilson street, victoria",
-  expiration: 2017-08-22 00:00:00
+  expiration: "2017-08-22"
   })
 
 cat2.posts.create!({
@@ -80,7 +80,7 @@ cat2.posts.create!({
   image: "http://4.bp.blogspot.com/--jn-tHZPU_E/TixaUD5zlTI/AAAAAAAAHwg/vCPhalBOkMc/s1600/rhubarbROASTveg+042.JPG",
   user_id: 1,
   location: "5147 Del Monte Ave",
-  expiration: 2017-08-22 00:00:00
+  expiration: "2017-08-22"
   })
 
 cat3.posts.create!({
@@ -89,7 +89,7 @@ cat3.posts.create!({
   image: "http://i.imgur.com/BkvjrXS.jpg",
   user_id: 1,
   location: "Goldstream Park",
-  expiration: 2017-08-22 00:00:00
+  expiration: "2017-08-22"
   })
 
 cat3.posts.create!({
@@ -98,7 +98,7 @@ cat3.posts.create!({
   image: "http://genuineaid.com/wp-content/uploads/crabapples-malus-crab-apples-wild-apples.jpg",
   user_id: 1,
   location: "Elk Lake",
-  expiration: 2017-08-22 00:00:00
+  expiration: "2017-08-22"
   })
 
 cat4.posts.create!({
@@ -107,7 +107,7 @@ cat4.posts.create!({
   image: "https://t3.ftcdn.net/jpg/00/96/08/02/240_F_96080213_O4lFaFwXmHxVMeehx43S4VAdoj7MGqpU.jpg",
   user_id: 1,
   location: "Thrifty Foods James Bay",
-  expiration: 2017-08-22 00:00:00
+  expiration: "2017-08-22"
   })
 
 cat4.posts.create!({
@@ -116,7 +116,7 @@ cat4.posts.create!({
   image: "https://www.myfrugalhome.com/wp-content/uploads/2014/05/freebread590.jpg",
   user_id: 1,
   location: "Wildfire Bakery",
-  expiration: 2017-08-22 00:00:00
+  expiration: "2017-08-22"
   })
 
 cat5.posts.create!({
@@ -125,7 +125,7 @@ cat5.posts.create!({
   image: "https://media.mnn.com/assets/images/2015/08/canned-vegetables-pantry-shelf.jpg.838x0_q80.jpg",
   user_id: 1,
   location: "Mustard Seed",
-  expiration: 2017-08-22 00:00:00
+  expiration: "2017-08-24"
   })
 
 cat5.posts.create!({
@@ -134,7 +134,7 @@ cat5.posts.create!({
   image: "http://teachers.wrdsb.ca/eslresources/files/2015/04/food-bank.jpg",
   user_id: 1,
   location: "Rock Bay",
-  expiration: 2017-08-22 00:00:00
+  expiration: "2017-08-24"
   })
 
 
