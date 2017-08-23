@@ -7,6 +7,7 @@ class ClaimsController < ApplicationController
     @comment = @commentable.comments.new(content: "I'm interested in picking up this food!", user_id: current_user.id)
     @claim = Claim.new(claim_params)
 
+
     # If they both save, check to see if a chatroom already exists between the two parties
     if @claim.save && @comment.save
         @owner = User.find(@claim.user_id)
@@ -22,9 +23,11 @@ class ClaimsController < ApplicationController
             end
           end
         end
+
     else
       redirect_back
     end
+
   end
 
   def chatroom_exists?(owner, client)
@@ -36,6 +39,7 @@ class ClaimsController < ApplicationController
   end
 
   private
+
   def claim_params
     params.require(:data).permit(:claimer_id, :post_id, :user_id)
   end
