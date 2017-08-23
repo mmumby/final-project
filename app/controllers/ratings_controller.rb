@@ -1,5 +1,5 @@
 class RatingsController < ApplicationController
-
+# add rting value to a user
   def create
     @user = User.find(params[:user_id])
     @rating = @user.ratings.new(rating_params)

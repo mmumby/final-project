@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   before_action :authenticate_user!
 
   # GET /posts
-  # GET /posts.json
+  # Logic to order posts by available and by categories
   def index
     if params[:order] == 'available'
        @posts = Post.where( :taken => false ).where("expiration > ?", Date.today)
@@ -16,13 +16,11 @@ class PostsController < ApplicationController
     end
     @posts = @posts.order('CREATED_AT DESC')
 
-
     @post = Post.new
     @category = Category.all
   end
 
   # GET /posts/1
-  # GET /posts/1.json
   def show
     @commentable = @post
     @comments = @commentable.comments
@@ -40,8 +38,8 @@ class PostsController < ApplicationController
   end
 
   # POST /posts
-  # POST /posts.json
-  # add expirationd date of 3 days to food posts
+  # add expirationd date of 2 days to food posts
+  # set default image to new posts
   def create
     @post = Post.new(post_params)
     @post.user = current_user
@@ -61,7 +59,6 @@ class PostsController < ApplicationController
   end
 
   # PATCH/PUT /posts/1
-  # PATCH/PUT /posts/1.json
   def update
     respond_to do |format|
       if @post.update(post_params)
@@ -73,7 +70,6 @@ class PostsController < ApplicationController
   end
 
   # DELETE /posts/1
-  # DELETE /posts/1.json
   def destroy
     @post.destroy
     respond_to do |format|
