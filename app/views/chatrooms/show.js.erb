@@ -1,3 +1,5 @@
+// The reason this file duplicates messages.js.erb is so that new chat instances can be created dynamically without a refresh
+
 $('#inbox').empty();
 
 $.when($('#inbox').prepend("<%= escape_javascript(render :partial => 'messagebar', locals: {message: @message, chatroom: @chatroom}) %>")).then(function() {
@@ -19,14 +21,9 @@ if (!App['room' + <%=@chatroom.id%>]) {
      received: function(data) {
       var $messages = $('.message-container');
       $("[data-chatroom='" + this.chatroomId + "']").removeClass('hidden')
-      if (data.notification) {
-        $('#notification').detach();
-        $('#notification-badge').append(data.notification);
-        $('#notification-badge').on('click', function() {
-          $("#notification").detach();
-        });
-      }
       $("[data-chatroom='" + this.chatroomId + "']").append(data.message);
+
+      // CSS being applied on each message because of bug where new messages would not have style applied after a websocket transmission
       $('chat-img').css({
         'width': '45px',
         'height': '45px',
