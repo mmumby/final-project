@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
-  before_filter :disable_nav, only: [:new, :create]
+  before_action :disable_nav, only: [:new, :create]
 
   # disable nav bar on welcome/login/register/password page
   def disable_nav
