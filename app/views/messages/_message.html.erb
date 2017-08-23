@@ -1,7 +1,9 @@
 <!-- content inside chatroom container -->
 <li>
   <span class='chat-img pull-left'>
-    <img src="<%= message.user.image %>" class='chat-img'>
+<%= link_to controller: :users, action: :show, id: message.user.id do %>
+    <%= image_tag message.user.image, :class =>"chat-img" %>
+  <% end %>
   </span>
   <div class="chat-body clearfix">
     <div class="header">
