@@ -62,7 +62,11 @@ class PostsController < ApplicationController
   def update
     respond_to do |format|
       if @post.update(post_params)
+        if @post.taken == true
         format.html { redirect_to :back, notice: 'Post was successfully updated.' }
+        else
+        format.html { redirect_to @post, notice: 'Post was successfully updated.' }
+        end
       else
         format.html { render :edit }
       end
