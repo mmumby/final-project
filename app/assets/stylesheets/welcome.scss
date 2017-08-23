@@ -28,9 +28,9 @@
     font-family: 'Sorts Mill Goudy', serif;
     color: white;
     position: fixed;
-    top: 80%;
-    margin: auto 200%;
-    width: 500%;
+    top: 45%;
+    margin: 220px;
+    width: 300%;
 }
 .register-page {
     background-image: url("/images/radish2.jpg");
@@ -44,4 +44,16 @@
     bottom: 0;
     left: 0;
     content: "";
+}
+
+.welcome-div {
+    height: 1000px;
+}
+
+.welcome-div h1 {
+    margin: 0 auto;
+    text-align: center;
+    line-height: 1350px;
+    color: white;
+    font-family: 'Sorts Mill Goudy', serif;
 }
