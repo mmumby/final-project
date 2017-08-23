@@ -1,46 +1,49 @@
+
+<!-- information rendered on content tabs of /post/:id -->
 <div id="notice"><%= notice %></div>
 <ul class="nav nav-tabs">
   <li class="active"><a data-toggle="tab" href="#home">About</a></li>
-<%= link_to 'Back', posts_path, class: 'btn btn-default pull-right' %>
+  <%= link_to 'Back', posts_path, class: 'btn btn-default pull-right' %>
 </ul>
 
-
-
+<!-- post image/edit & delete options for post.user -->
 <div id="post-container" class="container">
-  <div id="post-row" class="row vdivide">
-    <div class="col-sm-6 text-center">
+  <div id="post-row" class="row divide">
+    <div class="col-lg-6 col-xl-6 text-center">
       <div class="modal-dialog">
         <div class="modal-content">
-              <div class="thumbnail">
-              <% unless @post.image.blank? %>
-                <%= image_tag @post.image %>
-                <% end %>
-                  <p><%= @post.description %></p>
-                  <% if current_user == @post.user %>
-                  <%= link_to 'Edit', edit_post_path(@post), class: 'btn btn-primary'  %>
-                  <%= link_to 'Delete', @post, :method => :delete, :confirm => "Are you sure?", class: 'btn btn-danger' %>
-                  <% end %>
+          <div class="thumbnail food-post-image">
+            <% unless @post.image.blank? %>
+              <%= image_tag @post.image %>
+            <% end %>
+            <p><%= @post.description %></p>
+              <% if current_user == @post.user %>
+                <%= link_to 'Edit', edit_post_path(@post), class: 'btn btn-primary'  %>
+                <%= link_to 'Delete', @post, :method => :delete, :confirm => "Are you sure?", class: 'btn btn-danger' %>
+              <% end %>
+          </div><!-- /thumbnail -->
+        </div><!-- /modal-content -->
+      </div><!-- /modal-dialog -->
+    </div><!-- /col-sm-6 text-center -->
+
+<!-- post comments -->
+    <div class="col-lg-6 col-xl-6 text-center">
+      <div id="login-overlay" class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+              <h4 class="modal-title" id="myModalLabel">Leave a Comment</h4>
+              <%= render 'comments/form' %>
+          </div><!-- /modal-header -->
+          <div class=" food-comment">
+              <div>
+                <%= render 'comments/comments' %>
               </div>
-            </div>
-          </div>
-      </div>
-      <div class="col-sm-6 text-center">
-         <div id="login-overlay" class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h4 class="modal-title" id="myModalLabel">Leave a Comment</h4>
-                <%= render 'comments/form' %>
-              </div>
-              <div class=" food-comment">
-                <div>
-                  <%= render 'comments/comments' %>
-                </div>
-            </div>
-      </div>
-  </div>
-    </div>
-  </div>
-</div>
+          </div><!-- /food-comment -->
+        </div><!-- /modal-content -->
+      </div><!-- /modal-dialog -->
+    </div><!-- /col-sm-6 text-center -->
+  </div><!-- /row vdivide -->
+</div><!-- /container -->
 
 
 

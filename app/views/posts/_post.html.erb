@@ -1,61 +1,66 @@
+<!-- individual post container for post show page -->
+<!-- if the category does not have any posts - inform user - else show post -->
 <% if @posts.count == 0 %>
   <div class="empty-post-container">
-   <strong><p> This category doesn't have any posts at the moment.</p></strong>
+    <strong><p> This category doesn't have any posts at the moment.</p></strong>
   </div>
 <% else %>
 <% @posts.each do |post| %>
-<div class="container">
-<%= render 'status', post: post %>
-  <div class="well">
-    <div class="media card-flex" onclick="window.location='/posts/<%= post.id %>'">
-      <div>
-        <%= image_tag post.image, class: "medit-object pull-left card-image post-image" %>
-      </div>
-      <div class="media-body post-text">
-        <h4 class="media-heading"><%= post.title %></h4>
-        <h6><%= post.category.name %></h6>
-        <p><%= post.description %></p>
-      </div>
-      <div class="medit-object pull-right post-map-small">
-        <%= map_for_object post, height: 140, width: 140, zoom: 14, class: "medit-object pull-right"%>
-      </div>
-    </div>
+<!-- header of post container -->
+  <div class="container">
+    <%= render 'status', post: post %>
+    <div class="well">
+      <div class="media card-flex" onclick="window.location='/posts/<%= post.id %>'">
+        <div>
+          <%= image_tag post.image, class: "medit-object pull-left card-image post-image" %>
+        </div>
+        <div class="media-body post-text">
+          <h4 class="media-heading"><%= post.title %></h4>
+          <h6><%= post.category.name %></h6>
+          <p><%= post.description %></p>
+        </div>
+        <div class="medit-object pull-right post-map-small">
+          <%= map_for_object post, height: 140, width: 140, zoom: 14, class: "medit-object pull-right"%>
+        </div>
+      </div> <!--class="media card-flex"-->
 
-
-  <ul class="list-inline list-unstyled post-info">
-    <li>
-    <%= link_to controller: :users, action: :show, id: post.user.id do %>
-      <% if post.user.image %>
-      <%= image_tag post.user.image, :class =>"img img-circle img-default" %>
-      <% else %>
-      <img class="img img-circle img-default" src="/images/default_profile_normal.png" alt="FoodFeed">
-      <% end %>
-      <%= post.user.name %>
-    <% end %>
-    </li>
-    <li><div class="rating-stars"><%(1..((Rating.where(rateable_id: post.user).average(:rating)).to_i)).each do |i| %>
-    <%= fa_icon 'star' %>
-    <% end %>
-    </li>
-    <li>|</li>
-    <li><span><i class="glyphicon glyphicon-calendar"></i><%= post.created_at.to_formatted_s(:long) %></span></li>
-      <% if post.comments.count > 0 %>
+<!-- footer section of post container -->
+      <ul class="list-inline list-unstyled post-info">
+        <li class="user-image">
+          <%= link_to controller: :users, action: :show, id: post.user.id do %>
+            <% if post.user.image %>
+              <%= image_tag post.user.image, :class =>"img img-circle img-default" %>
+            <% else %>
+              <img class="img img-circle img-default" src="/images/default_profile_normal.png" alt="FoodFeed">
+            <% end %>
+              <%= post.user.name %>
+          <% end %>
+        </li>
+    <!-- post.user average rating in star icons -->
+        <li>
+          <div class="rating-stars"><%(1..((Rating.where(rateable_id: post.user).average(:rating)).to_i)).each do |i| %>
+            <%= fa_icon 'star' %>
+          <% end %>
+        </li>
         <li>|</li>
-        <span class="comment-link" onclick="window.location='/posts/<%= post.id %>'"><i class="glyphicon glyphicon-comment"></i>
-          <%= pluralize(post.comments.count, 'Comment') %>
-      <% end %>
-        </span>
-      <li>|</li>
-      <li>
-        <%= button_to "I'm Interested!", {controller: :claims, method: :post, action: :create, data: { post_id: post.id, claimer_id: current_user.id, user_id: post.user_id}}, {class: 'btn btn-default'} %>
-      </li>
-      <li>
-        <%= render 'taken', post: post %>
-      </li>
-    </ul>
-    </div>
-</div>
-</div>
-  <% end %>
+        <li>
+          <span><i class="glyphicon glyphicon-calendar"></i><%= post.created_at.to_formatted_s(:long) %></span>
+        </li>
+        <% if post.comments.count > 0 %>
+        <li>|</li>
+          <span class="comment-link" onclick="window.location='/posts/<%= post.id %>'"><i class="glyphicon glyphicon-comment"></i>
+              <%= pluralize(post.comments.count, 'Comment') %></span>
+        <% end %>
+        <li>|</li>
+        <li>
+          <%= button_to "I'm Interested!", {controller: :claims, method: :post, action: :create, data: { post_id: post.id, claimer_id: current_user.id, user_id: post.user_id}}, {class: 'btn btn-default'} %>
+        </li>
+        <li>
+          <%= render 'taken', post: post %>
+        </li>
+      </ul>
+    </div> <!-- class="well" -->
+  </div>  <!-- class="container" -->
+<% end %>
 <% end %>
 

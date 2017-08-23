@@ -1,8 +1,11 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
+
+# get login authorization from facebook
   def facebook
     callback_from :facebook
   end
 
+# get login authorization from twitter
   def twitter
     callback_from :twitter
   end
@@ -20,4 +23,5 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       redirect_to new_user_registration_url
     end
   end
+
 end

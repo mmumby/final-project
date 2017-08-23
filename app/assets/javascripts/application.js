@@ -16,9 +16,6 @@
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require_tree ./channels
-//= require 'notifications'
 //= require 'messages'
 //= require posts
-//= require welcome
-//= require rating
 //= require comments

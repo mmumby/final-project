@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
 
+# GET users/:id
   def show
+    # Display all relevant info to a particular User
     @user = User.find(params[:id])
     @posts = Post.joins(:user).where(:posts => { :user_id => @user.id })
     @commentable = @user

@@ -1,11 +1,11 @@
-
+<!-- show page to request email if password is forgotten -->
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= devise_error_messages! %>
 
-  <div class="form-section">
-  </div>
 
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+  <div class="register-page">
+    <img id="brand-logo" src="/images/lettuce-logo.png" alt="radish">
+  </div>
 
     <div class="modal-dialog form-overlay">
       <div class="modal-content">
@@ -21,9 +21,10 @@
                   <form accept-charset="UTF-8" action="" method="POST">
 
                     <div class="row">
+                      <%= devise_error_messages! %>
                       <%= f.email_field :email, autofocus: true, :placeholder=>"Email", :class=>"form-control testBox" %>
 
-                      <%= f.submit :class=>"btn btn-info testBox", :value=>"Send me reset password instructions" %>
+                      <%= f.submit "Send me reset password instructions", :class=>"btn btn-info testBox" %>
 
                       <div>
 

@@ -1,14 +1,12 @@
-
+<!-- show pge for register form -->
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+
 
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
  <div class="register-page">
     <img id="brand-logo" src="/images/lettuce-logo.png" alt="radish">
   </div>
 </div>
-  <div class="form-section">
-  </div>
     <div class="modal-dialog form-overlay">
       <div class="modal-content">
         <div class="modal-header">
@@ -20,6 +18,9 @@
               <div class="panel ">
                 <div class="panel-body">
                   <form accept-charset="UTF-8" action="" method="POST">
+                    <div class="row">
+                      <%= devise_error_messages! %>
+                    </div>
                     <div class="row" >
 
                       <%= f.text_field :name, autofocus: true, :placeholder=>"Name", :class=>"form-control testBox" %>
@@ -47,7 +48,6 @@
               </div><!-- /panel -->
             </div><!-- /col-sm-12 col-md-12 -->
           </div><!-- /row -->
-
         </div><!-- /modal-body -->
       </div><!-- /panel-content -->
     </div><!-- /modal-dialog -->

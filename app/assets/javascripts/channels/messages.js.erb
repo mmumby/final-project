@@ -1,48 +1,40 @@
 <% Chatroom.all do |chatroom| %>
 
-if (!App['room' + <%= chatroom.id %>]) {
-  App['room' + <%= chatroom.id%>] = App.cable.subscriptions.create({channel: 'MessagesChannel', room: <%= chatroom.id %>}, {
-     received: function(data) {
-      var $messages = $('.message-container');
-      $("[data-chatroom='" + this.chatroomId + "']").removeClass('hidden');
-      if (data.notification) {
-        $('#notification').detach();
-        $('#notification-badge').append(data.notification);
-        $('#notification-badge').on('click', function() {
-          $("#notification").detach();
+  if (!App['room' + <%= chatroom.id %>]) {
+    App['room' + <%= chatroom.id%>] = App.cable.subscriptions.create({channel: 'MessagesChannel', room: <%= chatroom.id %>}, {
+
+       received: function(data) {
+        var $messages = $('.message-container');
+        $("[data-chatroom='" + this.chatroomId + "']").removeClass('hidden');
+        $("[data-chatroom='" + this.chatroomId + "']").append(data.message);
+
+        // CSS being applied on each message because of bug where new messages would not have style applied after a websocket transmission
+        $('chat-img').css({
+          'width': '45px',
+          'height': '45px',
+          'border-radius': '50em',
+          '-moz-border-radius': '50em',
+          '-webkit-border-radius': '50em',
+          'float': 'left !important'
         });
-      }
-      $("[data-chatroom='" + this.chatroomId + "']").append(data.message);
+        return $('.chat-body').css({
+          'position': 'relative',
+          'font-size': '11px',
+          'padding': '10px 10px 20px 10px',
+          'border': '1px solid #f1f5fc',
+          'box-shadow': '0 1px 1px rgba(0,0,0,.05)',
+          '-moz-box-shadow': '0 1px 1px rgba(0,0,0,.05)',
+          '-webkit-box-shadow': '0 1px 1px rgba(0,0,0,.05)',
+          'margin-left': '70px',
+          'background-color': '#fff'
+        })
+       },
 
-      $('chat-img').css({
-        'width': '45px',
-        'height': '45px',
-        'border-radius': '50em',
-        '-moz-border-radius': '50em',
-        '-webkit-border-radius': '50em',
-        'float': 'left !important'
-      });
-      return $('.chat-body').css({
-        'position': 'relative',
-        'font-size': '11px',
-        'padding': '10px 10px 20px 10px',
-        'border': '1px solid #f1f5fc',
-        'box-shadow': '0 1px 1px rgba(0,0,0,.05)',
-        '-moz-box-shadow': '0 1px 1px rgba(0,0,0,.05)',
-        '-webkit-box-shadow': '0 1px 1px rgba(0,0,0,.05)',
-        'margin-left': '70px',
-        'background-color': '#fff'
-      })
-     },
-
-     setChatroomId: function(chatroomId) {
-      this.chatroomId = chatroomId
-     }
-  });
-}
-
-
-
+       setChatroomId: function(chatroomId) {
+        this.chatroomId = chatroomId
+       }
+    });
+  }
 <% end %>
 
 

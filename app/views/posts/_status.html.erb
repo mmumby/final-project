@@ -1,18 +1,18 @@
 <!-- display appropiate status if post is new/available/unavailable/expired -->
 <% if post.taken == true %>
-<div class="box">
-   <div class="ribbon"><span>Unavailable</span></div>
+  <div class="box">
+    <div class="ribbon"><span>Unavailable</span></div>
   </div>
 <% elsif (post.created_at > Time.now - 2.hours ) == true %>
-<div class="box">
+  <div class="box">
    <div class="ribbon-blue"><span>New!</span></div>
   </div>
 <% elsif (Time.now.to_i > post.expiration.to_i) == true %>
   <div class="box">
-   <div class="ribbon"><span>Expired</span></div>
+    <div class="ribbon"><span>Expired</span></div>
   </div>
 <% else %>
-<div class="box">
-   <div class="ribbon-green"><span>Available</span></div>
+  <div class="box">
+    <div class="ribbon-green"><span>Available</span></div>
   </div>
 <% end %>
