@@ -1,3 +1,4 @@
+# websockets cable
 development:
   adapter: redis
   url: redis://localhost:6379
