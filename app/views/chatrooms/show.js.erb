@@ -19,13 +19,6 @@ if (!App['room' + <%=@chatroom.id%>]) {
      received: function(data) {
       var $messages = $('.message-container');
       $("[data-chatroom='" + this.chatroomId + "']").removeClass('hidden')
-      if (data.notification) {
-        $('#notification').detach();
-        $('#notification-badge').append(data.notification);
-        $('#notification-badge').on('click', function() {
-          $("#notification").detach();
-        });
-      }
       $("[data-chatroom='" + this.chatroomId + "']").append(data.message);
       $('chat-img').css({
         'width': '45px',
