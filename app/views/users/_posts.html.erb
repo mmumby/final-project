@@ -1,44 +1,41 @@
-<!-- render users posts on their profile -->
+<!-- render users posts on users profile -->
+
 <% if @posts.count == 0 %>
   <br>
   <div class="empty-post-container">
    <strong><p> This user doesn't have any posts at the moment.</p></strong>
   </div>
 <% else %>
-<br>
+  <br>
   <% @posts.order('CREATED_AT DESC').each do |post| %>
-<div class="container">
-<%= render '/posts/status', post: post %>
-  <div class="well">
-    <div class="media card-flex" onclick="window.location='/posts/<%= post.id %>'">
-      <div>
-        <%= image_tag post.image, class: "medit-object pull-left card-image post-image" %>
-      </div>
-      <div class="media-body post-text">
-        <h4 class="media-heading"><%= post.title %></h4>
-        <h6><%= post.category.name %></h6>
-        <p><%= post.description %></p>
-      </div>
-      <div class="medit-object pull-right post-small-map">
-        <%= map_for_object post, height: 140, width: 140, zoom: 14, class: "medit-object pull-right"%>
-      </div>
-    </div>
-
-    <ul class="list-inline list-unstyled">
-      <li><span><i class="glyphicon glyphicon-calendar"></i><%= post.created_at.to_formatted_s(:long) %></span></li>
-      <li>|</li>
-        <% if post.comments.count < 0 %>
-          <span class="comment-link" onclick="window.location='/posts/<%= post.id %>'"><i class="glyphicon glyphicon-comment">Leave a comment</i>
-        <% else %>
+  <div class="container">
+    <%= render '/posts/status', post: post %>
+    <div class="well">
+      <div class="media card-flex" onclick="window.location='/posts/<%= post.id %>'">
+        <div>
+          <%= image_tag post.image, class: "medit-object pull-left card-image post-image" %>
+        </div>
+        <div class="media-body post-text">
+          <h4 class="media-heading"><%= post.title %></h4>
+          <h6><%= post.category.name %></h6>
+          <p><%= post.description %></p>
+        </div>
+        <div class="medit-object pull-right post-small-map">
+          <%= map_for_object post, height: 140, width: 140, zoom: 14, class: "medit-object pull-right"%>
+        </div>
+      </div><!-- /media card-flex -->
+      <ul class="list-inline list-unstyled">
+        <li><span><i class="glyphicon glyphicon-calendar"></i><%= post.created_at.to_formatted_s(:long) %>
+        </span></li>
+        <li>|</li>
           <span class="comment-link" onclick="window.location='/posts/<%= post.id %>'"><i class="glyphicon glyphicon-comment"></i>
-          <%= pluralize(post.comments.count, 'Comment') %>
-        <% end %>
-          </span>
+          <%= pluralize(post.comments.count, 'Comment') %></span>
         <li>
           <%= render '/posts/taken', post: post %>
         </li>
-    </ul>
-  </div>
-</div>
+      </ul>
+    </div><!-- /well -->
+  </div><!-- /container-->
+  <% end %>
 <% end %>
-<% end %>
+

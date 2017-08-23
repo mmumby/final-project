@@ -1,90 +1,110 @@
-#dropdpwn-login{
-  padding-right: 80px;
-  color: white;
+#dropdpwn-login {
+    padding-right: 80px;
+    color: white;
 }
 
 .dropdown {
-  color: white;
+    color: white;
 }
 
 #navbar-header {
-  font-family: 'Pacifico', cursive;
-  font-size: 2em;
-  color: white;
-  width: 100%;
-  display: inline-block;
-  text-align: center;
-  padding: 10px;
-  list-style: none;
-  margin-left: 0px;
+    font-family: 'Pacifico', cursive;
+    font-size: 2em;
+    color: white;
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+    padding: 10px;
+    list-style: none;
+    margin-left: 0px;
+    position: absolute;
+    left: 50%;
+    width: 229px;
+    margin-left: -114px;
 }
 
 .navbar-brand {
-  float: none;
+    float: none;
 }
 
-#navbar-header:before{
-  content: "•";
+#navbar-header:before {
+    content: "•";
 }
 
-#navbar-header:after{
-  content: "•";
+#navbar-header:after {
+    content: "•";
 }
 
 #navMain {
-  padding: 0px 20px 0px 20px;
-  position: relative;
+    padding: 0px 20px 0px 20px;
+    position: relative;
 }
 
 .navbar-right {
-  float: right;
+    float: right;
 }
 
 .img-circle {
-  border-radius: 50%;
+    border-radius: 50%;
 }
 
 .opaque-navbar {
-  background-color: transparent;
-  height: 60px;
-  border-bottom: 0px;
+    background-color: transparent;
+    height: 60px;
+    border-bottom: 0px;
 }
 
 .opaque-navbar.opaque {
-  height: 60px;
+    height: 60px;
 }
 
 ul.dropdown-menu {
-  background-color: white;
+    background-color: white;
+}
+
+.nav-content {
+  z-index: 6;
 }
 
 .nav-bar-image {
-  background-size: cover;
-  background-image: url("/images/wood.png");
-  width: 100%;
-  position: fixed;
-  height: 60px;
-  z-index: 4;
-  border-bottom: 5px solid white !important;
+    background-size: cover;
+    background-image: url("/images/wood.png");
+    width: 100%;
+    position: fixed;
+    height: 60px;
+    z-index: 4;
+    border-bottom: 5px solid white !important;
 }
 
 .nav-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.navbar-container {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
   width: 100%;
 }
 
 .navigation-div {
-  float: left;
+  margin-top: 2px;
 }
 
-.profile-div {
-  float: right;
+.user-profile-div {
+  height: 60px;
+  margin-top: 6px;
+  width: 100%;
+}
 
+.navbar-title > a {
+  margin-bottom: 5px;
 }
 
 #nav-white {
-  color: #ffffff;
+    color: #ffffff;
 }

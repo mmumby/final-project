@@ -1,8 +1,9 @@
 <!-- render users rating value on page -->
+<!-- If they dont have a rating yet, dont show the stars -->
 <% if (Rating.where(rateable_id: @user).average(:rating)) != 0 %>
  <div class="rating-stars"><%(1..((Rating.where(rateable_id: @user).average(:rating)).to_i)).each do |i| %>
     <%= fa_icon 'star' %>
-  <% end %>
-  <p>Based on <%= pluralize(Rating.where(rateable_id: @user).count(:rating), 'review') %></p>
+<% end %>
+    <p>Based on <%= pluralize(Rating.where(rateable_id: @user).count(:rating), 'review') %></p>
   </div>
 <% end %>

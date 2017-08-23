@@ -1,0 +1,11 @@
+
+# GEM 'pg'
+
+default: &default
+  adapter: postgresql
+  pool: 5
+  encoding: unicode
+
+development:
+  <<: *default
+  database: database_name

@@ -1,35 +1,44 @@
-<br>
-<ul class="nav nav-tabs">
-  <% if current_user == @user %>
-  <li class="active"><a data-toggle="tab" href="#home">Posts</a></li>
-  <li><a data-toggle="tab" href="#menu1">Comment</a></li>
-  <li><a data-toggle="tab" href="#menu2" id="notification-badge">Inbox</a></li>
-  <% else %>
-  <li class="active"><a data-toggle="tab" href="#home">Posts</a></li>
-  <li><a data-toggle="tab" href="#menu1">Comment</a></li>
-  <%= button_to "Message", {controller: :chatrooms, action: :new_chat, data: { owner_id: current_user.id, client_id: @user.id}}, {class: 'btn btn-primary pull-right'} %>
-  <% end %>
-</ul>
+<!-- content on users profile contained in tabs -->
+<!-- show Post/Comments/Inbox if profile belongs to user -->
+<!-- show Post/Comments if profile belongs to someone else -->
+<div class="container">
+  <br>
+  <ul class="nav nav-tabs">
+    <% if current_user == @user %>
+      <li class="active"><a data-toggle="tab" href="#home">Posts</a></li>
+      <li><a data-toggle="tab" href="#menu1">Comment</a></li>
+      <li><a data-toggle="tab" href="#menu2" id="notification-badge">Inbox</a></li>
+    <% else %>
+      <li class="active"><a data-toggle="tab" href="#home">Posts</a></li>
+      <li><a data-toggle="tab" href="#menu1">Comment</a></li>
+      <%= button_to "Message", {controller: :chatrooms, action: :new_chat, data: { owner_id: current_user.id, client_id: @user.id}}, {class: 'btn btn-primary pull-right'} %>
+    <% end %>
+  </ul>
 
-<div class="tab-content">
-  <div id="home" class="tab-pane fade in active">
-    <%= render 'posts' %>
-  </div>
-  <div id="menu1" class="tab-pane fade">
-    <div id="login-overlay" class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h4 class="modal-title" id="myModalLabel">Leave a Comment</h4>
-          <%= render 'comments/form' %>
-        </div>
-        <div class=" food-comment">
-          <div>
-            <%= render 'comments/comments' %>
-          </div>
-        </div>
-      </div>
+<!-- content inside Post tab -->
+  <div class="tab-content">
+    <div id="home" class="tab-pane fade in active">
+      <%= render 'posts' %>
     </div>
-  </div>
+
+<!-- content inside comments tab -->
+    <div id="menu1" class="tab-pane fade">
+      <div id="login-overlay" class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="myModalLabel">Leave a Comment</h4>
+            <%= render 'comments/form' %>
+          </div>
+          <div class=" food-comment">
+            <div>
+              <%= render 'comments/comments' %>
+            </div>
+          </div>
+        </div><!-- /modal-content -->
+      </div><!-- /modal-dialog -->
+    </div><!-- /tab-pane fade -->
+
+  <!-- content inside inbox tab -->
     <div id="menu2" class="tab-pane fade">
     <br>
       <div class="container">
@@ -38,29 +47,30 @@
             <ul class="friend-list">
               <% if !!@chatroom %>
                 <% @chatroom.each do |chatroom| %>
-                  <% if current_user.id == chatroom.owner_id %>
-                    <div class="container" id="friend">
-                      <li class="chat-log well row">
-                          <span><%= link_to "#{(User.find(chatroom.client_id)).name}", controller: :chatrooms, action: :show, id: chatroom.id, remote: true %></span>
-                      </li>
-                    </div>
-                    <% else %>
-                    <div class="container" id="friend">
-                      <li class="chat-log well row">
-                        <span><%= link_to "#{(User.find(chatroom.owner_id)).name}", controller: :chatrooms, action: :show, id: chatroom.id, remote:  true %></span>
-                      </li>
-                    </div>
-                  <% end %>
+              <% if current_user.id == chatroom.owner_id %>
+                <div class="container" id="friend">
+                  <li class="chat-log well row">
+                  <span><%= link_to "#{(User.find(chatroom.client_id)).name}", controller: :chatrooms, action: :show, id: chatroom.id, remote: true %></span>
+                  </li>
+                </div>
+              <% else %>
+                <div class="container" id="friend">
+                  <li class="chat-log well row">
+                  <span><%= link_to "#{(User.find(chatroom.owner_id)).name}", controller: :chatrooms, action: :show, id: chatroom.id, remote:  true %></span>
+                  </li>
+                </div>
                 <% end %>
               <% end %>
+              <% end %>
             </ul>
-          </div>
+          </div><!-- /col-xs-4 -->
           <div class="col-xs-7">
             <div class="message-container chat-message" id="inbox">
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+          </div><!-- /col-xs-7 -->
+        </div><!-- /row -->
+      </div><!-- /container -->
+    </div><!-- /tab-pane fade -->
+  </div><!-- /tab-content -->
+</div><!-- /container -->
+

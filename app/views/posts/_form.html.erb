@@ -1,4 +1,4 @@
-
+<!-- form to add new posts - toggled by 'add new post' button -->
 <%= form_for @post do |f| %>
   <% if f.object.errors.any? %>
     <div class="alert alert-danger">
@@ -12,43 +12,31 @@
   <% end %>
 
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-
-      <div class="modal-dialog form-overlay">
-        <div class="modal-content">
-
-          <div class="modal-body">
-
-            <div class="row">
-              <div class="col-sm-12 col-md-12">
-                <div class="panel ">
-                  <div class="panel-body">
-                    <form accept-charset="UTF-8" action="" method="POST">
-                      <div class="row" >
-
-                        <%= f.select :category_id, options_from_collection_for_select(Category.all.order(:name), :id, :name), { include_blank: "- Select a Category -" }, :class=>"form-control testBox" %>
-
-                        <%= f.text_field :title, :placeholder=>"Title", :class=>"form-control testBox" %>
-
-                        <%= f.text_field :description, :placeholder=>"Description", :class=>"form-control testBox" %>
-
-                        <%= f.text_field :location, :placeholder=>"Street Address or Neighbourhood Name", :class=>"form-control testBox" %>
-
-                        <%= f.text_field :image, :placeholder=>"Image (url)", :class=>"form-control testBox" %>
-
-                        <%= f.submit :class=>"btn btn-info", :value=>"Create Post" %>
-                        <span>
-                          <i><%= f.label "Posts expire after 2 days", :class=>"expire-notice" %></i>
-                        </span>
-
-                      </div><!-- /row -->
-                    </form>
-                  </div><!-- /panel-body -->
-                </div><!-- /panel -->
-              </div><!-- /col-sm-12 col-md-12 -->
-            </div><!-- /row -->
-
-          </div><!-- /modal-body -->
-        </div><!-- /modal-content -->
-      </div><!-- /modal-dialog -->
-
+    <div class="modal-dialog form-overlay">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-sm-12 col-md-12">
+              <div class="panel ">
+                <div class="panel-body">
+                  <form accept-charset="UTF-8" action="" method="POST">
+                    <div class="row" >
+                      <%= f.select :category_id, options_from_collection_for_select(Category.all.order(:name), :id, :name), { include_blank: "- Select a Category -" }, :class=>"form-control testBox" %>
+                      <%= f.text_field :title, :placeholder=>"Title", :class=>"form-control testBox" %>
+                      <%= f.text_field :description, :placeholder=>"Description", :class=>"form-control testBox" %>
+                      <%= f.text_field :location, :placeholder=>"Street Address or Neighbourhood Name", :class=>"form-control testBox" %>
+                      <%= f.text_field :image, :placeholder=>"Image (url)", :class=>"form-control testBox" %>
+                      <%= f.submit :class=>"btn btn-info", :value=>"Create Post" %>
+                      <span>
+                        <i><%= f.label "Posts expire after 2 days", :class=>"expire-notice" %></i>
+                      </span>
+                    </div><!-- /row -->
+                  </form>
+                </div><!-- /panel-body -->
+              </div><!-- /panel -->
+            </div><!-- /col-sm-12 col-md-12 -->
+          </div><!-- /row -->
+        </div><!-- /modal-body -->
+      </div><!-- /modal-content -->
+    </div><!-- /modal-dialog -->
 <% end %>
