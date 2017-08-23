@@ -47,20 +47,20 @@
             <ul class="friend-list">
               <% if !!@chatroom %>
                 <% @chatroom.each do |chatroom| %>
-              <% if current_user.id == chatroom.owner_id %>
-                <div class="container" id="friend">
-                  <li class="chat-log well row">
-                  <span><%= link_to "#{(User.find(chatroom.client_id)).name}", controller: :chatrooms, action: :show, id: chatroom.id, remote: true %></span>
-                  </li>
-                </div>
-              <% else %>
-                <div class="container" id="friend">
-                  <li class="chat-log well row">
-                  <span><%= link_to "#{(User.find(chatroom.owner_id)).name}", controller: :chatrooms, action: :show, id: chatroom.id, remote:  true %></span>
-                  </li>
-                </div>
-                <% end %>
-              <% end %>
+                  <% if current_user.id == chatroom.owner_id %>
+                    <div class="container" id="friend">
+                      <li class="chat-log well row">
+                      <span><%= link_to "#{(User.find(chatroom.client_id)).name}", controller: :chatrooms, action: :show, id: chatroom.id, remote: true %></span>
+                      </li>
+                    </div>
+                  <% else %>
+                    <div class="container" id="friend">
+                      <li class="chat-log well row">
+                      <span><%= link_to "#{(User.find(chatroom.owner_id)).name}", controller: :chatrooms, action: :show, id: chatroom.id, remote:  true %></span>
+                      </li>
+                    </div>
+                    <% end %>
+                  <% end %>
               <% end %>
             </ul>
           </div><!-- /col-xs-4 -->
