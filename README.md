@@ -8,7 +8,7 @@ App built using:
 * Bootstrap and SASS for styling.
 
 
-**App deployed on Heroku Visit: lettuceshare.ca**
+**App deployed on Heroku Visit: http://lettuceshare.ca**
 
 ## Setup
 
