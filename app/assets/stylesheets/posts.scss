@@ -310,3 +310,23 @@
 .thumbnail > p {
   margin: 0 5px 10px;
 }
+
+@media (max-width: 412px) {
+    .post-map-small>img
+    {
+    display: none;
+    }
+    .post-small-map
+    {
+    display: none;
+    }
+    .food-post-image > img
+    {
+    max-width: 240px;
+    max-height: 200px;
+    }
+    .post-map>img
+    {
+    max-width: 100%;
+    }
+}

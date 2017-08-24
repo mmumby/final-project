@@ -48,3 +48,16 @@
     font-family: 'Sorts Mill Goudy', serif;
     margin-top: 60%;
 }
+
+@media (max-width: 412px) {
+    .welcome-div h1
+    {
+    text-align: center;
+    color: white;
+    font-family: 'Sorts Mill Goudy', serif;
+    }
+    #brand-logo
+    {
+    opacity: .6;
+    }
+}

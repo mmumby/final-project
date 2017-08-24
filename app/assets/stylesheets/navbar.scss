@@ -108,3 +108,14 @@ ul.dropdown-menu {
 #nav-white {
     color: #ffffff;
 }
+
+@media (max-width: 412px) {
+    .user-profile-div .img-circle
+    {
+        display: none;
+    }
+    #navbar-header
+    {
+        font-size: 100%;
+    }
+}
